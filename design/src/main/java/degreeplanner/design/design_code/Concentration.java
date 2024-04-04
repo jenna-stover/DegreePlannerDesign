@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 public enum Concentration {
     Bioinformatics_or_Computational_Biology,
     Cloud_Native_Application_Development,

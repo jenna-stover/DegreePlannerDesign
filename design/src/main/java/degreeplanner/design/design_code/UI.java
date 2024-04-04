@@ -1,8 +1,8 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.Scanner;
 
-import testClasses.User;
-import testClasses.UserType;
+import degreeplanner.design.design_code.User;
+import degreeplanner.design.design_code.UserType;
 /**
  * @author Benjamin King
  * This class is to write output to the console for the user and read user

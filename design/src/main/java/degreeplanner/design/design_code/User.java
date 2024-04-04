@@ -1,8 +1,8 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import testClasses.Tab;
+import degreeplanner.design.design_code.Tab;
 
 public abstract  class User 
 {

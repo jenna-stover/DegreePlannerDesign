@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,10 +11,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 
-import testClasses.Course;
-import testClasses.CourseList;
-import testClasses.User;
-import testClasses.UserList;
+import degreeplanner.design.design_code.Course;
+import degreeplanner.design.design_code.CourseList;
+import degreeplanner.design.design_code.User;
+import degreeplanner.design.design_code.UserList;
 
  public class WriteFile extends DataConstants 
 {

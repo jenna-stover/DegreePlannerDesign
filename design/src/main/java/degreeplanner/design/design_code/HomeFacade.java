@@ -1,14 +1,14 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import testClasses.Course;
-import testClasses.CourseList;
-import testClasses.Student;
-import testClasses.User;
-import testClasses.UserList;
-import testClasses.UserType;
+import degreeplanner.design.design_code.Course;
+import degreeplanner.design.design_code.CourseList;
+import degreeplanner.design.design_code.Student;
+import degreeplanner.design.design_code.User;
+import degreeplanner.design.design_code.UserList;
+import degreeplanner.design.design_code.UserType;
 
 public class HomeFacade {
     public User user;

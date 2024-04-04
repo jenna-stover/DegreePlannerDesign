@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 public enum Warnings {
     FAILING_CLASS,
     RETAKING_CLASS,

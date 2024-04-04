@@ -1,7 +1,7 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 
-import testClasses.Course;
+import degreeplanner.design.design_code.Course;
 
 public class ApplicationArea {
     public String ApplicationAreaName;

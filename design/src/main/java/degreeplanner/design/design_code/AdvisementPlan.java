@@ -1,9 +1,9 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import testClasses.Course;
-import testClasses.User;
+import degreeplanner.design.design_code.Course;
+import degreeplanner.design.design_code.User;
 
 public class AdvisementPlan
 {

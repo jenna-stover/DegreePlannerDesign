@@ -1,9 +1,9 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import testClasses.Course;
+import degreeplanner.design.design_code.Course;
 
 public class DegreePlan 
 { 

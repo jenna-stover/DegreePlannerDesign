@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.UUID;
 
 public class genUUID

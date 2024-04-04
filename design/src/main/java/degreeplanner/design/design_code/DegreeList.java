@@ -1,7 +1,7 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.util.ArrayList;
 
-import testClasses.ReadFile;
+import degreeplanner.design.design_code.ReadFile;
 
 public class DegreeList 
 {

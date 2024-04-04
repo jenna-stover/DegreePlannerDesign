@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,20 +8,20 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import testClasses.DataConstants;
-import testClasses.User;
-import testClasses.Course;
-import testClasses.CourseList;
-import testClasses.UserType;
-import testClasses.Warnings;
-import testClasses.Major;
-import testClasses.Student;
-import testClasses.Faculty;
-import testClasses.DegreePlan;
-import testClasses.AdvisementPlan;
-import testClasses.ApplicationArea;
-import testClasses.Elective;
-import testClasses.Semester;
+import degreeplanner.design.design_code.DataConstants;
+import degreeplanner.design.design_code.User;
+import degreeplanner.design.design_code.Course;
+import degreeplanner.design.design_code.CourseList;
+import degreeplanner.design.design_code.UserType;
+import degreeplanner.design.design_code.Warnings;
+import degreeplanner.design.design_code.Major;
+import degreeplanner.design.design_code.Student;
+import degreeplanner.design.design_code.Faculty;
+import degreeplanner.design.design_code.DegreePlan;
+import degreeplanner.design.design_code.AdvisementPlan;
+import degreeplanner.design.design_code.ApplicationArea;
+import degreeplanner.design.design_code.Elective;
+import degreeplanner.design.design_code.Semester;
 
 /**
  * This reads in the following files = course.json, degree.json, student.json, faculty.json, advisement_plan.json

@@ -1,12 +1,12 @@
-package testClasses;
+package degreeplanner.design.design_code;
 //TESTING ONLY, NOT FOR FINAL IMPLEMENTATION
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-import testClasses.Course;
-import testClasses.ReadFile;
-import testClasses.User;
+import degreeplanner.design.design_code.Course;
+import degreeplanner.design.design_code.ReadFile;
+import degreeplanner.design.design_code.User;
 
 import java.util.Random;
 

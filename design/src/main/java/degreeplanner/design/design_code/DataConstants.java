@@ -1,4 +1,4 @@
-package testClasses;
+package degreeplanner.design.design_code;
 public abstract class DataConstants {
     //start of student.json properties
     protected static final String STUDENT_FILE_NAME = "jsonFiles/student.json";
