@@ -164,7 +164,7 @@ public class HomeFacade {
     {
         UUID id = UUID.randomUUID();
         AdvisementPlan tempPlan = new AdvisementPlan(id, tempStudent.getUUID(), user.getUUID(), tempNote);
-        if(advisementPlanList.AddList(tempPlan))
+        if(advisementPlanList.AddPlan(tempPlan))
             return true;
         return false;
     }
