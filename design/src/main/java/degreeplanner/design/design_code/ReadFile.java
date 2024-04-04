@@ -100,11 +100,23 @@ public class ReadFile extends DataConstants
 				{
 					incompleteCourses.add(tempCList.getCourse(incourseID));
 				}
-				ArrayList<Warnings> warnings = (JSONArray)personJSON.get(WARNINGS);
+				//ArrayList<Warnings> warnings = (JSONArray)personJSON.get(WARNINGS);
+				ArrayList<String> tempWarn = (JSONArray)personJSON.get(WARNINGS);
+				ArrayList<Warnings> warnings = new ArrayList<Warnings>();
+				for (String temp : tempWarn)
+				{
+					warnings.add(Warnings.valueOf(temp));
+				}
 				int completedHours = ((Long)personJSON.get(COMPLETED_HOURS)).intValue();  // String -> int
 				int currentHours = ((Long)personJSON.get(CURRENT_HOURS)).intValue();
 				//UUID appAdvisor = UUID.fromString((String)personJSON.get(APPOINTED_ADVISOR));
-				ArrayList<UUID> advisementPlans = (JSONArray)personJSON.get(ADVISEMENT_PLAN);  // JSONArray -> ArrayList<advisement_plan_uuids>
+				// ArrayList<UUID> advisementPlans = (JSONArray)personJSON.get(ADVISEMENT_PLAN);  // JSONArray -> ArrayList<advisement_plan_uuids>
+				ArrayList<String> tempPlans = (JSONArray)personJSON.get(ADVISEMENT_PLAN);
+				ArrayList<UUID> advisementPlans = new ArrayList<UUID>();
+				for (String temp : tempPlans)
+				{
+					advisementPlans.add(UUID.fromString(temp));
+				}
 				double gpa = ((Double)personJSON.get(GPA)).doubleValue();  // String -> Double
 				boolean hasScholarships = (Boolean)personJSON.get(HAS_SCHOLARSHIPS);  // String -> Boolean
 				Major currMajor = Major.valueOf((String)personJSON.get(CURRENT_MAJOR));
@@ -210,7 +222,7 @@ public class ReadFile extends DataConstants
 			for (int i = 0; i < compCourses.size(); i++)  // Getting each course and its recieved grade
 			{
 				JSONObject compCourse = (JSONObject)compCourses.get(i);
-				String courseID = (String)compCourse.get(COURSE_UUID);
+				String courseID = (String)compCourse.get(COURSE_ID);
 				Course tempCourse = CList.getCourse(courseID);
 				String grade = (String)compCourse.get(GRADE);
 
@@ -290,7 +302,7 @@ public class ReadFile extends DataConstants
 			{
 				JSONObject courseJSON = (JSONObject)coursesJSON.get(i);
 				UUID courseUUID = UUID.fromString((String)courseJSON.get(COURSE_UUID));
-				String courseID = (String)courseJSON.get(COURSEID);
+				String courseID = (String)courseJSON.get(COURSE_ID);
 				String courseName = (String)courseJSON.get(COURSE_NAME);
 				String courseDescription = (String)courseJSON.get(COURSE_DESCRIPTION);
 				ArrayList<HashMap<UUID, String>> coursePrereq, courseCoreq;  // Req layout = & requirement -> ArrayList member, OR requirement -> HashMap member
@@ -365,22 +377,35 @@ public class ReadFile extends DataConstants
 	public static ArrayList<AdvisementPlan> readAdvisePlans()  // Last
 	{
 		ArrayList<AdvisementPlan> advisePlanList = new ArrayList<AdvisementPlan>();
+
 		try
 		{
 			FileReader reader = new FileReader(ADVISEMENT_PLAN_FILE_NAME);	
 			JSONArray advPlansJSON = (JSONArray)new JSONParser().parse(reader);
 			CourseList tempCList = CourseList.getInstance();
+			UserList tempUList = UserList.getInstance();
+			HashMap<UUID, User> tempHash = tempUList.getUserList();
 			for (int i = 0; i < advPlansJSON.size(); i++)
 			{
 				JSONObject advPlan = (JSONObject)advPlansJSON.get(i);
 				UUID planID = UUID.fromString((String)advPlan.get(PLANID));
 				UUID studentUUID = UUID.fromString((String)advPlan.get(STUDENT_UUID));
+				User student = tempHash.get(studentUUID);
 				UUID advisorUUID = UUID.fromString((String)advPlan.get(ADVISOR_UUID));
-				ArrayList<UUID> advisedCoursesUUID = (JSONArray)advPlan.get(ADVISED_COURSES);
-				ArrayList<Course> advisedCourses = new ArrayList<Course>();
+				User advisor = tempHash.get(advisorUUID);
+				ArrayList<String> advisedCoursesUUIDStr = (JSONArray)advPlan.get(ADVISED_COURSES);
+				ArrayList<Course> advisedCourses = new ArrayList<>();
+				for (String str : advisedCoursesUUIDStr)
+				{
+					UUID debugUUID = UUID.fromString(str);
+					Course debugTemp = tempCList.getCourseByUUID(debugUUID);
+					advisedCourses.add(tempCList.getCourseByUUID(UUID.fromString(str)));
+				}
+				// ArrayList<UUID> advisedCoursesUUID = (JSONArray)advPlan.get(ADVISED_COURSES);
+				// ArrayList<Course> advisedCourses = new ArrayList<Course>();
 				String attachedNotes = (String)advPlan.get(ATTACHED_NOTES);
 
-				AdvisementPlan tempPlan = new AdvisementPlan(planID, studentUUID, advisorUUID, advisedCoursesUUID, attachedNotes);
+				AdvisementPlan tempPlan = new AdvisementPlan(planID, student, advisor, advisedCourses, attachedNotes);
 				advisePlanList.add(tempPlan);
 			}
 			return advisePlanList;

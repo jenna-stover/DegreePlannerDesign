@@ -45,7 +45,7 @@ public abstract class DataConstants {
     //start of course.json properties
     //Note: courseUUID property is already listed in the degreePlan section of student.json
     protected static final String COURSE_FILE_NAME = "jsonFiles/course.json";
-    protected static final String COURSEID = "courseID";
+    protected static final String COURSE_ID = "courseID";
     protected static final String COURSE_NAME = "courseName";
     protected static final String COURSE_DESCRIPTION = "courseDescription";
     protected static final String COURSE_PREREQ = "coursePrereq";

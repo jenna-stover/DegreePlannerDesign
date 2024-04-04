@@ -163,7 +163,7 @@ public class HomeFacade {
     public boolean addNoteToStudent(User tempStudent, String tempNote)
     {
         UUID id = UUID.randomUUID();
-        AdvisementPlan tempPlan = new AdvisementPlan(id, tempStudent.getUUID(), user.getUUID(), tempNote);
+        AdvisementPlan tempPlan = new AdvisementPlan(id, tempStudent, user, tempNote);
         if(advisementPlanList.AddPlan(tempPlan))
             return true;
         return false;

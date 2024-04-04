@@ -15,6 +15,7 @@ public class Student extends User
     //public DegreePlan degreePlan; //Old attrubute
     //public User appointedAdvisor; //maybe find a way to put this in as a string, if done have to add that to constructor
     public ArrayList<AdvisementPlan> advisementPlans;
+    public ArrayList<UUID> advisementPlansUUID;
     public double GPA;
     public boolean hasScholarships;
     public ArrayList<Course> allCourses;  //Not read nor saved
@@ -125,6 +126,11 @@ public class Student extends User
     public ArrayList<Course> getIncompleteCourses()
     {
         return incompleteCourses;
+    }
+
+    public ArrayList<UUID> getAdvisementPlanUUID()
+    {
+        return advisementPlansUUID;
     }
 
     public ArrayList<Course> getAllCourses()

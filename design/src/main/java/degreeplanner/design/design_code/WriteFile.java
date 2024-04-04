@@ -37,32 +37,38 @@ import degreeplanner.design.design_code.UserList;
             //return false;
             //usersArray.add(usersArray.toJSONString);
         }
-        try (FileWriter studentWriter = new FileWriter(STUDENT_FILE_NAME))  // STUDENT_FILE_NAME
+        //STUDENT_FILE_NAME
+        try (FileWriter studentWriter = new FileWriter(STUDENT_FILE_NAME))  
         {
             studentWriter.write(usersArray.toJSONString());
+            studentWriter.flush();
             studentWriter.close();
         }
         catch (Exception e)
         {
             e.printStackTrace();
+            return false;
         }
         usersArray.clear();
         for(HashMap.Entry<UUID, User> userMap : userEntry.entrySet())
         {
-            if(userMap.getValue().getUserType().toString() == "PROFESSOR" || userMap.getValue().getUserType().toString() == "ADVISOR")
+            if((userMap.getValue()).getUserType().toString() == "PROFESSOR" || (userMap.getValue()).getUserType().toString() == "ADVISOR")
             {
-                usersArray.add(writeFaculty(userMap.getValue(), jsonObject));     
+                usersArray.add(writeFaculty(userMap.getValue()));     
             }
             //return false;
         }
+        //FACULTY_FILE_NAME
         try (FileWriter facFileWriter = new FileWriter(FACULTY_FILE_NAME))
         {
             facFileWriter.write(usersArray.toJSONString());
+            facFileWriter.flush();
             facFileWriter.close();
         }
         catch (Exception e)
         {
             e.printStackTrace();
+            return false;
         }
         return true;
     }
@@ -75,20 +81,66 @@ import degreeplanner.design.design_code.UserList;
             return null;
         }
         //FileWriter file = new FileWriter(STUDENT_FILE_NAME);
-        jsonObject.put(USER_UUID, user.getUUID());
+        jsonObject.put(USER_UUID, user.getUUID().toString());
         jsonObject.put(USER_ID, user.getUserID());
         jsonObject.put(FIRSTNAME, user.getUserFirstName());
         jsonObject.put(LASTNAME, user.getUserLastName());
         jsonObject.put(USER_EMAIL, user.getUserEmail());
         jsonObject.put(USER_PASSWORD, user.getUserPass());
-        jsonObject.put(USER_TYPE, user.getUserType());
-        //jsonObject.put(DEGREE_PLAN, user.writeDegreePlan(user.))
-        //file.write(jsonObject.toJSONString());
-        //file.close();
+        jsonObject.put(USER_TYPE, user.getUserType().toString());
+        HashMap<Course, String> temp = ((Student)user).getCompletedCourses();
+        JSONArray jsonArray = new JSONArray();
+        for (HashMap.Entry<Course, String> tempEntry : temp.entrySet())
+        {
+            JSONObject jsonCourseNGrade = new JSONObject();
+            jsonCourseNGrade.put(COURSE_ID, (tempEntry.getKey()).getCourseID());
+            jsonCourseNGrade.put(GRADE, tempEntry.getValue());
+            jsonArray.add(jsonCourseNGrade);
+        }
+        jsonObject.put(COMPLETED_COURSES, jsonArray);
+        ArrayList<Course> tempCourses = ((Student)user).getCurrentCourses();
+        JSONArray jsonArray2ElecticBoogaloo = new JSONArray();
+        for (Course course : tempCourses)
+        {
+            jsonArray2ElecticBoogaloo.add(course.getCourseID());
+        }
+        jsonObject.put(CURRENT_COURSES, jsonArray2ElecticBoogaloo);
+        ArrayList<Course> tempIncompletes = ((Student)user).getIncompleteCourses();
+        JSONArray jsonArrayTheSaga = new JSONArray();
+        for (Course course : tempIncompletes)
+        {
+            jsonArrayTheSaga.add(course.getCourseID());
+        }
+        jsonObject.put(INCOMPLETE_COURSES, jsonArrayTheSaga);
+        ArrayList<Warnings> tempWarnings = ((Student)user).warnings;
+        JSONArray jsonArrayTheCrappyReboot = new JSONArray();
+        for (Warnings warn : tempWarnings)
+        {
+            jsonArrayTheCrappyReboot.add(warn.toString());
+        }
+        jsonObject.put(WARNINGS, jsonArrayTheCrappyReboot);
+        jsonObject.put(COMPLETED_HOURS, ((Student)user).completedHours);
+        jsonObject.put(CURRENT_HOURS, ((Student)user).currentHours);
+        jsonObject.put(TOTAL_DEGREE_HOURS, ((Student)user).totalDegreeHours);
+        ArrayList<UUID> tempPlans = ((Student)user).getAdvisementPlanUUID();
+        JSONArray jsonArrayTheJourneysEnd = new JSONArray();
+        for (UUID id : tempPlans)
+        {
+            //System.out.println("Test: " + tempPlans.get(i));
+            //UUID tempUUID = (UUID)tempPlans.get(i);
+            String tempString = id.toString();
+
+            //System.out.println("test: " + tempString);
+            jsonArrayTheJourneysEnd.add(tempString);
+        }
+        jsonObject.put(ADVISEMENT_PLAN, jsonArrayTheJourneysEnd);
+        jsonObject.put(GPA, ((Student)user).getGPA());
+        jsonObject.put(HAS_SCHOLARSHIPS, ((Student)user).hasScholarships);
+        jsonObject.put(MAJOR_NAME, (((Student)user).currentMajor).toString());
         return jsonObject;
     }
 
-    public static JSONObject writeFaculty(User user, JSONObject jsonObject)
+    public static JSONObject writeFaculty(User user)
     {
 
         try
@@ -97,17 +149,18 @@ import degreeplanner.design.design_code.UserList;
             {
                 return null;
             }
+            JSONObject jsonObject = new JSONObject();
             //FileWriter file = new FileWriter(FACULTY_FILE_NAME);
             if(user.userType.toString() == "PROFESSOR")
             {
                 // should I be calling toString on all of these user attributes?
-                jsonObject.put(USER_UUID, user.getUUID());
+                jsonObject.put(USER_UUID, user.getUUID().toString());
                 jsonObject.put(USER_ID, user.getUserID());
                 jsonObject.put(FIRSTNAME, user.getUserFirstName());
                 jsonObject.put(LASTNAME, user.getUserLastName());
                 jsonObject.put(USER_EMAIL, user.getUserEmail());
                 jsonObject.put(USER_PASSWORD, user.getUserPass());
-                jsonObject.put(USER_TYPE, user.getUserType());
+                jsonObject.put(USER_TYPE, user.getUserType().toString());
                 ArrayList<Course> temp = ((Faculty)user).getCoursesInstructing();
                 JSONArray jsonArray = new JSONArray();
                 for(Course course : temp)
@@ -124,13 +177,13 @@ import degreeplanner.design.design_code.UserList;
             else if(user.userType.toString() == "ADVISOR")
             {
                 
-                jsonObject.put(USER_UUID, user.getUUID());
+                jsonObject.put(USER_UUID, user.getUUID().toString());
                 jsonObject.put(USER_ID, user.getUserID());
                 jsonObject.put(FIRSTNAME, user.getUserFirstName());
                 jsonObject.put(LASTNAME, user.getUserLastName());
                 jsonObject.put(USER_EMAIL, user.getUserEmail());
                 jsonObject.put(USER_PASSWORD, user.getUserPass());
-                jsonObject.put(USER_TYPE, user.getUserType());
+                jsonObject.put(USER_TYPE, user.getUserType().toString());
                 ArrayList<User> temp = ((Faculty)user).getAdvisingStudents();
                 JSONArray jsonArray = new JSONArray();
                 for(User student : temp)
@@ -164,8 +217,8 @@ import degreeplanner.design.design_code.UserList;
         for(Course course : coursesIn)
         {
             jsonObject = new JSONObject();
-            jsonObject.put(COURSE_UUID, course.getCourseUUID());
-            jsonObject.put(COURSEID, course.getCourseID());
+            jsonObject.put(COURSE_UUID, (course.getCourseUUID()).toString());
+            jsonObject.put(COURSE_ID, course.getCourseID());
             jsonObject.put(COURSE_NAME, course.getCourseName());
             jsonObject.put(COURSE_DESCRIPTION, course.getCourseDescription());
             JSONObject jsonPrereq = new JSONObject();
@@ -227,10 +280,11 @@ import degreeplanner.design.design_code.UserList;
             jsonObject.put(SEMESTER_PROVIDED, semProvidedArray.toJSONString());
             courseArray.add(jsonObject);
         }
-        try (FileWriter courseWriter = new FileWriter("jsonFiles/tempcourse.json"))
+        try (FileWriter courseWriter = new FileWriter(COURSE_FILE_NAME))
         {
             courseWriter.write(courseArray.toJSONString());
             courseWriter.flush();
+            courseWriter.close();
             return true;
         }
         catch (Exception e)
@@ -238,6 +292,49 @@ import degreeplanner.design.design_code.UserList;
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static Boolean writePlans()
+    {
+        JSONObject jsonObject;
+        JSONArray jsonArray;
+        AdvisementPlanList planList = AdvisementPlanList.getInstance();
+        if(planList == null)
+            return false;
+        else
+        {
+            ArrayList<AdvisementPlan> plans = planList.getAllList();
+            if(plans == null)
+                return false;
+            jsonArray = new JSONArray();
+            for (AdvisementPlan plan : plans)
+            {
+                jsonObject = new JSONObject();
+                jsonObject.put(PLANID, plan.getPlanID().toString());
+                jsonObject.put(STUDENT_UUID, (plan.getPlanStudent()).getUUID().toString());
+                jsonObject.put(ADVISOR_UUID, (plan.getPlanAdvisor()).getUUID().toString());
+                jsonObject.put(ATTACHED_NOTES, plan.getNotes());
+                JSONArray tempArray = new JSONArray();
+                for(Course co : plan.getCourses())
+                {
+                    tempArray.add(co.getCourseUUID().toString());
+                }
+                jsonObject.put(ADVISED_COURSES, tempArray);
+                jsonArray.add(jsonObject);
+            }
+            try (FileWriter planWriter = new FileWriter(ADVISEMENT_PLAN_FILE_NAME))
+            {
+                planWriter.write(jsonArray.toJSONString());
+                planWriter.flush();
+                planWriter.close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+            return false;
+        }
     }
     
 
