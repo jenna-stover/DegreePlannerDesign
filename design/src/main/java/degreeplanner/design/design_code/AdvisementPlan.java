@@ -10,7 +10,7 @@ public class AdvisementPlan
     private UUID AdvisementPlanUUID;
     private User student;
     private User advisor;
-    //public ArrayList<Course> courses;
+    public ArrayList<Course> courses;
     public String notes;
 
     public AdvisementPlan(UUID planID, UUID studentUUID, UUID advisorUUID, ArrayList<UUID> courses,String attachedNotes)
