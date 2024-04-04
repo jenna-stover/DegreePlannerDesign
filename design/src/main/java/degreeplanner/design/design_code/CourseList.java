@@ -86,7 +86,7 @@ public class CourseList
         return temp;
     }
 
-    /**
+   /**
      * adds a new course to the course list
      * @param newCourse
      * @return true if the course was successfully added, and false if the course already exists
@@ -102,6 +102,21 @@ public class CourseList
             return true;
         }
         else{
+            return false;
+        }
+    }
+
+    public boolean removeCourse(String courseID)
+    {
+        UUID courseUUID = courseNames.get(courseID);
+        if(courses.containsKey(courseUUID) && courseNames.containsKey(courseID))
+        {
+            courses.remove(courseUUID);
+            courseNames.remove(courseID);
+            return true;
+        }
+        else
+        {
             return false;
         }
     }
