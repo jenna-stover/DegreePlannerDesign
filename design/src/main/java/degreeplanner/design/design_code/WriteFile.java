@@ -136,7 +136,7 @@ import degreeplanner.design.design_code.UserList;
         jsonObject.put(ADVISEMENT_PLAN, jsonArrayTheJourneysEnd);
         jsonObject.put(GPA, ((Student)user).getGPA());
         jsonObject.put(HAS_SCHOLARSHIPS, ((Student)user).hasScholarships);
-        jsonObject.put(MAJOR_NAME, (((Student)user).currentMajor).toString());
+        jsonObject.put(CURRENT_MAJOR, (((Student)user).currentMajor).toString());
         return jsonObject;
     }
 
@@ -229,7 +229,7 @@ import degreeplanner.design.design_code.UserList;
                 boolean orFlag = true;
                 for(HashMap.Entry<UUID, String> prereqEntry : prereq.entrySet())
                 {
-                    jsonPrereq.put(COURSE_UUID, prereqEntry.getKey());
+                    jsonPrereq.put(COURSE_UUID, prereqEntry.getKey().toString());
                     jsonPrereq.put(GRADE, prereqEntry.getValue());
                     if(i != prereq.size())
                     {
@@ -243,9 +243,9 @@ import degreeplanner.design.design_code.UserList;
 
                     i++;
                 }
-                jsonPrereqArray.add(jsonPrereq.toJSONString());
+                jsonPrereqArray.add(jsonPrereq);
             }
-            jsonObject.put(COURSE_PREREQ, jsonPrereqArray.toJSONString());
+            jsonObject.put(COURSE_PREREQ, jsonPrereqArray);
             JSONObject jsonCoreq = new JSONObject();
             JSONArray jsonCoreqArray = new JSONArray();
             for(HashMap<UUID, String> coreq : course.courseCoreqUUID)
@@ -254,7 +254,7 @@ import degreeplanner.design.design_code.UserList;
                 boolean orFlag = false;
                 for(HashMap.Entry<UUID, String> coreqEntry : coreq.entrySet())
                 {
-                    jsonCoreq.put(COURSE_UUID, coreqEntry.getKey());
+                    jsonCoreq.put(COURSE_UUID, coreqEntry.getKey().toString());
                     jsonCoreq.put(GRADE, coreqEntry.getValue());
                     if(i != coreq.size())
                     {
@@ -267,9 +267,9 @@ import degreeplanner.design.design_code.UserList;
                     jsonCoreq.put(ORNEXT, orFlag);
                     i++;
                 }
-                jsonCoreqArray.add(jsonCoreq.toJSONString());
+                jsonCoreqArray.add(jsonCoreq);
             }
-            jsonObject.put(COURSE_COREQ, jsonCoreqArray.toJSONString());
+            jsonObject.put(COURSE_COREQ, jsonCoreqArray);
             jsonObject.put(COURSE_HOURS, course.getCourseHours());            
             JSONArray semProvidedArray = new JSONArray();
             ArrayList<String> semProv = course.getSemestersProvided();
@@ -277,7 +277,7 @@ import degreeplanner.design.design_code.UserList;
             {
                 semProvidedArray.add(semester);
             }
-            jsonObject.put(SEMESTER_PROVIDED, semProvidedArray.toJSONString());
+            jsonObject.put(SEMESTER_PROVIDED, semProvidedArray);
             courseArray.add(jsonObject);
         }
         try (FileWriter courseWriter = new FileWriter(COURSE_FILE_NAME))
