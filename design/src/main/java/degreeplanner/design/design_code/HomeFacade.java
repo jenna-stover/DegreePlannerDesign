@@ -90,14 +90,28 @@ public class HomeFacade {
         return true;
     }
 
-    public boolean addCourse(UserType userType)
+    public boolean addCourse(UserType userType, Course newCourse)
     {
-        return true;
+        if(userType.equals(UserType.PROFESSOR) || userType.equals(UserType.ADVISOR))
+        {
+            return courseList.addCourse(newCourse);
+        }
+        else
+        {
+            return false; //no permission
+        }
     }
 
-    public boolean removeCourse(UserType userType)
+    public boolean removeCourse(UserType userType, String courseID)
     {
-        return true;
+        if(userType.equals(UserType.PROFESSOR) || userType.equals(UserType.ADVISOR))
+        {
+            return courseList.removeCourse(courseID);
+        }
+        else
+        {
+            return false; //no permission
+        }
     }
 
 /*  public boolean createUser(UUID userUUID, String firstName, String lastName, 
