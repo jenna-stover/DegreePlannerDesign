@@ -172,21 +172,48 @@ public class UserList
         return false;
     }
 
-    public void updateAdviseStuList()
+    // public void updateAdviseStuList()
+    // {
+    //     ArrayList<UUID> studentUUIDs;
+    //     for (int i = 0; i < allFaculty.size(); i++) 
+    //     {
+    //         Faculty faculty = (Faculty)allFaculty.get(i);
+    //         if((faculty.userType).toString() == "ADVISOR")
+    //         {
+    //             studentUUIDs = ((Faculty) faculty).getAdviseStuUUIDList();
+    //             if(studentUUIDs != null)
+    //             {
+    //                 for (UUID stuUUID : studentUUIDs)
+    //                 {
+    //                     User student = users.get(stuUUID);
+    //                     faculty.addAdvisingStudent(student);
+    //                 }
+    //                 users.replace(faculty.getUUID(), faculty);
+    //             }
+    //         }
+    //     }
+    // }
+
+    public void updateAdviseStuList() 
     {
         ArrayList<UUID> studentUUIDs;
         for (int i = 0; i < allFaculty.size(); i++) 
         {
-            Faculty faculty = (Faculty)allFaculty.get(i);
-            if((faculty.userType).toString() == "ADVISOR")
-            {
-                studentUUIDs = ((Faculty) faculty).getAdviseStuUUIDList();
-                if(studentUUIDs != null)
+            Faculty faculty = (Faculty) allFaculty.get(i);
+            if (faculty.getUserType() == UserType.ADVISOR) 
+            { 
+                studentUUIDs = faculty.getAdviseStuUUIDList();
+                if (studentUUIDs != null) 
                 {
-                    for (UUID stuUUID : studentUUIDs)
+                    for (UUID stuUUID : studentUUIDs) 
                     {
                         User student = users.get(stuUUID);
-                        faculty.addAdvisingStudent(student);
+                        if (student != null) 
+                        { 
+                            faculty.addAdvisingStudent(student);
+                        } else {
+                            System.out.println("Student with UUID " + stuUUID + " not found.");
+                        }
                     }
                     users.replace(faculty.getUUID(), faculty);
                 }
