@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import degreeplanner.design.design_code.HomeFacade;
+import degreeplanner.design.design_code.*;
 import java.io.IOException;
 
 /**
