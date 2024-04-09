@@ -1,11 +1,13 @@
 package degreeplanner.design;
-
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-//aa
+import javafx.stage.WindowEvent;
+import degreeplanner.design.design_code.HomeFacade;
 import java.io.IOException;
 
 /**
@@ -16,13 +18,26 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+    public void start(Stage stage) throws IOException 
+    {
+        scene = new Scene(loadFXML("home"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() 
+        {
+            @Override
+            public void handle(WindowEvent t) 
+            {
+                HomeFacade homeFacade = new HomeFacade();
+                homeFacade.logout();
+                Platform.exit();
+                System.exit(0);
+            }
+        });
+
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static  void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
