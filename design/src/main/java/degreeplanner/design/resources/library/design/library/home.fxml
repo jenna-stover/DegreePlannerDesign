@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import java.net.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400" prefWidth="600" fx:id="library_pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="400" prefWidth="600" fx:id="library_pane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.design.controllers.HomeController">
     <children>
         <Button fx:id="button" layoutX="72.0" layoutY="21.0" onAction="#onLoginClicked" text="Login" />
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
