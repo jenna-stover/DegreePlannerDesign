@@ -17,7 +17,7 @@ public class AdvisementPlanList
     {
         if (advisementPlanList == null)
         {
-            System.out.println("Making a new advisement plan list");
+            //System.out.println("Making a new advisement plan list");
             advisementPlanList = new AdvisementPlanList();
         }
         return advisementPlanList;

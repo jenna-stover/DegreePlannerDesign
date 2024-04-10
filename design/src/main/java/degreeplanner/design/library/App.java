@@ -24,6 +24,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("home"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        //On closing of window
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() 
         {
             @Override

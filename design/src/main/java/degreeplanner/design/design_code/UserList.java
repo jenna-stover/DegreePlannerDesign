@@ -29,7 +29,7 @@ public class UserList
     {
         if (userList == null)
         {
-            System.out.println("Making a new user list");
+            //System.out.println("Making a new user list");
             userList = new UserList();
         }
         return userList;

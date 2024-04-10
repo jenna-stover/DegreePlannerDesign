@@ -17,7 +17,7 @@ public class DegreeList
     {
         if (degreeList == null)
         {
-            System.out.println("Making a new degree list");
+            //System.out.println("Making a new degree list");
             degreeList = new DegreeList();
         }
         return degreeList;
