@@ -32,4 +32,9 @@ public class AdvisementPlanList
     {
         return true;
     }
+
+    public boolean saveList()
+    {
+        return WriteFile.writePlans();
+    }
 }

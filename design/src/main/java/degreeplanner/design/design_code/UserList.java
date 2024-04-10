@@ -107,13 +107,13 @@ public class UserList
         {
             //tbd-- clear necessary data
             user = null;
-            System.out.println("Logout Successful");
-            return true;
+            System.out.println("Logout Successful.");
+            return WriteFile.writeUsers();
         }
         else
         {
-            System.out.println("Logout Unsuccessful");
-            return false;
+            System.out.println("Logout Unsuccessful, no user was logged in.");
+            return WriteFile.writeUsers();
         }
     }
 

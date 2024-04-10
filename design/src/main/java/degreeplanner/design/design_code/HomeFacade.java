@@ -54,6 +54,8 @@ public class HomeFacade {
 
      public boolean logout()
      {
+        this.advisementPlanList.saveList();
+        this.courseList.saveList();
         return userList.logout();
      }
 

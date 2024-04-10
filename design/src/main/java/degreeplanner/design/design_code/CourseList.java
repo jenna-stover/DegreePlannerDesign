@@ -42,6 +42,11 @@ public class CourseList
         courseNames.clear();
     }
 
+    public boolean saveList()
+    {
+        return WriteFile.writeCourse();
+    }
+
     /**
      * looks up the associated UUID using courseID from courseNames HashMap, 
      * uses the UUID to directly access the Course object associated with the courseID
