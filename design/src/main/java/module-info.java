@@ -2,7 +2,8 @@ module degreeplanner {
     requires javafx.controls;
     requires javafx.fxml;
     requires json.simple;
-    //  requires javafx.base;
+    requires javafx.base;
+    requires javafx.graphics;
 
     // opens degreeplanner.design.library to javafx.fxml;
 

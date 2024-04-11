@@ -48,6 +48,8 @@ public class Student extends User
         this.currentHours = completedHours;
         this.currentMajor = currMajor;
         this.warnings = warnings;
+        this.advisementPlansUUID = advisementPlans;
+
     }  
 
     public boolean updateGPA() //should this have return type double or bool
@@ -64,6 +66,7 @@ public class Student extends User
     // {
     //     return degreePlan;
     // }
+    
 
     public ArrayList<AdvisementPlan> getAdvisementPlans()
     {
@@ -130,7 +133,7 @@ public class Student extends User
 
     public ArrayList<UUID> getAdvisementPlanUUID()
     {
-        return advisementPlansUUID;
+        return this.advisementPlansUUID;
     }
 
     public ArrayList<Course> getAllCourses()
