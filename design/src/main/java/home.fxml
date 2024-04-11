@@ -27,7 +27,7 @@
          </font>
       </Label>
       <Separator layoutX="268.0" layoutY="118.0" orientation="VERTICAL" prefHeight="348.0" prefWidth="8.0" />
-      <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="23.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
+      <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="23.0" layoutY="54.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
          <font>
             <Font name="Arial Bold Italic" size="24.0" />
          </font>
