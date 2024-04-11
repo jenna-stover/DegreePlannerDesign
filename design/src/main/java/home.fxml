@@ -60,5 +60,12 @@
       <TextArea id="adv_note2" fx:id="adv_note2" layoutX="522.0" layoutY="303.0" prefHeight="63.0" prefWidth="179.0" />
       <TextArea id="adv_note3" fx:id="adv_note3" layoutX="520.0" layoutY="384.0" prefHeight="63.0" prefWidth="179.0" />
       <Label id="user_name_profile" fx:id="user_name_profile" layoutX="626.0" layoutY="35.0" prefHeight="18.0" prefWidth="86.0" />
+      <TextArea fx:id="courseOne" layoutX="34.0" layoutY="125.0" prefHeight="27.0" prefWidth="196.0" />
+      <TextArea fx:id="courseTwo" layoutX="29.0" layoutY="179.0" prefHeight="36.0" prefWidth="205.0" />
+      <TextArea fx:id="courseThree" layoutX="29.0" layoutY="230.0" prefHeight="36.0" prefWidth="205.0" />
+      <TextArea fx:id="courseFour" layoutX="29.0" layoutY="281.0" prefHeight="36.0" prefWidth="205.0" />
+      <TextArea fx:id="courseFive" layoutX="29.0" layoutY="335.0" prefHeight="36.0" prefWidth="205.0" />
+      <TextArea fx:id="courseSix" layoutX="29.0" layoutY="384.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseSeven" layoutX="29.0" layoutY="429.0" prefHeight="16.0" prefWidth="205.0" />
    </children>
 </AnchorPane>
