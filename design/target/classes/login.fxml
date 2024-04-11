@@ -29,7 +29,7 @@
       </Group>
       <ImageView id="login_logo_img1" fitHeight="140.0" fitWidth="271.0" layoutX="73.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@design/src/main/java/degreeplanner/images/uofsc_logo.png" />
+            <Image url="@degreeplanner/images/uofsc_logo.png" />
          </image>
       </ImageView>
       <Text id="degreeplanner_login" layoutX="82.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" textAlignment="CENTER" wrappingWidth="227.4131353106049">
@@ -39,7 +39,7 @@
       </Text>
       <ImageView id="login_logo_img2" fitHeight="187.0" fitWidth="181.0" layoutX="110.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../gamecock_logo.png" />
+            <Image url="@degreeplanner/images/gamecock_logo.png" />
          </image>
       </ImageView>
       <Button id="faculty_login_button" layoutX="498.0" layoutY="387.0" mnemonicParsing="false" text="Faculty Login">
