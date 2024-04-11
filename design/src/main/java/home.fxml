@@ -48,10 +48,10 @@
       </Text>
       <Group layoutX="454.0" layoutY="92.0">
          <children>
-            <Text id="search_course" layoutX="2.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Course" />
-            <ImageView id="search_img" fitHeight="22.0" fitWidth="25.0" layoutX="96.0" pickOnBounds="true" preserveRatio="true">
+            <Text id="search_course" fx:id="search_course" layoutX="2.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Course" />
+            <ImageView id="search_img" fx:id="search_img" fitHeight="22.0" fitWidth="25.0" layoutX="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../search_icon.jpeg" />
+                  <Image url="@../../../../../search_icon.png" />
                </image>
             </ImageView>
          </children>
