@@ -18,23 +18,23 @@
 <AnchorPane id="AnchorPane" prefHeight="504.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.HomeController">
    <children>
       <TextArea id="semester_area" layoutX="6.0" layoutY="70.0" prefHeight="433.0" prefWidth="409.0" />
-      <Avatar id="avatar_profile" layoutX="726.0" layoutY="17.0" />
+      <Avatar id="avatar_profile" fx:id="avatar_profile" layoutX="726.0" layoutY="17.0" />
       <TextArea id="progress_area" layoutX="444.0" layoutY="71.0" prefHeight="428.0" prefWidth="332.0" />
-      <ProgressBar id="progress_bar" layoutX="499.0" layoutY="149.0" prefHeight="20.0" prefWidth="225.0" progress="0.0" />
+      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="499.0" layoutY="149.0" prefHeight="20.0" prefWidth="225.0" progress="0.0" />
       <Label id="progress_label" layoutX="561.0" layoutY="128.0" text="Degree Progress">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
       <Separator layoutX="268.0" layoutY="118.0" orientation="VERTICAL" prefHeight="348.0" prefWidth="8.0" />
-      <Text id="degreeplanner_home" layoutX="23.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
+      <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="23.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
          <font>
             <Font name="Arial Bold Italic" size="24.0" />
          </font>
       </Text>
       <Label id="percentage_label" layoutX="732.0" layoutY="147.0" prefHeight="22.0" prefWidth="30.0" />
-      <ScrollBar id="notes_scrollbar" layoutX="738.0" layoutY="202.0" orientation="VERTICAL" prefHeight="265.0" prefWidth="5.0" />
-      <DropdownButton id="semester_dropdown" layoutX="166.0" layoutY="91.0" prefHeight="30.0" prefWidth="147.0">
+      <ScrollBar id="notes_scrollbar" fx:id="notes_scrollbar" layoutX="738.0" layoutY="202.0" orientation="VERTICAL" prefHeight="265.0" prefWidth="5.0" />
+      <DropdownButton id="semester_dropdown" fx:id="semester_dropdown" layoutX="166.0" layoutY="91.0" prefHeight="30.0" prefWidth="147.0">
           <items>
               <MenuItem text="Choice 1" />
               <MenuItem text="Choice 2" />
@@ -48,16 +48,24 @@
       </Text>
       <Group layoutX="454.0" layoutY="92.0">
          <children>
-            <Text id="search_course" layoutX="2.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Course" />
-            <ImageView id="search_img" fitHeight="22.0" fitWidth="25.0" layoutX="96.0" pickOnBounds="true" preserveRatio="true">
+            <Text id="search_course" fx:id="search_course" layoutX="2.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search Course" />
+            <ImageView id="search_img" fx:id="search_img" fitHeight="22.0" fitWidth="25.0" layoutX="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../search_icon.jpeg" />
+                  <Image url="@../../../../../search_icon.png" />
                </image>
             </ImageView>
          </children>
       </Group>
-      <TextArea id="adv_note1" layoutX="518.0" layoutY="231.0" prefHeight="63.0" prefWidth="179.0" />
-      <TextArea id="adv_note2" layoutX="522.0" layoutY="303.0" prefHeight="63.0" prefWidth="179.0" />
-      <TextArea id="adv_note3" layoutX="520.0" layoutY="384.0" prefHeight="63.0" prefWidth="179.0" />
+      <TextArea id="adv_note1" fx:id="adv_note1" layoutX="518.0" layoutY="231.0" prefHeight="63.0" prefWidth="179.0" />
+      <TextArea id="adv_note2" fx:id="adv_note2" layoutX="522.0" layoutY="303.0" prefHeight="63.0" prefWidth="179.0" />
+      <TextArea id="adv_note3" fx:id="adv_note3" layoutX="520.0" layoutY="384.0" prefHeight="63.0" prefWidth="179.0" />
+      <Label id="user_name_profile" fx:id="user_name_profile" layoutX="626.0" layoutY="35.0" prefHeight="18.0" prefWidth="86.0" />
+      <TextArea fx:id="courseOne" layoutX="29.0" layoutY="125.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseTwo" layoutX="29.0" layoutY="179.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseThree" layoutX="29.0" layoutY="230.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseFour" layoutX="29.0" layoutY="281.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseFive" layoutX="29.0" layoutY="335.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseSix" layoutX="29.0" layoutY="384.0" prefHeight="16.0" prefWidth="205.0" />
+      <TextArea fx:id="courseSeven" layoutX="29.0" layoutY="429.0" prefHeight="16.0" prefWidth="205.0" />
    </children>
 </AnchorPane>
