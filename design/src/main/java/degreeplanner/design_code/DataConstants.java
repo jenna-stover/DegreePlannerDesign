@@ -1,7 +1,7 @@
 package degreeplanner.design_code;
 public abstract class DataConstants {
     //start of student.json properties
-    protected static final String STUDENT_FILE_NAME = "design/src/main/java/degreeplanner/design/jsonFiles/student.json";
+    protected static final String STUDENT_FILE_NAME = "design/src/main/java/degreeplanner/jsonFiles/student.json";
     protected static final String USER_UUID = "userUUID";
     protected static final String USER_ID = "userID";
     protected static final String FIRSTNAME = "firstName";
@@ -30,12 +30,12 @@ public abstract class DataConstants {
     //start of facutly.json properties
     //Note: userUUID, firstName, lastName, userEmail, userPassword, and userType are already listed in the listing
     // of student.json properties
-    protected static final String FACULTY_FILE_NAME = "design/src/main/java/degreeplanner/design/jsonFiles/faculty.json";
+    protected static final String FACULTY_FILE_NAME = "design/src/main/java/degreeplanner/jsonFiles/faculty.json";
     protected static final String ADVISING_STUDENTS = "advisingStudents";
     protected static final String COURSES_INSTRUCTING = "coursesInstructing";
     //end of faculty.json properties
     //start of advisement_plan.json properties
-    protected static final String ADVISEMENT_PLAN_FILE_NAME = "design/src/main/java/degreeplanner/design/jsonFiles/advisement_plan.json";
+    protected static final String ADVISEMENT_PLAN_FILE_NAME = "design/src/main/java/degreeplanner/jsonFiles/advisement_plan.json";
     protected static final String PLANID = "planID";
     protected static final String STUDENT_UUID = "studentUUID";
     protected static final String ADVISOR_UUID = "advisorUUID";
@@ -44,7 +44,7 @@ public abstract class DataConstants {
     //end of advisement_plan.json properties
     //start of course.json properties
     //Note: courseUUID property is already listed in the degreePlan section of student.json
-    protected static final String COURSE_FILE_NAME = "design/src/main/java/degreeplanner/design/jsonFiles/course.json";
+    protected static final String COURSE_FILE_NAME = "design/src/main/java/degreeplanner/jsonFiles/course.json";
     protected static final String COURSE_ID = "courseID";
     protected static final String COURSE_NAME = "courseName";
     protected static final String COURSE_DESCRIPTION = "courseDescription";
@@ -56,7 +56,7 @@ public abstract class DataConstants {
     protected static final String REQUIRED_GRADE = "requiredGrade";
     protected static final String SEMESTER_PROVIDED = "semesterProvided";
     //start of degree.json properties
-    protected static final String DEGREE_FILE_NAME = "design/src/main/java/degreeplanner/design/jsonFiles/degree.json";
+    protected static final String DEGREE_FILE_NAME = "design/src/main/java/degreeplanner/jsonFiles/degree.json";
     protected static final String MAJOR_NAME = "major_name";
     protected static final String REQUIRED_COURSES = "required_courses";
     protected static final String CHOICES = "choices";

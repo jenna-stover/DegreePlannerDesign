@@ -37,7 +37,7 @@ public class HomeController {
 
     @FXML
     void goHome(MouseEvent event) throws IOException {
-        App.setRoot("home");
+        App.setRoot("/home");
     }
 
 }

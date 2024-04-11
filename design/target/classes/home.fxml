@@ -24,7 +24,7 @@
          </font>
       </Label>
       <Separator layoutX="268.0" layoutY="118.0" orientation="VERTICAL" prefHeight="348.0" prefWidth="8.0" />
-      <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="23.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
+      <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="23.0" layoutY="54.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
          <font>
             <Font name="Arial Bold Italic" size="24.0" />
          </font>
@@ -57,7 +57,7 @@
       <TextArea fx:id="courseFive" layoutX="29.0" layoutY="335.0" prefHeight="16.0" prefWidth="205.0" />
       <TextArea fx:id="courseSix" layoutX="29.0" layoutY="384.0" prefHeight="16.0" prefWidth="205.0" />
       <TextArea fx:id="courseSeven" layoutX="29.0" layoutY="429.0" prefHeight="16.0" prefWidth="205.0" />
-      <ChoiceBox fx:id="semester_dropdown" layoutX="57.0" layoutY="79.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="semester_dropdown" layoutX="131.0" layoutY="79.0" prefWidth="150.0" />
       <ImageView fx:id="avatar_profile" fitHeight="35.0" fitWidth="39.0" layoutX="725.0" layoutY="15.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
