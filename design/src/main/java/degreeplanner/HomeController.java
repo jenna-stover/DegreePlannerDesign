@@ -2,8 +2,6 @@ package degreeplanner;
 
 import java.io.IOException;
 
-import com.gluonhq.charm.glisten.control.Avatar;
-import com.gluonhq.charm.glisten.control.DropdownButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -24,9 +22,6 @@ public class HomeController {
     private TextArea adv_note3;
 
     @FXML
-    private Avatar avatar_profile;
-
-    @FXML
     private Text degreeplanner_home;
 
     @FXML
@@ -35,14 +30,6 @@ public class HomeController {
     @FXML
     private ProgressBar progress_bar;
 
-    @FXML
-    private DropdownButton semester_dropdown;
-
-    @FXML
-    private void dropDownButton(MouseEvent event) throws IOException
-    {
-
-    }
 
     @FXML
     private Label user_name_profile;
