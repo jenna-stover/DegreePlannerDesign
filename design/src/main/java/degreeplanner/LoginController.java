@@ -40,7 +40,7 @@ public class LoginController implements  Initializable  {
     }
     @FXML
     private void back(MouseEvent event) throws IOException {
-        App.setRoot("/home");
+        App.setRoot("/login");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
