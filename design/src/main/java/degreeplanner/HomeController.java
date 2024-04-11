@@ -9,6 +9,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import javafx.scene.input.MouseEvent;
 
 public class HomeController {
 
@@ -33,5 +34,10 @@ public class HomeController {
 
     @FXML
     private Label user_name_profile;
+
+    @FXML
+    void goHome(MouseEvent event) throws IOException {
+        App.setRoot("home");
+    }
 
 }
