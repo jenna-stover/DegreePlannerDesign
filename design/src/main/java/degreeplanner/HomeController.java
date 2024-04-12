@@ -55,6 +55,11 @@ public class HomeController implements Initializable{
         App.setRoot("/home");
     }
 
+    /**
+     * loads data specific to the current user such as user's name and course information
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if(homeFacade.getUser() != null){
