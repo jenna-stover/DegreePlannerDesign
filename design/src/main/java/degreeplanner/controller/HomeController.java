@@ -1,7 +1,8 @@
-package degreeplanner;
+package degreeplanner.controller;
 
 import java.io.IOException;
 
+import degreeplanner.App;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -37,7 +38,7 @@ public class HomeController {
 
     @FXML
     void goHome(MouseEvent event) throws IOException {
-        App.setRoot("/home");
+        App.setRoot("/fxml/home");
     }
 
 }

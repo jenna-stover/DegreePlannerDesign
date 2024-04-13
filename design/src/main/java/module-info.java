@@ -9,9 +9,9 @@ module degreeplanner {
 
     // exports degreeplanner.design.library;
 
-    // opens degreeplanner.design.controller to javafx.fxml;
+    opens degreeplanner.controller to javafx.fxml;
 
-    // exports  degreeplanner.design.controller;
+    exports  degreeplanner.controller;
 
     opens degreeplanner to javafx.fxml;
 
