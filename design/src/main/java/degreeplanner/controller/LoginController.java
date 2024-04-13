@@ -1,4 +1,4 @@
-package degreeplanner;
+package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class LoginController implements  Initializable  {
     }
     @FXML
     private void back(MouseEvent event) throws IOException {
-        App.setRoot("/login");
+        App.setRoot("/fxml/login");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

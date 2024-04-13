@@ -1,4 +1,4 @@
-package degreeplanner;
+package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import degreeplanner.App;
 import degreeplanner.design_code.HomeFacade;
 
 public class HomeController implements Initializable{
@@ -47,12 +48,12 @@ public class HomeController implements Initializable{
 
     @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
-        App.setRoot("/profile");
+        App.setRoot("/fxml/profile");
     }
 
     @FXML
     void goHome(MouseEvent event) throws IOException {
-        App.setRoot("/home");
+        App.setRoot("/fxml/home");
     }
 
     /**
