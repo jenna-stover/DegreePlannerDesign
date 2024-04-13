@@ -31,7 +31,7 @@ public class App extends Application {
             @Override
             public void handle(WindowEvent t) 
             {
-                HomeFacade homeFacade = new HomeFacade();
+                HomeFacade homeFacade = HomeFacade.getInstance();
                 homeFacade.logout();
                 Platform.exit();
                 System.exit(0);

@@ -62,8 +62,9 @@ public class HomeController implements Initializable{
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if(homeFacade.getUser() != null){
-            user_name_profile.setText(homeFacade.getUser());
+        HomeFacade homeFacade = HomeFacade.getInstance();
+        if(homeFacade.getLoggedInUser() != null){
+            user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
         
     }

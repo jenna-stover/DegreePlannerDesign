@@ -28,7 +28,7 @@ public class LoginController implements  Initializable  {
     {
         String email = txt_email.getText();
         String password = txt_password.getText();
-        HomeFacade homeFacade = new HomeFacade();
+        HomeFacade homeFacade = HomeFacade.getInstance();
 
         if(!homeFacade.login(email,password)) 
         {

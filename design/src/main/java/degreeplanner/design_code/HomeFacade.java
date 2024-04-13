@@ -20,8 +20,9 @@ public class HomeFacade {
     private DegreeList degreeList;
     private DegreePlan degreePlan;
     private AdvisementPlanList advisementPlanList;
+    private static HomeFacade homeFacade;
 
-    public HomeFacade()
+    private HomeFacade()
     {
         //this.user = user;
         this.count = 0;
@@ -33,6 +34,15 @@ public class HomeFacade {
         this.searchedCourse = searchedCourse;
         //this.users = new ArrayList<User>();
         this.degreePlan = degreePlan; //should we create new DegreePlan?
+    }
+
+    public static HomeFacade getInstance()
+    {
+        if(homeFacade == null)
+        {
+            homeFacade = new HomeFacade();
+        }
+        return homeFacade;
     }
 
      public boolean login(String email, String userPass)
@@ -49,6 +59,11 @@ public class HomeFacade {
      public UserType getLoggedInUserType()
      {
         return user.userType;
+     }
+
+     public User getLoggedInUser()
+     {
+        return this.user;
      }
   
 
