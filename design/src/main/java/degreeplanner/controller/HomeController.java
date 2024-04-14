@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -41,7 +42,9 @@ public class HomeController implements Initializable{
     private VBox semester_courses_vbox;
 
     @FXML
-    private ChoiceBox<?> semester_dropdown;
+    private ChoiceBox<String> semester_dropdown;
+    private String[] semester = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
+                                    "Semester 5", "Semester 6", "Semester 7", "Semester 8"};
 
     @FXML
     private Label user_name_profile;
@@ -67,6 +70,13 @@ public class HomeController implements Initializable{
         if(homeFacade.getLoggedInUser() != null){
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
+
+        semester_dropdown.getItems().addAll(semester);
+        semester_dropdown.setOnAction(this::getSemester);
+    }
+
+    public void getSemester(ActionEvent event){
+        semester_courses_vbox.setAccessibleText(null);
         
     }
 

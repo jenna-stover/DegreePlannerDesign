@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="431.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextArea fx:id="profile_area" layoutX="48.0" layoutY="11.0" prefHeight="464.0" prefWidth="334.0" />
-      <ImageView id="home_icon" fx:id="home_icon" fitHeight="38.0" fitWidth="32.0" layoutX="13.0" layoutY="14.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="homeIcon" fx:id="homeIcon" fitHeight="38.0" fitWidth="32.0" layoutX="13.0" layoutY="14.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/home_icon.png" />
          </image>
@@ -21,7 +21,7 @@
          <image>
             <Image url="@../images/user_profile.png" />
          </image></ImageView>
-      <Label id="user_fullname" fx:id="user_fullname" layoutX="163.0" layoutY="105.0" prefHeight="16.0" prefWidth="105.0" />
+      <Label id="userFullName" fx:id="userFullName" layoutX="163.0" layoutY="105.0" prefHeight="16.0" prefWidth="105.0" />
       <Label layoutX="78.0" layoutY="142.0" text="Username: ">
          <font>
             <Font name="Arial" size="13.0" />
