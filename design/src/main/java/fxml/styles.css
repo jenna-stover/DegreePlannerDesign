@@ -49,6 +49,7 @@
 }
 
 #profile_area .content{
+  -fx-background-color: #73000430;
   -fx-border-color: #730003;
   -fx-border-width: 2px;
   -fx-border-radius: 5px;
