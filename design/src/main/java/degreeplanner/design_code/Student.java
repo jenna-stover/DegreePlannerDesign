@@ -379,6 +379,27 @@ public class Student extends User
         return result;
     }
 
+    public ArrayList<Course> getCoursesForSemester(String semester) {
+        int semesterNumber = Integer.parseInt(semester);
+        DegreeList degreeList = DegreeList.getInstance();
+        DegreePlan degreePlan = degreeList.getDegree(student.currentMajor);
+
+        if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) {
+            Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
+            ArrayList<Course> coursesForSemester = new ArrayList<>();
+    
+            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) {
+                if (!courseOptions.isEmpty()) {
+                    coursesForSemester.add(courseOptions.get(0));
+                }
+            }
+    
+            return coursesForSemester;
+        }
+        
+        return new ArrayList<>();
+    }
+
 //    public Tabs selectView()
 //      return null;
     
