@@ -60,7 +60,7 @@ public class HomeController implements Initializable{
 
     @FXML
     void goToSearchCourse(MouseEvent event) {
-        App.setRoot("/search_home");
+        App.setRoot("/search_course");
     }
 
     /**
@@ -75,6 +75,7 @@ public class HomeController implements Initializable{
         }
 
         semester_dropdown.getItems().addAll(semesters);
+        semester_dropdown.setOnAction(this::getSemester());
     }
 
     /**
