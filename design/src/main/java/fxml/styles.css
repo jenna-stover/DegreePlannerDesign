@@ -43,3 +43,7 @@
   -fx-border-color: #730003;
   -fx-border-radius: 5px;
 }
+
+#progress_bar {
+  -fx-background-color: #730003;
+}
