@@ -40,7 +40,10 @@ public class HomeController implements Initializable{
     private VBox semester_courses_vbox;
 
     @FXML
-    private ChoiceBox<?> semester_dropdown;
+    private ChoiceBox<String> semester_dropdown;
+
+    private String[] semesters = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
+                                    "Semester 5", "Semester 6", "Semester 7", "Semester 8"};
 
     @FXML
     private Label user_name_profile;
@@ -70,7 +73,16 @@ public class HomeController implements Initializable{
         if(homeFacade.getUser() != null){
             user_name_profile.setText(homeFacade.getUser());
         }
-        
+
+        semester_dropdown.getItems().addAll(semesters);
+    }
+
+    /**
+     * changes contents of vbox depending on semester chosen
+     */
+    public void getSemester(ActionEvent event){
+        String mySemester = semester_dropdown.getValue();
+        semester_courses_vbox.setText();
     }
 
 }
