@@ -77,7 +77,6 @@ public class HomeController implements Initializable{
 
     public void getSemester(ActionEvent event){
         semester_courses_vbox.setAccessibleText(null);
-        
     }
 
 }

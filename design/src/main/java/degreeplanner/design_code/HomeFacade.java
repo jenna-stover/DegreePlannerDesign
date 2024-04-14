@@ -165,6 +165,27 @@ public class HomeFacade {
         return student.getAllCourses();
     }
 
+    public ArrayList<Course> getCoursesForSemester(Student student, String semester) {
+        int semesterNumber = Integer.parseInt(semester);
+        DegreeList degreeList = DegreeList.getInstance();
+        DegreePlan degreePlan = degreeList.getDegree(student.currentMajor);
+
+        if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) {
+            Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
+            ArrayList<Course> coursesForSemester = new ArrayList<>();
+    
+            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) {
+                if (!courseOptions.isEmpty()) {
+                    coursesForSemester.add(courseOptions.get(0));
+                }
+            }
+    
+            return coursesForSemester;
+        }
+        
+        return new ArrayList<>(); // Return an empty list if no courses found or invalid semester
+    }
+
     public boolean editCourse(String courseID, UserType userType, String newName, String newDescription)
     {
         return courseList.editCourse(courseID, userType, newName, newDescription);
