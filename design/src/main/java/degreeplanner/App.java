@@ -24,7 +24,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException 
     {
         scene = new Scene(loadFXML("/fxml/login"), 640, 480);
-        scene.getStylesheets().add("/fxml/styles.css");
+//     scene.getStylesheets().add("/fxml/styles.css");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
