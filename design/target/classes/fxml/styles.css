@@ -49,7 +49,16 @@
 }
 
 #profile_area .content{
+  -fx-background-color: #73000430;
   -fx-border-color: #730003;
   -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+}
+
+.course-label {
+  -fx-font-size: 16px;
+  fx-padding: 10px;
+ fx-background-color: #f4f4f4;
+  -fx-margin: 5px;
   -fx-border-radius: 5px;
 }

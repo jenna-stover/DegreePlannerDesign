@@ -379,17 +379,21 @@ public class Student extends User
         return result;
     }
 
-    public ArrayList<Course> getCoursesForSemester(String semester) {
+    public ArrayList<Course> getCoursesForSemester(String semester) 
+    {
         int semesterNumber = Integer.parseInt(semester);
         DegreeList degreeList = DegreeList.getInstance();
-        DegreePlan degreePlan = degreeList.getDegree(student.currentMajor);
+        DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
 
-        if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) {
+        if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) 
+        {
             Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
             ArrayList<Course> coursesForSemester = new ArrayList<>();
     
-            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) {
-                if (!courseOptions.isEmpty()) {
+            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
+            {
+                if (!courseOptions.isEmpty()) 
+                {
                     coursesForSemester.add(courseOptions.get(0));
                 }
             }
