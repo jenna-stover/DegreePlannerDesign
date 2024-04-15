@@ -214,13 +214,32 @@ public class Student extends User
                 {  
                     if(completedCourses.keySet().contains(degree.semesterCourses.get(i).getCourses().get(j).get(k))) // we completed that course already, find a replacement
                     {
-                        //fill gaps with electives, use isElectiveComplete to loop through all electives and see which are not satisfied yet,
-                        //whichever are not satisfied, select electives that have not been taken from that category and add in that gap
-                        // for (int a = 0; a < degree.)
-                        // {
-                        //     if(isElectiveComplete(null))
-                        // }    
-                        //taken = true;
+                        // fill gaps with electives, use isElectiveComplete to loop through all electives and see which are not satisfied yet,
+                        // whichever are not satisfied, select electives that have not been taken from that category and add in that gap
+                        //for (int l = 0; l < degree.) //finding incomplete elective
+                        for(Elective elective : degree.getElectives())
+                        {
+                            if(isElectiveComplete(elective))
+                            {
+                                taken = true; //already finished it, move on to next elective
+                                continue;
+                            }
+                            else //elective is not complete, have to figure out which classes have already been taken
+                            {
+                                for(Course temp : elective.getOptions()) //looping thru elective options
+                                {
+                                    if(completedCourses.containsValue(temp)) //done w this course already
+                                    {
+                                        continue;
+                                    }
+                                    else //found it
+                                    {
+                                        semester.add(temp);
+                                    }
+                                }
+                            }
+                        }    
+                        
                     }
                     else if(!taken && k == degree.semesterCourses.get(i).getCourses().get(j).size() - 1) //need to take that course/its not in the completed courses set
                     {
