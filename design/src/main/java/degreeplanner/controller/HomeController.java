@@ -58,6 +58,7 @@ public class HomeController implements Initializable{
         App.setRoot("/fxml/profile");
     }
 
+    // Go back to login?
     @FXML
     void goHome(MouseEvent event) throws IOException {
         App.setRoot("/fxml/home");

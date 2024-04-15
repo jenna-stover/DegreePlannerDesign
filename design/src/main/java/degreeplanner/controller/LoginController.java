@@ -24,11 +24,13 @@ public class LoginController implements  Initializable  {
 
     private Label lbl_error;
 
+    // Login button
     @FXML
     void btnLoginClicked(ActionEvent event) throws IOException 
     {
         String email = txt_email.getText();
         String password = txt_password.getText();
+        Label lbl_error = new Label();
         HomeFacade homeFacade = HomeFacade.getInstance();
 
         if(!homeFacade.login(email,password)) 

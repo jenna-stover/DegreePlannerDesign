@@ -25,6 +25,11 @@ public class DegreePlan
         this.courses = courses;
     }
 
+    public ArrayList<Elective> getElectives()
+    {
+        return this.degreeElectives;
+    }
+
     /**
      * creates the generalized degree plan; includes semester courses, degree electives, and application areas (if applicable)
      * @return a String representation of the generalized degree plan
