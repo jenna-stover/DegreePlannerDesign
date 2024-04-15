@@ -91,10 +91,10 @@ public class HomeController implements Initializable{
         Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
 
         ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) {
+        for (Course course : courses) { //populating vbox
             Label courseLabel = new Label(course.getCourseName());
             courseLabel.getStyleClass().add("course-label");
-            semester_courses_vbox.getChildren().add(courseLabel);
+            semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
         }
     }
 
