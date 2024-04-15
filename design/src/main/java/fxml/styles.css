@@ -2,10 +2,13 @@
   -fx-background-color: #e6e6e6;
 }
 
-#login_area {
+#login_area{
   -fx-border-color: #730003;
-  -fx-border-width: 2px;
   -fx-border-radius: 5px;
+  -fx-border-width: 2px;
+  -fx-background-color: white;
+  -fx-right: 300px;
+
 }
 
 #user_login_button {
