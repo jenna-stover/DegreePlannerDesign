@@ -25,6 +25,7 @@ public class App extends Application {
     {
         scene = new Scene(loadFXML("/fxml/login"), 640, 480);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() 
         {
