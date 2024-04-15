@@ -17,9 +17,9 @@ module degreeplanner {
 
     exports degreeplanner;
 
-    // opens degreeplanner.design.design_code to javafx.fxml;
+    opens degreeplanner.design_code to javafx.fxml;
 
-    // exports degreeplanner.design.design_code;
+    exports degreeplanner.design_code;
 
     
 }

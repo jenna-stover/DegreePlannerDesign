@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -36,7 +37,7 @@ public class HomeController implements Initializable{
     private ProgressBar progress_bar;
 
     @FXML
-    private Text search_course;
+    private Group search_course;
 
     @FXML
     private ImageView search_img;
@@ -62,6 +63,12 @@ public class HomeController implements Initializable{
         App.setRoot("/fxml/home");
     }
 
+    @FXML
+    void goToSearchCourse(MouseEvent event) throws IOException {
+        System.out.println("Attempt to send to search course");
+        App.setRoot("/fxml/search_course");
+    }
+
     /**
      * loads data specific to the current user such as user's name and course information
      * @param location
@@ -84,10 +91,10 @@ public class HomeController implements Initializable{
         Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
 
         ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) {
+        for (Course course : courses) { //populating vbox
             Label courseLabel = new Label(course.getCourseName());
             courseLabel.getStyleClass().add("course-label");
-            semester_courses_vbox.getChildren().add(courseLabel);
+            semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
         }
     }
 
