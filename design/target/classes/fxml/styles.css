@@ -7,8 +7,6 @@
   -fx-border-radius: 5px;
   -fx-border-width: 2px;
   -fx-background-color: white;
-  -fx-right: 300px;
-
 }
 
 #user_login_button {
@@ -61,7 +59,19 @@
 .course-label {
   -fx-font-size: 16px;
   fx-padding: 10px;
- fx-background-color: #f4f4f4;
+  fx-background-color: #f4f4f4;
   -fx-margin: 5px;
   -fx-border-radius: 5px;
 }
+
+#search_pane{
+  -fx-border-color: #730003;
+  -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+  -fx-background-color: white;
+}
+
+#degreeplanner_search:hover{
+  -fx-text-fill: #730003;
+}
+

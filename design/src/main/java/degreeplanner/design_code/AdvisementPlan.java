@@ -12,6 +12,7 @@ public class AdvisementPlan
     private User advisor;
     public ArrayList<Course> courses;
     public String notes;
+    public String title;
 
     public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes)
     {

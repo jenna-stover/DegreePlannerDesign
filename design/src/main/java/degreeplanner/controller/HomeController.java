@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import degreeplanner.App;
+import degreeplanner.design_code.AdvisementPlan;
 import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
@@ -90,12 +91,20 @@ public class HomeController implements Initializable{
         semester_courses_vbox.getChildren().clear();  
         String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
         Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
+        ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
 
         ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) { //populating vbox
+        for (Course course : courses) //populating vbox
+        { 
             Label courseLabel = new Label(course.getCourseName());
             courseLabel.getStyleClass().add("course-label");
             semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
+        }
+        for (AdvisementPlan advPlan : advPlans)
+        {
+            Label planLabel = new Label(advPlan.title);
+            planLabel.getStyleClass().add("plan-label");
+            adv_notes_vbox.getChildren().add(planLabel);
         }
     }
 
