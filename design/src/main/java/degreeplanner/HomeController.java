@@ -1,11 +1,9 @@
-package degreeplanner.controller;
+package degreeplanner;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -16,10 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import degreeplanner.App;
-import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
-import degreeplanner.design_code.Student;
 
 public class HomeController implements Initializable{
 
@@ -46,7 +41,8 @@ public class HomeController implements Initializable{
 
     @FXML
     private ChoiceBox<String> semester_dropdown;
-    private String[] semester = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
+
+    private String[] semesters = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
                                     "Semester 5", "Semester 6", "Semester 7", "Semester 8"};
 
     @FXML
@@ -54,12 +50,17 @@ public class HomeController implements Initializable{
 
     @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
-        App.setRoot("/fxml/profile");
+        App.setRoot("/profile");
     }
 
     @FXML
     void goHome(MouseEvent event) throws IOException {
-        App.setRoot("/fxml/home");
+        App.setRoot("/home");
+    }
+
+    @FXML
+    void goToSearchCourse(MouseEvent event) {
+        App.setRoot("/search_course");
     }
 
     /**
@@ -69,26 +70,20 @@ public class HomeController implements Initializable{
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        HomeFacade homeFacade = HomeFacade.getInstance();
-        if(homeFacade.getLoggedInUser() != null){
-            user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
+        if(homeFacade.getUser() != null){
+            user_name_profile.setText(homeFacade.getUser());
         }
 
-        semester_dropdown.getItems().addAll(semester);
-        semester_dropdown.setOnAction(this::getSemester);
+        semester_dropdown.getItems().addAll(semesters);
+        semester_dropdown.setOnAction(this::getSemester());
     }
 
+    /**
+     * changes contents of vbox depending on semester chosen
+     */
     public void getSemester(ActionEvent event){
-        semester_courses_vbox.getChildren().clear();  
-        String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
-        Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
-
-        ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) {
-            Label courseLabel = new Label(course.getCourseName());
-            courseLabel.getStyleClass().add("course-label");
-            semester_courses_vbox.getChildren().add(courseLabel);
-        }
+        String mySemester = semester_dropdown.getValue();
+        semester_courses_vbox.setText();
     }
 
 }

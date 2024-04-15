@@ -165,6 +165,10 @@ public class HomeFacade {
         return student.getAllCourses();
     }
 
+    public ArrayList<Course> getCoursesForSemester(Student student, String semester) {
+        return student.getCoursesForSemester(semester);
+    }
+
     public boolean editCourse(String courseID, UserType userType, String newName, String newDescription)
     {
         return courseList.editCourse(courseID, userType, newName, newDescription);

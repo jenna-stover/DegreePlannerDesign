@@ -1,0 +1,64 @@
+.root {
+  -fx-background-color: #e6e6e6;
+}
+
+#login_area {
+  -fx-border-color: #730003;
+  -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+}
+
+#user_login_button {
+  -fx-background-color: #730003;
+  -fx-text-fill: white;
+}
+
+#user_login_button:hover{
+  -fx-border-color: #730003;
+  -fx-text-fill: #730003;
+  -fx-background-color: white;
+}
+
+#faculty_login_button {
+  -fx-background-color: #ab6668;
+  -fx-text-fill: white;
+}
+
+#faculty_login_button:hover {
+  -fx-border-color: #ab6668;
+  -fx-text-fill: #ab6668;
+  -fx-background-color: #730003;
+}
+
+#email_label, #password_label {
+  -fx-text-fill: #730003;
+}
+
+#semester_area {
+  -fx-border-color: #730003;
+  -fx-border-radius: 5px;
+}
+
+#progress_area {
+  -fx-border-color: #730003;
+  -fx-border-radius: 5px;
+}
+
+#progress_bar {
+  -fx-background-color: #730003;
+}
+
+#profile_area .content{
+  -fx-background-color: #73000430;
+  -fx-border-color: #730003;
+  -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+}
+
+.course-label {
+  -fx-font-size: 16px;
+  fx-padding: 10px;
+ fx-background-color: #f4f4f4;
+  -fx-margin: 5px;
+  -fx-border-radius: 5px;
+}
