@@ -25,7 +25,8 @@ public class LoginController implements  Initializable  {
     private Label lbl_error;
 
     @FXML
-    void btnLoginClicked(ActionEvent event) throws IOException {
+    void btnLoginClicked(ActionEvent event) throws IOException 
+    {
         String email = txt_email.getText();
         String password = txt_password.getText();
         HomeFacade homeFacade = HomeFacade.getInstance();

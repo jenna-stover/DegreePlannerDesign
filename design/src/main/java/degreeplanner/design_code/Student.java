@@ -382,7 +382,7 @@ public class Student extends User
     public ArrayList<Course> getCoursesForSemester(String semester) {
         int semesterNumber = Integer.parseInt(semester);
         DegreeList degreeList = DegreeList.getInstance();
-        DegreePlan degreePlan = degreeList.getDegree(student.currentMajor);
+        DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
 
         if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) {
             Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
