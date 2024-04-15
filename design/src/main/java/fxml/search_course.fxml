@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -22,19 +26,56 @@
       </Text>
       <Pane id="search_pane" fx:id="search_pane" layoutX="186.0" layoutY="89.0" prefHeight="166.0" prefWidth="327.0">
          <children>
-            <Label layoutX="125.0" layoutY="16.0" text="Search Course" />
+            <Label id="search_course_lbl" layoutX="107.0" layoutY="15.0" text="Search Course">
+              <font>
+                <Font name="Arial Bold" size="16.0" />
+              </font>
+            </Label>
             <Label layoutX="58.0" layoutY="62.0" text="Course ID: " />
             <TextField layoutX="142.0" layoutY="56.0" prefHeight="14.0" prefWidth="125.0" promptText="&quot;XXXX ###&quot;" />
-            <Button layoutX="138.0" layoutY="122.0" mnemonicParsing="false" text="Search" />
+            <Button id="search_button" fx:id="search_button" layoutX="138.0" layoutY="122.0" mnemonicParsing="false" text="Search" />
          </children>
       </Pane>
-      <VBox layoutX="16.0" layoutY="308.0" prefHeight="172.0" prefWidth="667.0" />
-      <Label layoutX="20.0" layoutY="283.0" text="Course Name" />
-      <Label layoutX="110.0" layoutY="283.0" text="Course ID" />
-      <Label layoutX="191.0" layoutY="283.0" text="Course Description" />
-      <Label layoutX="317.0" layoutY="282.0" text="Credit Hours" />
-      <Label layoutX="414.0" layoutY="275.0" prefHeight="32.0" prefWidth="121.0" text="Semesters Provided" />
-      <Label layoutX="545.0" layoutY="279.0" prefHeight="22.0" prefWidth="60.0" text="Pre-reqs" />
-      <Label layoutX="614.0" layoutY="280.0" prefHeight="22.0" prefWidth="60.0" text="Co-reqs" />
+      <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="16.0" layoutY="308.0" prefHeight="172.0" prefWidth="667.0" />
+      <Group layoutX="20.0" layoutY="275.0">
+         <children>
+            <Label layoutX="1.0" layoutY="9.0" text="Course Name">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="96.0" layoutY="9.0" text="Course ID">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font></Label>
+            <Label layoutX="173.0" layoutY="9.0" text="Course Description">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label layoutX="295.0" layoutY="9.0" text="Credit Hours">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label layoutX="394.0" prefHeight="32.0" prefWidth="121.0" text="Semesters Provided">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label layoutX="525.0" layoutY="4.0" prefHeight="22.0" prefWidth="60.0" text="Pre-reqs">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+            <Label layoutX="594.0" layoutY="5.0" prefHeight="22.0" prefWidth="60.0" text="Co-reqs">
+               <font>
+                  <Font size="12.0" />
+               </font></Label>
+         </children>
+      </Group>
+      <Separator layoutX="1.0" layoutY="60.0" prefHeight="10.0" prefWidth="699.0" />
+      <ImageView fx:id="user_profile" fitHeight="46.0" fitWidth="39.0" layoutX="655.0" layoutY="14.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user_profile.png" />
+         </image>
+      </ImageView>
+      <Label id="user_fullname" fx:id="user_fullname" layoutX="563.0" layoutY="34.0" prefHeight="17.0" prefWidth="91.0" />
    </children>
 </AnchorPane>
