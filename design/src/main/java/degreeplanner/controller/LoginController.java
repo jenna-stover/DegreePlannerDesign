@@ -24,6 +24,7 @@ public class LoginController implements  Initializable  {
 
     private Label lbl_error;
 
+    // Login button
     @FXML
     void btnLoginClicked(ActionEvent event) throws IOException 
     {
