@@ -266,9 +266,12 @@ public class Student extends User
      * @param semesterCourses
      * @return
      */
-    private boolean checkForCurrentCourse (ArrayList<Course> semesterCourses) {
-        for (Course course : semesterCourses) {
-            if (currentCourses.contains(course)) {
+    private boolean checkForCurrentCourse (ArrayList<Course> semesterCourses) 
+    {
+        for (Course course : semesterCourses) 
+        {
+            if (currentCourses.contains(course)) 
+            {
                 return true;
             }
         }
@@ -278,7 +281,8 @@ public class Student extends User
     //takes rendered current plan and puts into a text file
     public ArrayList<ArrayList<Course>> generatePlan(Major major)
     {
-        switch(major){
+        switch(major)
+        {
             case COMPUTER_SCIENCE:
                 
                 break;
@@ -289,25 +293,31 @@ public class Student extends User
         return eightSemesterPlan;
     }
 
-    public void generateWarnings(){
+    public void generateWarnings()
+    {
         warnings.clear();
         
 
-        if(GPA < 2.5){
+        if(GPA < 2.5)
+        {
             warnings.add(Warnings.INSUFFICIENT_DEGREE_GPA);
         }
 
-        if(hasScholarships && GPA < 3.0){
+        if(hasScholarships && GPA < 3.0)
+        {
             warnings.add(Warnings.INSUFFICIENT_SCHOLARSHIP_GPA);
         }
 
-        if(currentHours < 12){
+        if(currentHours < 12)
+        {
             warnings.add(Warnings.SCHOLARSHIP_REQUIREMENTS_NOT_MET);
         }
 
-        for(Course course : currentCourses){
+        for(Course course : currentCourses)
+        {
             String receivedGrade = course.getReceivedGrade(course);
-            if(receivedGrade == "F"){
+            if(receivedGrade == "F")
+            {
                 warnings.add(Warnings.FAILING_CLASS);
             }
             break;
@@ -323,17 +333,20 @@ public class Student extends User
     public void updateHours()
     {
         completedHours = 0;
-        for(Course course : completedCourses.keySet()){
+        for(Course course : completedCourses.keySet())
+        {
             completedHours += course.getCourseHours();
         }
 
         currentHours = 0;
-        for(Course course : currentCourses) {
+        for(Course course : currentCourses) 
+        {
             currentHours += course.getCourseHours();
         }
 
         incompleteHours = 0;
-        for(Course course : incompleteCourses){
+        for(Course course : incompleteCourses)
+        {
             incompleteHours += course.getCourseHours();
         }
 
@@ -385,7 +398,7 @@ public class Student extends User
         DegreeList degreeList = DegreeList.getInstance();
         DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
 
-        if (degreePlan != null && semesterNumber - 1 < degreePlan.semesterCourses.size()) 
+        if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
         {
             Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
             ArrayList<Course> coursesForSemester = new ArrayList<>();
