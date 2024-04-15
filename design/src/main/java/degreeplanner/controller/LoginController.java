@@ -3,6 +3,8 @@ package degreeplanner.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,9 +25,7 @@ public class LoginController implements  Initializable  {
     private Label lbl_error;
 
     @FXML
-
-    private void btnLoginClicked(MouseEvent event) throws IOException 
-    {
+    void btnLoginClicked(ActionEvent event) throws IOException {
         String email = txt_email.getText();
         String password = txt_password.getText();
         HomeFacade homeFacade = HomeFacade.getInstance();
@@ -36,7 +36,7 @@ public class LoginController implements  Initializable  {
             return;
         }
 
-        App.setRoot("");
+        App.setRoot("/fxml/home");
     }
     @FXML
     private void back(MouseEvent event) throws IOException {
