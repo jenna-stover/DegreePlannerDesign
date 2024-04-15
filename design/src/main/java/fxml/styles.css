@@ -83,3 +83,9 @@
 #search_course_lbl{
   -fx-text-fill: #730003;
 }
+
+#logout_button{
+  -fx-background-color: #ab6668;
+  -fx-text-fill: white;
+  -fx-background-radius: 30;
+}

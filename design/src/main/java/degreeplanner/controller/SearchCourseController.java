@@ -46,6 +46,11 @@ public class SearchCourseController implements Initializable{
       App.setRoot("/fxml/profile");
     }
 
+    @FXML
+    void userLogout(MouseEvent event) {
+      
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeFacade homeFacade = HomeFacade.getInstance();
