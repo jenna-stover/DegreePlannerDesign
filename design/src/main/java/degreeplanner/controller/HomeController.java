@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -36,7 +37,7 @@ public class HomeController implements Initializable{
     private ProgressBar progress_bar;
 
     @FXML
-    private Text search_course;
+    private Group search_course;
 
     @FXML
     private ImageView search_img;
@@ -60,6 +61,12 @@ public class HomeController implements Initializable{
     @FXML
     void goHome(MouseEvent event) throws IOException {
         App.setRoot("/fxml/home");
+    }
+
+    @FXML
+    void goToSearchCourse(MouseEvent event) throws IOException {
+        System.out.println("Attempt to send to search course");
+        App.setRoot("/fxml/search_course");
     }
 
     /**
