@@ -50,8 +50,8 @@ public class SearchCourseController implements Initializable{
     }
 
     @FXML
-    void userLogout(MouseEvent event) {
-      
+    void userLogout(MouseEvent event) throws IOException {
+      App.setRoot("/fxml/login");
     }
 
     @Override
