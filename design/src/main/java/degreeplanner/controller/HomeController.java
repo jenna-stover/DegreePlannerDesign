@@ -77,17 +77,24 @@ public class HomeController implements Initializable{
      * @param resources
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
         HomeFacade homeFacade = HomeFacade.getInstance();
-        if(homeFacade.getLoggedInUser() != null){
+        if(homeFacade.getLoggedInUser() != null)
+        {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
 
         semester_dropdown.getItems().addAll(semester);
         semester_dropdown.setOnAction(this::getSemester);
+        
+        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
+        ProgressBar profile = new ProgressBar();
+        profile.setProgress(prog);
     }
 
-    public void getSemester(ActionEvent event){
+    public void getSemester(ActionEvent event)
+    {
         semester_courses_vbox.getChildren().clear();  
         String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
         Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
