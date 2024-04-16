@@ -268,6 +268,7 @@ public class Student extends User
         }
         return result;
     }
+    
     public int getCurrentSemester()
     {
         int semester = 0;

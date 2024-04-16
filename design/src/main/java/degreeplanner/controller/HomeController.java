@@ -90,13 +90,19 @@ public class HomeController implements Initializable{
         
         Student student = (Student)HomeFacade.getInstance().getLoggedInUser();
         ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
-        for (AdvisementPlan advPlan : advPlans)
+        if(advPlans != null)
         {
-            Label planLabel = new Label(advPlan.title);
-            planLabel.getStyleClass().add("plan-label");
-            adv_notes_vbox.getChildren().add(planLabel);
+            for (AdvisementPlan advPlan : advPlans)
+            {
+                Label planLabel = new Label(advPlan.title);
+                planLabel.getStyleClass().add("plan-label");
+                adv_notes_vbox.getChildren().add(planLabel);
+            }
         }
-
+        else
+        {
+            
+        }
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
         ProgressBar profile = new ProgressBar();
         profile.setProgress(prog);
