@@ -82,9 +82,4 @@ public class SearchCourseController implements Initializable{
             searchCourseVBox.getChildren().add(courseLabel);
         }
       }
-
-
-
-    
-
 }
