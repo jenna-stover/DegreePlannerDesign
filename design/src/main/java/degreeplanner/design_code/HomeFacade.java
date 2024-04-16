@@ -269,4 +269,23 @@ public class HomeFacade {
         return "";
     }
 
+    public ArrayList<Course> searchCourses(String query) {
+        ArrayList<Course> matchingCourses = new ArrayList<>();
+    
+        // Get all courses from the course list
+        ArrayList<Course> allCourses = courseList.getCourses();
+    
+        // Iterate through each course to find matches
+        for (Course course : allCourses) {
+            // Check if the course name, ID, or description contains the query
+            if (course.getCourseName().toLowerCase().contains(query.toLowerCase()) ||
+                course.getCourseID().toLowerCase().contains(query.toLowerCase()) ||
+                course.getCourseDescription().toLowerCase().contains(query.toLowerCase())) {
+                matchingCourses.add(course);
+            }
+        }
+    
+        return matchingCourses;
+    }
+
 }
