@@ -36,7 +36,7 @@ public class LoginController implements  Initializable  {
         if(!homeFacade.login(email,password)) 
         {
             lbl_error.setText("Invalid login credentials.");
-            return;
+            return;    
         }
 
         App.setRoot("/fxml/home");
