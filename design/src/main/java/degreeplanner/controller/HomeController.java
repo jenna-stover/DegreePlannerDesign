@@ -77,21 +77,36 @@ public class HomeController implements Initializable{
      * @param resources
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) 
+    {
         HomeFacade homeFacade = HomeFacade.getInstance();
-        if(homeFacade.getLoggedInUser() != null){
+        if(homeFacade.getLoggedInUser() != null)
+        {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
 
         semester_dropdown.getItems().addAll(semester);
         semester_dropdown.setOnAction(this::getSemester);
+        
+        Student student = (Student)HomeFacade.getInstance().getLoggedInUser();
+        ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
+        for (AdvisementPlan advPlan : advPlans)
+        {
+            Label planLabel = new Label(advPlan.title);
+            planLabel.getStyleClass().add("plan-label");
+            adv_notes_vbox.getChildren().add(planLabel);
+        }
+
+        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
+        ProgressBar profile = new ProgressBar();
+        profile.setProgress(prog);
     }
 
-    public void getSemester(ActionEvent event){
+    public void getSemester(ActionEvent event)
+    {
         semester_courses_vbox.getChildren().clear();  
         String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
-        Student student = (Student) HomeFacade.getInstance().getLoggedInUser(); 
-        ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
+        Student student = (Student) HomeFacade.getInstance().getLoggedInUser();
 
         ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
         for (Course course : courses) //populating vbox
@@ -100,12 +115,5 @@ public class HomeController implements Initializable{
             courseLabel.getStyleClass().add("course-label");
             semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
         }
-        for (AdvisementPlan advPlan : advPlans)
-        {
-            Label planLabel = new Label(advPlan.title);
-            planLabel.getStyleClass().add("plan-label");
-            adv_notes_vbox.getChildren().add(planLabel);
-        }
     }
-
 }
