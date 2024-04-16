@@ -5,10 +5,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
-import degreeplanner.design_code.HomeFacade;
+import degreeplanner.design_code.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -48,9 +49,15 @@ public class ProfileController implements Initializable {
             userFullName.setText(homeFacade.getLoggedInUser().getUserFullName());
             userProfileTxt.setText(homeFacade.getLoggedInUser().getUserID());
             emailProfileTxt.setText(homeFacade.getLoggedInUser().getUserEmail());
-            // majorProfileTxt.setText(homeFacade.getLoggedInUser().getMajor());
-            // minorProfileTxt.setText(homeFacade.getLoggedInUser().getMinor());
-            // progressProfileText.setText(homeFacade.getLoggedInUser().getDegreeProgress());
+            majorProfileTxt.setText(((Student)homeFacade.getLoggedInUser()).getMajor().toString());
+            // minorProfileTxt.setText(homeFacade.getLoggedInUser().getMinor()); NO minor to be found
+            
+            double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
+            String progress = String.valueOf(prog);
+            progressProfileText.setText(progress); //last three lines for degree progess
+
+            ProgressBar profile = new ProgressBar();
+            profile.setProgress(prog);
         }
     }
-}
+} 
