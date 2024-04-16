@@ -374,7 +374,12 @@ public class Student extends User
 
     public double getDegreeProgress()
     {
-        return((double)completedHours/totalDegreeHours) * 100; //returns as a percentage
+        return ((double)completedHours/totalDegreeHours); //* 100; can return as a percentage
+    }
+
+    public Major getMajor()
+    {
+        return currentMajor;
     }
 
     public String toString()
