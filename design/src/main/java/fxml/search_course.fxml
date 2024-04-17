@@ -15,68 +15,75 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.SearchCourseController">
-<stylesheets>
-      <URL value="@styles.css" />
-</stylesheets>
-   <children>
-      <Text id="degreeplanner_search" fx:id="degreeplanner_search" layoutX="14.0" layoutY="42.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
-         <font>
-            <Font name="Arial Bold Italic" size="24.0" />
-         </font>
-      </Text>
-      <Pane id="search_pane" fx:id="search_pane" layoutX="186.0" layoutY="89.0" prefHeight="166.0" prefWidth="327.0">
-         <children>
-            <Label id="search_course_lbl" layoutX="107.0" layoutY="15.0" text="Search Course">
-              <font>
-                <Font name="Arial Bold" size="16.0" />
-              </font>
-            </Label>
-            <Label layoutX="58.0" layoutY="62.0" text="Course ID: " />
-            <TextField layoutX="142.0" layoutY="56.0" prefHeight="14.0" prefWidth="125.0" promptText="&quot;XXXX ###&quot;" />
-            <Button id="search_button" fx:id="search_button" layoutX="138.0" layoutY="122.0" mnemonicParsing="false" text="Search" />
-         </children>
-      </Pane>
-      <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="16.0" layoutY="308.0" prefHeight="145.0" prefWidth="667.0" />
-      <Group layoutX="20.0" layoutY="275.0">
-         <children>
-            <Label layoutX="1.0" layoutY="9.0" text="Course Name">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="96.0" layoutY="9.0" text="Course ID">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Label>
-            <Label layoutX="173.0" layoutY="9.0" text="Course Description">
-               <font>
-                  <Font size="12.0" />
-               </font></Label>
-            <Label layoutX="295.0" layoutY="9.0" text="Credit Hours">
-               <font>
-                  <Font size="12.0" />
-               </font></Label>
-            <Label layoutX="394.0" prefHeight="32.0" prefWidth="121.0" text="Semesters Provided">
-               <font>
-                  <Font size="12.0" />
-               </font></Label>
-            <Label layoutX="525.0" layoutY="4.0" prefHeight="22.0" prefWidth="60.0" text="Pre-reqs">
-               <font>
-                  <Font size="12.0" />
-               </font></Label>
-            <Label layoutX="594.0" layoutY="5.0" prefHeight="22.0" prefWidth="60.0" text="Co-reqs">
-               <font>
-                  <Font size="12.0" />
-               </font></Label>
-         </children>
-      </Group>
-      <Separator layoutX="1.0" layoutY="60.0" prefHeight="10.0" prefWidth="699.0" />
-      <ImageView fx:id="user_profile" fitHeight="46.0" fitWidth="39.0" layoutX="655.0" layoutY="14.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/user_profile.png" />
-         </image>
-      </ImageView>
-      <Label id="user_fullname" fx:id="user_fullname" layoutX="563.0" layoutY="34.0" prefHeight="17.0" prefWidth="91.0" />
-      <Button id="logout_button" fx:id="logout_button" layoutX="620.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout" />
-   </children>
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    <children>
+        <Text id="degreeplanner_search" fx:id="degreeplanner_search" layoutX="14.0" layoutY="42.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
+            <font>
+                <Font name="Arial Bold Italic" size="24.0" />
+            </font>
+        </Text>
+        <Pane id="search_pane" fx:id="search_pane" layoutX="186.0" layoutY="89.0" prefHeight="166.0" prefWidth="327.0">
+            <children>
+                <Label id="search_course_lbl" layoutX="107.0" layoutY="15.0" text="Search Course">
+                    <font>
+                        <Font name="Arial Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Label layoutX="58.0" layoutY="62.0" text="Course ID: " />
+                <TextField fx:id="courseIdTextField" layoutX="142.0" layoutY="56.0" prefHeight="14.0" prefWidth="125.0" promptText="&quot;XXXX ###&quot;" />
+                <Button id="search_button" fx:id="search_button" layoutX="62.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#searchCourses" text="Search by Name" />
+                <Button id="search_button_by_id" fx:id="search_button_by_id" layoutX="202.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#searchCourseById" text="Search by ID" />
+            </children>
+        </Pane>
+        <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="16.0" layoutY="308.0" prefHeight="145.0" prefWidth="667.0" />
+        <Group layoutX="20.0" layoutY="275.0">
+            <children>
+                <Label layoutX="1.0" layoutY="9.0" text="Course Name">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="96.0" layoutY="9.0" text="Course ID">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="173.0" layoutY="9.0" text="Course Description">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="295.0" layoutY="9.0" text="Credit Hours">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="394.0" prefHeight="32.0" prefWidth="121.0" text="Semesters Provided">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="525.0" layoutY="4.0" prefHeight="22.0" prefWidth="60.0" text="Pre-reqs">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="594.0" layoutY="5.0" prefHeight="22.0" prefWidth="60.0" text="Co-reqs">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </Group>
+        <Separator layoutX="1.0" layoutY="60.0" prefHeight="10.0" prefWidth="699.0" />
+        <ImageView fx:id="user_profile" fitHeight="46.0" fitWidth="39.0" layoutX="655.0" layoutY="14.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/user_profile.png" />
+            </image>
+        </ImageView>
+        <Label id="user_fullname" fx:id="user_fullname" layoutX="563.0" layoutY="34.0" prefHeight="17.0" prefWidth="91.0" />
+        <Button id="logout_button" fx:id="logout_button" layoutX="620.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout" />
+    </children>
 </AnchorPane>
