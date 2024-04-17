@@ -14,46 +14,46 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.LoginController">
     <children>
-      <Pane id="login_area" fx:id="login_area" layoutX="372.0" layoutY="128.0" prefHeight="202.0" prefWidth="321.0">
+      <Pane id="login_area" fx:id="login_area" layoutX="645.0" layoutY="215.0" prefHeight="305.0" prefWidth="464.0">
          <children>
-              <Button id="user_login_button" layoutX="240.0" layoutY="152.0" mnemonicParsing="false" onAction="#btnLoginClicked" prefHeight="26.0" prefWidth="67.0" text="Login">
+              <Button id="user_login_button" layoutX="346.0" layoutY="245.0" mnemonicParsing="false" onAction="#btnLoginClicked" prefHeight="33.0" prefWidth="92.0" text="Login">
                <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </Button>
-              <TextField id="email_field" fx:id="txt_email" alignment="CENTER_RIGHT" layoutX="114.0" layoutY="26.0" prefHeight="26.0" prefWidth="193.0" />
-              <Label id="email_label" layoutX="34.0" layoutY="31.0" text="Email:">
+              <TextField id="email_field" fx:id="txt_email" alignment="CENTER_RIGHT" layoutX="182.0" layoutY="50.0" prefHeight="39.0" prefWidth="260.0" />
+              <Label id="email_label" layoutX="28.0" layoutY="58.0" text="Email:">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </Label>
-              <Label id="password_label" layoutX="33.0" layoutY="91.0" text="Password:">
+              <Label id="password_label" layoutX="28.0" layoutY="127.0" text="Password:">
                <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial" size="20.0" />
                </font>
             </Label>
-              <TextField id="password_field" fx:id="txt_password" accessibleRole="PASSWORD_FIELD" alignment="CENTER_RIGHT" layoutX="114.0" layoutY="86.0" prefHeight="26.0" prefWidth="193.0" />
+              <TextField id="password_field" fx:id="txt_password" accessibleRole="PASSWORD_FIELD" alignment="CENTER_RIGHT" layoutX="180.0" layoutY="118.0" prefHeight="40.0" prefWidth="267.0" />
          </children>
       </Pane>
       <Group layoutX="385.0" layoutY="159.0" />
-      <ImageView id="login_logo_img1" fitHeight="155.0" fitWidth="271.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="login_logo_img1" fitHeight="223.0" fitWidth="558.0" layoutX="142.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/uofsc_logo.png" />
          </image>
       </ImageView>
-      <Text id="degreeplanner_login" layoutX="82.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" textAlignment="CENTER" wrappingWidth="227.4131353106049">
+      <Text id="degreeplanner_login" layoutX="176.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" textAlignment="CENTER" wrappingWidth="328.13224724826796">
          <font>
-            <Font name="Arial Bold Italic" size="30.0" />
+            <Font name="Arial Bold Italic" size="45.0" />
          </font>
       </Text>
-      <ImageView id="login_logo_img2" fitHeight="209.0" fitWidth="198.0" layoutX="100.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="login_logo_img2" fitHeight="373.0" fitWidth="378.0" layoutX="175.0" layoutY="382.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/gamecock_logo.png" />
          </image>
       </ImageView>
-      <Button id="faculty_login_button" layoutX="498.0" layoutY="387.0" mnemonicParsing="false" text="Faculty Login">
+      <Button id="faculty_login_button" layoutX="806.0" layoutY="613.0" mnemonicParsing="false" text="Faculty Login">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial" size="18.0" />
          </font>
       </Button>
     </children>
