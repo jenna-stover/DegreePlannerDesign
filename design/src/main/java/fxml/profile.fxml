@@ -17,11 +17,11 @@
             <Image url="@../images/home_icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="172.0" fitWidth="142.0" layoutX="540.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="172.0" fitWidth="142.0" layoutX="541.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user_profile.png" />
          </image></ImageView>
-      <Label id="userFullName" fx:id="userFullName" layoutX="500.0" layoutY="220.0" prefHeight="32.0" prefWidth="225.0" />
+      <Label id="userFullName" fx:id="userFullName" layoutX="497.0" layoutY="164.0" prefHeight="25.0" prefWidth="225.0" />
       <Label layoutX="376.0" layoutY="218.0" text="Username: ">
          <font>
             <Font name="Arial" size="24.0" />
@@ -47,8 +47,8 @@
                <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="540.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.3052978515625" />
-      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="545.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="127.54766845703125" />
+      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="533.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.3052978515625" />
+      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="522.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.58673095703125" />
       <Text id="majorProfileTxt" fx:id="majorProfileTxt" layoutX="522.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.43230078115096" />
       <Text id="minorProfileTxt" fx:id="minorProfileTxt" layoutX="519.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.7078857421875" />
       <Text id="progressProfileText" fx:id="progressProfileText" layoutX="664.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="58.39605712890625" />
