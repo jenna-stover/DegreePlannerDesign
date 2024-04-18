@@ -1,62 +1,74 @@
 package degreeplanner.controller;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ScrollBar;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import degreeplanner.App;
 import degreeplanner.design_code.AdvisementPlan;
 import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
-public class HomeController implements Initializable{
+public class HomeController {
 
     @FXML
-    private VBox adv_notes_vbox;
+    private ImageView adv_notes;
+
+    @FXML
+    private ImageView avatar_profile;
+
+    @FXML
+    private Label degreePercentage;
 
     @FXML
     private Text degreeplanner_home;
 
     @FXML
-    private ScrollBar notes_scrollbar;
-
-    @FXML
     private ProgressBar progress_bar;
 
     @FXML
-    private Group search_course;
+    private ImageView search_course;
 
     @FXML
-    private ImageView search_img;
+    private TableView<?> semester1Table;
 
     @FXML
-    private VBox semester_courses_vbox;
+    private TableView<?> semester2Table;
 
     @FXML
-    private ChoiceBox<String> semester_dropdown;
-    private String[] semester = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
-                                    "Semester 5", "Semester 6", "Semester 7", "Semester 8"};
+    private TableView<?> semester3Table;
 
     @FXML
-    private Label user_name_profile;
+    private TableView<?> semester4Table;
+
+    @FXML
+    private TableView<?> semester5Table;
+
+    @FXML
+    private TableView<?> semester6Table;
+
+    @FXML
+    private TableView<?> semester7Table;
+
+    @FXML
+    private TableView<?> semester8Table;
 
     @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
         App.setRoot("/fxml/profile");
+    }
+
+    @FXML
+    void goToAdvNotes(MouseEvent event) {
+        App.setRoot("/fxml/adv_notes");
     }
 
     // Go back to login?
@@ -84,42 +96,10 @@ public class HomeController implements Initializable{
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
-
-        semester_dropdown.getItems().addAll(semester);
-        semester_dropdown.setOnAction(this::getSemester);
         
-        Student student = (Student)HomeFacade.getInstance().getLoggedInUser();
-        ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
-        if(advPlans != null)
-        {
-            for (AdvisementPlan advPlan : advPlans)
-            {
-                Label planLabel = new Label(advPlan.title);
-                planLabel.getStyleClass().add("plan-label");
-                adv_notes_vbox.getChildren().add(planLabel);
-            }
-        }
-        else
-        {
-            
-        }
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
         ProgressBar profile = new ProgressBar();
         profile.setProgress(prog);
     }
 
-    public void getSemester(ActionEvent event)
-    {
-        semester_courses_vbox.getChildren().clear();  
-        String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
-        Student student = (Student) HomeFacade.getInstance().getLoggedInUser();
-
-        ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) //populating vbox
-        { 
-            Label courseLabel = new Label(course.getCourseName());
-            courseLabel.getStyleClass().add("course-label");
-            semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
-        }
-    }
 }
