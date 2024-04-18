@@ -37,8 +37,8 @@ public class HomeController implements Initializable{
     @FXML
     private ProgressBar progress_bar;
 
-    @FXML
-    private Group search_course;
+    // @FXML
+    // private ImageView search_course;
 
     @FXML
     private ImageView search_img;
@@ -46,13 +46,13 @@ public class HomeController implements Initializable{
     @FXML
     private VBox semester_courses_vbox;
 
-    @FXML
-    private ChoiceBox<String> semester_dropdown;
+    // @FXML
+    // private ChoiceBox<String> semester_dropdown;
     private String[] semester = {"Semester 1", "Semester 2", "Semester 3", "Semester 4",
                                     "Semester 5", "Semester 6", "Semester 7", "Semester 8"};
 
-    @FXML
-    private Label user_name_profile;
+    // @FXML
+    // private Label user_name_profile;
 
     @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
@@ -67,8 +67,12 @@ public class HomeController implements Initializable{
 
     @FXML
     void goToSearchCourse(MouseEvent event) throws IOException {
-        System.out.println("Attempt to send to search course");
+        // System.out.println("Attempt to send to search course");
         App.setRoot("/fxml/search_course");
+    }
+    @FXML
+    void goToAdvNotes(MouseEvent event) throws IOException {
+
     }
 
     /**
@@ -82,44 +86,44 @@ public class HomeController implements Initializable{
         HomeFacade homeFacade = HomeFacade.getInstance();
         if(homeFacade.getLoggedInUser() != null)
         {
-            user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
+            //user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
 
-        semester_dropdown.getItems().addAll(semester);
-        semester_dropdown.setOnAction(this::getSemester);
+        // semester_dropdown.getItems().addAll(semester);
+        // semester_dropdown.setOnAction(this::getSemester);
         
-        Student student = (Student)HomeFacade.getInstance().getLoggedInUser();
-        ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
-        if(advPlans != null)
-        {
-            for (AdvisementPlan advPlan : advPlans)
-            {
-                Label planLabel = new Label(advPlan.title);
-                planLabel.getStyleClass().add("plan-label");
-                adv_notes_vbox.getChildren().add(planLabel);
-            }
-        }
-        else
-        {
+        Student student = (Student)homeFacade.getLoggedInUser();
+        // ArrayList<AdvisementPlan> advPlans = student.advisementPlans;
+        // if(advPlans != null)
+        // {
+        //     for (AdvisementPlan advPlan : advPlans)
+        //     {
+        //         Label planLabel = new Label(advPlan.title);
+        //         planLabel.getStyleClass().add("plan-label");
+        //         adv_notes_vbox.getChildren().add(planLabel);
+        //     }
+        // }
+        // else
+        // {
             
-        }
+        // }
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
         ProgressBar profile = new ProgressBar();
         profile.setProgress(prog);
     }
 
-    public void getSemester(ActionEvent event)
-    {
-        semester_courses_vbox.getChildren().clear();  
-        String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
-        Student student = (Student) HomeFacade.getInstance().getLoggedInUser();
+    // public void getSemester(ActionEvent event)
+    // {
+    //     semester_courses_vbox.getChildren().clear();  
+    //     String selectedSemester = semester_dropdown.getValue().split(" ")[1];  
+    //     Student student = (Student) HomeFacade.getInstance().getLoggedInUser();
 
-        ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
-        for (Course course : courses) //populating vbox
-        { 
-            Label courseLabel = new Label(course.getCourseName());
-            courseLabel.getStyleClass().add("course-label");
-            semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
-        }
-    }
+    //     ArrayList<Course> courses = HomeFacade.getInstance().getCoursesForSemester(student, selectedSemester);
+    //     for (Course course : courses) //populating vbox
+    //     { 
+    //         Label courseLabel = new Label(course.getCourseName());
+    //         courseLabel.getStyleClass().add("course-label");
+    //         semester_courses_vbox.getChildren().add(courseLabel); //children are labels, parent is vbox
+    //     }
+    // }
 }
