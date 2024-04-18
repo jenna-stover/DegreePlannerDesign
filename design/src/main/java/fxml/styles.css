@@ -91,5 +91,24 @@
 }
 
 #facultyLoginPane {
+  -fx-border-color: #730003;
+  -fx-border-radius: 5px;
+  -fx-border-width: 2px;
+  -fx-background-color: white;
+}
+
+#facultyLoginButton {
+  -fx-background-color: #730003;
+  -fx-text-fill: white;
+  -fx-background-radius: 20;
+}
+
+#studentLoginButton {
+  -fx-background-color: #ab6668;
+  -fx-text-fill: white;
+}
+
+#sem1, #sem2, #sem3, #sem4, #sem5, #sem6, #sem7, #sem8 {
+  -fx-background-color: white;
   
 }
