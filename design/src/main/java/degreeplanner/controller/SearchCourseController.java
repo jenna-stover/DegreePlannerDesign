@@ -102,13 +102,13 @@ public class SearchCourseController implements Initializable {
     searchCourseVBox.getChildren().clear();
 
     
-    Label courseNameLabel = new Label("Course Name: " + course.getCourseName());
-    Label courseIdLabel = new Label("Course ID: " + course.getCourseID());
-    Label courseDescriptionLabel = new Label("Course Description: " + course.getCourseDescription());
-    Label courseHoursLabel = new Label("Course Hours: " + course.getCourseHours());
-    Label semestersProvidedLabel = new Label("Semesters Provided: " + String.join(", ", course.getSemestersProvided()));
-    Label preReqsLabel = new Label("Pre-requisites: " + course.reqsToString());
-    Label coReqsLabel = new Label("Co-requisites: " + course.reqsToString());
+    Label courseNameLabel = new Label(course.getCourseName());
+    Label courseIdLabel = new Label(course.getCourseID());
+    Label courseDescriptionLabel = new Label(course.getCourseDescription());
+    Label courseHoursLabel = new Label(String.valueOf(course.getCourseHours()));
+    Label semestersProvidedLabel = new Label(String.join(", ", course.getSemestersProvided()));
+    Label preReqsLabel = new Label(course.prereqsToString());
+    Label coReqsLabel = new Label(course.coreqsToString());
 
     
     courseDescriptionLabel.setWrapText(true);

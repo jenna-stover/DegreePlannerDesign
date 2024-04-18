@@ -164,4 +164,52 @@ public class Course
         return retString;
     }
 
+    public String prereqsToString()
+    {
+        CourseList tempCList = CourseList.getInstance();
+        String retString = "";
+        if(coursePrereqUUID.size() < 1)
+        {
+            retString += "No Prerequisite Courses";
+        } else {
+            for(int i = 0; i < coursePrereqUUID.size(); i++)
+            {
+                HashMap<UUID, String> temp = coursePrereqUUID.get(i);
+                for (Map.Entry<UUID, String> entry : temp.entrySet())
+                {
+                    Course tempCourse = tempCList.getCourseByUUID(entry.getKey());
+                    retString += tempCourse.getCourseID() + " Min Grade: " + entry.getValue() + " AND ";
+                }
+                retString = retString.substring(0, retString.length() - 5);
+                if (i < coursePrereqUUID.size() - 1)
+                    retString += "\nOR\n";
+            }
+        }
+        return retString;
+    }
+
+    public String coreqsToString()
+    {
+        CourseList tempCList = CourseList.getInstance();
+        String retString = "";
+        if(courseCoreqUUID.size() < 1)
+        {
+            retString += "No Prerequisite Courses";
+        } else {
+            for(int i = 0; i < courseCoreqUUID.size(); i++)
+            {
+                HashMap<UUID, String> temp = courseCoreqUUID.get(i);
+                for (Map.Entry<UUID, String> entry : temp.entrySet())
+                {
+                    Course tempCourse = tempCList.getCourseByUUID(entry.getKey());
+                    retString += tempCourse.getCourseID() + " AND ";
+                }
+                retString = retString.substring(0, retString.length() - 5);
+                if (i < courseCoreqUUID.size() - 1)
+                    retString += "\nOR\n";
+            }
+        }
+        return retString;
+    }
+
 }
