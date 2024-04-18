@@ -31,7 +31,7 @@ public class HomeFacade {
         userList.updateAdviseStuList();
         degreeList = DegreeList.getInstance();
         advisementPlanList = AdvisementPlanList.getInstance();
-       // userList.updatePlans(advisementPlanList);
+        userList.updatePlans();
         this.searchedCourse = searchedCourse;
         //this.users = new ArrayList<User>();
         this.degreePlan = degreePlan; //should we create new DegreePlan?

@@ -404,8 +404,9 @@ public class ReadFile extends DataConstants
 				// ArrayList<UUID> advisedCoursesUUID = (JSONArray)advPlan.get(ADVISED_COURSES);
 				// ArrayList<Course> advisedCourses = new ArrayList<Course>();
 				String attachedNotes = (String)advPlan.get(ATTACHED_NOTES);
+				String title = (String)advPlan.get(TITLE);
 
-				AdvisementPlan tempPlan = new AdvisementPlan(planID, student, advisor, advisedCourses, attachedNotes);
+				AdvisementPlan tempPlan = new AdvisementPlan(planID, student, advisor, advisedCourses, attachedNotes, title);
 				advisePlanList.add(tempPlan);
 			}
 			return advisePlanList;

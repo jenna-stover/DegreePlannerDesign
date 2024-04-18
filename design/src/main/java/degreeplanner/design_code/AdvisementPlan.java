@@ -14,13 +14,14 @@ public class AdvisementPlan
     public String notes;
     public String title;
 
-    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes)
+    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title)
     {
         this.AdvisementPlanUUID = planID;
         this.student = student;
         this.advisor = advisor;
         this.courses = courses;
         this.notes = attachedNotes;
+        this.title = title;
     }
 
     public AdvisementPlan(UUID planID, User student, User advisor, String attachedNotes)
