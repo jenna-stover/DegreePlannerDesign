@@ -4,6 +4,8 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +15,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.HomeController">
    <children>
-      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="524.0" layoutY="40.0" prefHeight="26.0" prefWidth="413.0" progress="0.0" />
+      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="506.0" layoutY="40.0" prefHeight="26.0" prefWidth="413.0" progress="0.0" />
       <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="19.0" layoutY="53.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="264.16618582674266">
          <font>
             <Font name="Arial Bold Italic" size="36.0" />
@@ -25,12 +27,12 @@
          <image>
             <Image url="@../images/user_profile.png" />
          </image></ImageView>
-      <ImageView id="search_img" fx:id="search_course" fitHeight="55.0" fitWidth="55.0" layoutX="1076.0" layoutY="16.0" onMouseClicked="#goToSearchCourse" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="search_img" fx:id="search_course" fitHeight="47.0" fitWidth="52.0" layoutX="1081.0" layoutY="23.0" onMouseClicked="#goToSearchCourse" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/search_icon.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="adv_notes" fitHeight="55.0" fitWidth="55.0" layoutX="996.0" layoutY="17.0" onMouseClicked="#goToAdvNotes" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="adv_notes" fitHeight="63.0" fitWidth="68.0" layoutX="1001.0" layoutY="16.0" onMouseClicked="#goToAdvNotes" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/notes_icon.png" />
          </image>
@@ -39,14 +41,128 @@
          <font>
             <Font name="Arial" size="18.0" />
          </font></Text>
-      <Pane id="sem1" layoutX="27.0" layoutY="93.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem2" layoutX="338.0" layoutY="94.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem3" layoutX="643.0" layoutY="94.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem4" layoutX="945.0" layoutY="92.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem5" layoutX="37.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem6" layoutX="342.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem7" layoutX="646.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0" />
-      <Pane id="sem8" layoutX="948.0" layoutY="429.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem1" layoutX="27.0" layoutY="93.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <TableView id="semester1Table" fx:id="semester1Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+              <columns>
+                <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+              </columns>
+            </TableView>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 1">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane id="sem2" layoutX="338.0" layoutY="94.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 2">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester2Table" fx:id="semester2Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="sem3" layoutX="643.0" layoutY="94.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 3">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester3Table" fx:id="semester3Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="sem4" layoutX="945.0" layoutY="92.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="92.0" layoutY="4.0" text="Semester 4">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester4Table" fx:id="semester4Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="sem5" layoutX="28.0" layoutY="429.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 5">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester5Table" fx:id="semester5Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane id="sem6" layoutX="342.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 6">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester6Table" fx:id="semester6Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="sem7" layoutX="646.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 7">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester7Table" fx:id="semester7Table" layoutX="1.0" layoutY="30.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Pane id="sem8" layoutX="948.0" layoutY="429.0" prefHeight="302.0" prefWidth="278.0">
+         <children>
+            <Label layoutX="98.0" layoutY="4.0" text="Semester 8">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <TableView id="semester8Table" fx:id="semester8Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
+               <columns>
+                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+               </columns>
+            </TableView>
+         </children></Pane>
+      <Label id="degreePercentage" fx:id="degreePercentage" layoutX="929.0" layoutY="40.0" prefHeight="26.0" prefWidth="30.0" />
    </children>
    <stylesheets>
       <URL value="@styles.css" />
