@@ -81,7 +81,7 @@ public class HomeController implements Initializable{
 
     @FXML
     void goToSearchCourse(MouseEvent event) throws IOException {
-        System.out.println("Attempt to send to search course");
+        // System.out.println("Attempt to send to search course");
         App.setRoot("/fxml/search_course");
     }
 
@@ -96,7 +96,7 @@ public class HomeController implements Initializable{
         HomeFacade homeFacade = HomeFacade.getInstance();
         if(homeFacade.getLoggedInUser() != null)
         {
-            user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
+            //user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
         
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
