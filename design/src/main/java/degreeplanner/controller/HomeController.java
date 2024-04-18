@@ -1,15 +1,14 @@
 package degreeplanner.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
-import degreeplanner.design_code.AdvisementPlan;
-import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableView;
@@ -17,7 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class HomeController {
+public class HomeController implements Initializable{
 
     @FXML
     private ImageView adv_notes;
@@ -62,12 +61,15 @@ public class HomeController {
     private TableView<?> semester8Table;
 
     @FXML
+    private Label user_name_profile;
+
+    @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
         App.setRoot("/fxml/profile");
     }
 
     @FXML
-    void goToAdvNotes(MouseEvent event) {
+    void goToAdvNotes(MouseEvent event) throws IOException {
         App.setRoot("/fxml/adv_notes");
     }
 
