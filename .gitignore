@@ -1,7 +1,4 @@
 # Ignore Maven pom.xml file
 pom.xml
-<<<<<<< HEAD
-=======
 target/
 *.class
->>>>>>> 33be60dd04bdfc030d47c1e134aac5ce16582602
