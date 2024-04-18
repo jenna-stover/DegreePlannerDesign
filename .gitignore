@@ -1,4 +1,4 @@
 # Ignore Maven pom.xml file
-pom.xml
+# pom.xml
 target/
 *.class
