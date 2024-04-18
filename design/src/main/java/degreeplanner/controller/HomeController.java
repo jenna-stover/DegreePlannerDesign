@@ -2,10 +2,6 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
->>>>>>> 05103de021b826fb7906304b8996e5e73dea4d7d
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
