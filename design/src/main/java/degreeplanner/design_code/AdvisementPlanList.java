@@ -1,16 +1,22 @@
 package degreeplanner.design_code;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 import java.util.UUID;
 
 public class AdvisementPlanList 
 {
     private static AdvisementPlanList advisementPlanList;
-    private HashMap<UUID, AdvisementPlan> advisementPlan;
+    private HashMap<UUID, AdvisementPlan> advisementPlanByUUID;
 
     private AdvisementPlanList() 
     {
-        advisementPlan = new HashMap<UUID, AdvisementPlan>();
+        advisementPlanByUUID = new HashMap<UUID, AdvisementPlan>();
+        ArrayList<AdvisementPlan> tempPlanList = ReadFile.readAdvisePlans();
+        for(AdvisementPlan plan : tempPlanList)
+        {
+            advisementPlanByUUID.put(plan.getPlanID(), plan);
+        }
     }
 
     public static AdvisementPlanList getInstance()
@@ -23,9 +29,22 @@ public class AdvisementPlanList
         return advisementPlanList;
     }
 
+    public HashMap<UUID, AdvisementPlan> getAllListHash()
+    {
+        return advisementPlanByUUID;
+    }
     public ArrayList<AdvisementPlan> getAllList()
     {
-        return null;
+        ArrayList<AdvisementPlan> tempRet = new ArrayList<>();
+        for(Entry<UUID, AdvisementPlan> entry : advisementPlanByUUID.entrySet())
+        {
+            tempRet.add(entry.getValue());
+        }
+        return tempRet;
+    }
+    public AdvisementPlan getPlanByUUID(UUID inKey)
+    {
+        return advisementPlanByUUID.get(inKey);
     }
 
     public boolean AddPlan(AdvisementPlan newPlan)

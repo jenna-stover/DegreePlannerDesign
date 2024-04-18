@@ -11,47 +11,47 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.ProfileController">
    <children>
-      <TextArea fx:id="profile_area" layoutX="48.0" layoutY="11.0" prefHeight="464.0" prefWidth="334.0" />
-      <ImageView id="homeIcon" fx:id="homeIcon" fitHeight="38.0" fitWidth="32.0" layoutX="13.0" layoutY="14.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">
+      <TextArea fx:id="profile_area" layoutX="307.0" layoutY="11.0" prefHeight="788.0" prefWidth="599.0" />
+      <ImageView id="homeIcon" fx:id="homeIcon" fitHeight="64.0" fitWidth="77.0" layoutX="8.0" layoutY="9.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/home_icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="83.0" fitWidth="75.0" layoutX="178.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="172.0" fitWidth="142.0" layoutX="541.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user_profile.png" />
          </image></ImageView>
-      <Label id="userFullName" fx:id="userFullName" layoutX="163.0" layoutY="105.0" prefHeight="16.0" prefWidth="105.0" />
-      <Label layoutX="78.0" layoutY="142.0" text="Username: ">
+      <Label id="userFullName" fx:id="userFullName" layoutX="497.0" layoutY="164.0" prefHeight="25.0" prefWidth="225.0" />
+      <Label layoutX="376.0" layoutY="218.0" text="Username: ">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="173.0" text="Email: ">
+      <Label layoutX="376.0" layoutY="265.0" text="Email: ">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="235.0" text="Major:">
+      <Label layoutX="375.0" layoutY="362.0" text="Major:">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="78.0" layoutY="263.0" text="Minor: ">
+      <Label layoutX="381.0" layoutY="434.0" text="Minor: ">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="108.0" layoutY="343.0" text="Degree Progress: ">
+      <Label layoutX="454.0" layoutY="587.0" text="Degree Progress: ">
          <font>
-               <Font name="Arial" size="13.0" />
+               <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="156.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.5" />
-      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="156.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.5" />
-      <Text id="majorProfileTxt" fx:id="majorProfileTxt" layoutX="156.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.5" />
-      <Text id="minorProfileTxt" fx:id="minorProfileTxt" layoutX="156.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.5" />
-      <Text id="progressProfileText" fx:id="progressProfileText" layoutX="220.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="96.5" />
+      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="533.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.3052978515625" />
+      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="522.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.58673095703125" />
+      <Text id="majorProfileTxt" fx:id="majorProfileTxt" layoutX="522.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.43230078115096" />
+      <Text id="minorProfileTxt" fx:id="minorProfileTxt" layoutX="519.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.7078857421875" />
+      <Text id="progressProfileText" fx:id="progressProfileText" layoutX="664.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="58.39605712890625" />
    </children>
    <stylesheets>
       <URL value="@styles.css" />

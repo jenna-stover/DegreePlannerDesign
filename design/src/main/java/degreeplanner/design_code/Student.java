@@ -281,6 +281,12 @@ public class Student extends User
         return semester;
     }
 
+    public void addAdvPlan(AdvisementPlan inPlan)
+    {
+        if(this.advisementPlans == null) this.advisementPlans = new ArrayList<>();
+        this.advisementPlans.add(inPlan);
+    }
+
     /**
      * helper method for getCurrentSemester() to find a current course within the semesterCourses ArrayList
      * @param semesterCourses
