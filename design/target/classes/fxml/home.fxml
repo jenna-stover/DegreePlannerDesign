@@ -2,61 +2,52 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.Group?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollBar?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.HomeController">
    <children>
-      <TextArea id="semester_area" layoutX="15.0" layoutY="103.0" prefHeight="433.0" prefWidth="402.0" />
-      <TextArea id="progress_area" layoutX="727.0" layoutY="111.0" prefHeight="634.0" prefWidth="457.0" />
-      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="834.0" layoutY="276.0" prefHeight="26.0" prefWidth="278.0" progress="0.0" />
-      <Label id="progress_label" layoutX="910.0" layoutY="151.0" text="Degree Progress">
-         <font>
-            <Font name="Arial" size="20.0" />
-         </font>
-      </Label>
-      <Separator layoutX="268.0" layoutY="118.0" orientation="VERTICAL" prefHeight="360.0" prefWidth="10.0" />
+      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="580.0" layoutY="26.0" prefHeight="26.0" prefWidth="413.0" progress="0.0" />
       <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="14.0" layoutY="42.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
          <font>
             <Font name="Arial Bold Italic" size="24.0" />
          </font>
       </Text>
       <Label id="percentage_label" layoutX="732.0" layoutY="147.0" prefHeight="22.0" prefWidth="30.0" />
-      <ScrollBar id="notes_scrollbar" fx:id="notes_scrollbar" layoutX="1162.0" layoutY="365.0" orientation="VERTICAL" prefHeight="372.0" prefWidth="15.0" />
-      <Text layoutX="882.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advisement Notes">
-         <font>
-            <Font name="Arial Bold" size="18.0" />
-         </font>
-      </Text>
       <Group fx:id="search_course" layoutX="454.0" layoutY="92.0" onMouseClicked="#goToSearchCourse" />
       <Label id="user_name_profile" fx:id="user_name_profile" layoutX="626.0" layoutY="35.0" prefHeight="18.0" prefWidth="86.0" />
-      <ChoiceBox fx:id="semester_dropdown" layoutX="131.0" layoutY="79.0" prefWidth="150.0" />
-      <ImageView id="user_profile" fx:id="avatar_profile" fitHeight="53.0" fitWidth="55.0" layoutX="1149.0" layoutY="18.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="user_profile" fx:id="avatar_profile" fitHeight="57.0" fitWidth="56.0" layoutX="1150.0" layoutY="18.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user_profile.png" />
          </image></ImageView>
-      <VBox id="semester_courses_vbox" fx:id="semester_courses_vbox" layoutX="6.0" layoutY="119.0" prefHeight="357.0" prefWidth="260.0" />
-      <VBox id="adv_notes_vbox" fx:id="adv_notes_vbox" layoutX="464.0" layoutY="218.0" prefHeight="263.0" prefWidth="273.0" />
-      <ImageView id="search_img" fitHeight="52.0" fitWidth="54.0" layoutX="1091.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="search_img" fx:id="search_course" fitHeight="55.0" fitWidth="55.0" layoutX="1088.0" layoutY="17.0" onMouseClicked="#goToSearchCourse" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/search_icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="1024.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="adv_notes" fitHeight="55.0" fitWidth="55.0" layoutX="1024.0" layoutY="17.0" onMouseClicked="#goToAdvNotes" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/notes_icon.png" />
          </image>
       </ImageView>
+      <Text layoutX="466.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Degree Progress:" wrappingWidth="166.99848127267768" />
+      <Pane id="sem1" layoutX="27.0" layoutY="93.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem2" layoutX="338.0" layoutY="94.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem3" layoutX="642.0" layoutY="101.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem4" layoutX="929.0" layoutY="98.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem5" layoutX="41.0" layoutY="411.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem6" layoutX="371.0" layoutY="420.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem7" layoutX="646.0" layoutY="428.0" prefHeight="302.0" prefWidth="278.0" />
+      <Pane id="sem8" layoutX="946.0" layoutY="433.0" prefHeight="302.0" prefWidth="278.0" />
+      <Label fx:id="currentUserName" layoutX="233.0" layoutY="14.0" prefHeight="17.0" prefWidth="116.0" />
+      <Label fx:id="currentUserMajor" layoutX="232.0" layoutY="39.0" prefHeight="18.0" prefWidth="38.0" />
+      <Label fx:id="currentUserGrade" layoutX="282.0" layoutY="37.0" prefHeight="18.0" prefWidth="46.0" />
    </children>
    <stylesheets>
       <URL value="@styles.css" />
