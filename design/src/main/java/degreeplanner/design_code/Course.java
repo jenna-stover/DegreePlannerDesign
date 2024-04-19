@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.Map.Entry;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Course
 {
     private UUID courseUUID;
@@ -18,6 +21,9 @@ public class Course
     public int courseHours;
     public String requiredGrade;
     public ArrayList<String> semesterProvided;
+    public SimpleStringProperty course; //course name for tableview
+    public SimpleStringProperty credits;
+    public SimpleStringProperty grade;
 
     /**
      * Course constructor method to initialize the attributes, and avoids null references
@@ -43,7 +49,22 @@ public class Course
         this.courseHours = courseHours;
         this.requiredGrade = requiredGrade;
         this.semesterProvided = (semesterProvided != null) ? new ArrayList<>(semesterProvided) : new ArrayList<>();
+        this.course = new SimpleStringProperty(courseID);
+        this.credits = new SimpleStringProperty(((Integer)courseHours).toString());
+
+
     }
+
+    public Property<String> courseProperty()
+    {
+        return course;
+    }
+
+    public Property<String> creditsProperty()
+    {
+        return credits;
+    }
+
 
     /**
      * getter method for other classes to access the courseUUID private attribute

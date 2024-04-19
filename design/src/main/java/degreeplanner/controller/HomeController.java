@@ -9,11 +9,15 @@ import degreeplanner.App;
 import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -37,30 +41,6 @@ public class HomeController implements Initializable{
 
     @FXML
     private ImageView search_course;
-
-    // @FXML
-    // private TableView<?> semester1Table;
-
-    // @FXML
-    // private TableView<?> semester2Table;
-
-    // @FXML
-    // private TableView<?> semester3Table;
-
-    // @FXML
-    // private TableView<?> semester4Table;
-
-    // @FXML
-    // private TableView<?> semester5Table;
-
-    // @FXML
-    // private TableView<?> semester6Table;
-
-    // @FXML
-    // private TableView<?> semester7Table;
-
-    // @FXML
-    // private TableView<?> semester8Table;
 
     @FXML
     private TableView<Course> semester1Table;
@@ -142,11 +122,20 @@ public class HomeController implements Initializable{
         profile.setProgress(prog);
     }
 
-    private void populateSemesterCourses(TableView<Course> table, String semester) {
+    private void populateSemesterCourses(TableView<Course> table, String semester) 
+    {
         HomeFacade homeFacade = HomeFacade.getInstance();
         Student loggedInUser = (Student) homeFacade.getLoggedInUser();
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
-        table.getItems().addAll(courses);
+        ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
+        TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
+        TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
+        //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
+        table.getColumns().addAll(course, credits);
+        course.setCellValueFactory(cellData -> cellData.getValue().courseProperty());
+        credits.setCellValueFactory(cellData -> cellData.getValue().creditsProperty());
+        //grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
+        table.setItems(presentableCourses);
     }
 
 }
