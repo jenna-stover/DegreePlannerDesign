@@ -113,3 +113,31 @@
   -fx-border-color: #730003;
   -fx-border-radius: 5px;
 }
+
+#facultyNotePane {
+  -fx-background-color: white;
+  -fx-border-radius: 5px;
+}
+
+#adviseeTable {
+  -fx-border-color: black;
+  -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+  -fx-background-color: transparent;
+}
+
+#adviseeTable .table-cell {
+  -fx-border-color: black;
+}
+
+#adviseeTable .column-header{
+  -fx-background-color: #730003;
+  
+}
+
+#adviseeTable .column-header .label {
+  -fx-text-fill: white;
+  -fx-font-size: 16px;
+  -fx-padding: 10px;
+ 
+}
