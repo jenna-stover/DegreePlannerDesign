@@ -103,6 +103,9 @@ public class HomeController implements Initializable{
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
+        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
+        //ProgressBar progress_bar = new ProgressBar(0);
+        progress_bar.setProgress(prog);
 
          // Populate courses for each semester
          populateSemesterCourses(semester1Table, "Semester 1");
@@ -114,10 +117,6 @@ public class HomeController implements Initializable{
          populateSemesterCourses(semester7Table, "Semester 7");
          populateSemesterCourses(semester8Table, "Semester 8");
  
-        
-        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
-        ProgressBar profile = new ProgressBar();
-        profile.setProgress(prog);
     }
 
     private void populateSemesterCourses(TableView<Course> table, String semester) 

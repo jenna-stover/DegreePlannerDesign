@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.HomeController">
    <children>
-      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="484.0" layoutY="753.0" prefHeight="26.0" prefWidth="413.0" progress="0.0" />
+      <ProgressBar id="progress_bar" fx:id="progress_bar" layoutX="463.0" layoutY="751.0" prefHeight="26.0" prefWidth="413.0" progress="1.0" />
       <Text id="degreeplanner_home" fx:id="degreeplanner_home" layoutX="19.0" layoutY="53.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="264.16618582674266">
          <font>
             <Font name="Arial Bold Italic" size="36.0" />
