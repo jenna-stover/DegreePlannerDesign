@@ -132,8 +132,8 @@ public class HomeController implements Initializable{
         TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
         //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
         table.getColumns().addAll(course, credits);
-        course.setCellValueFactory(new PropertyValueFactory<Course, String>("course"));
-        credits.setCellValueFactory(new PropertyValueFactory<Course, String>("credits"));
+        course.setCellValueFactory(cellData -> cellData.getValue().courseProperty());
+        credits.setCellValueFactory(cellData -> cellData.getValue().creditsProperty());
         //grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
         table.setItems(presentableCourses);
     }
