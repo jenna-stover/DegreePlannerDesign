@@ -423,30 +423,111 @@ public class Student extends User
         return result;
     }
 
-    public ArrayList<Course> getCoursesForSemester(String semester) 
-    {
-        int semesterNumber = Integer.parseInt(semester);
-        DegreeList degreeList = DegreeList.getInstance();
-        DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
+    // public ArrayList<Course> getCoursesForSemester(String semester) 
+    // {
+    //     int semesterNumber = Integer.parseInt(semester);
+    //     DegreeList degreeList = DegreeList.getInstance();
+    //     DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
 
-        if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
-        {
-            Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
-            ArrayList<Course> coursesForSemester = new ArrayList<>();
+    //     if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
+    //     {
+    //         Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
+    //         ArrayList<Course> coursesForSemester = new ArrayList<>();
     
-            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
-            {
-                if (!courseOptions.isEmpty()) 
-                {
+    //         for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
+    //         {
+    //             if (!courseOptions.isEmpty()) 
+    //             {
+    //                 coursesForSemester.add(courseOptions.get(0));
+    //             }
+    //         }
+    
+    //         return coursesForSemester;
+    //     }
+        
+    //     return new ArrayList<>();
+    // }
+//     public ArrayList<Course> getCoursesForSemester(String semester) 
+// {
+//     try {
+//         int semesterNumber = Integer.parseInt(semester);
+//         DegreeList degreeList = DegreeList.getInstance();
+//         DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
+
+//         if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
+//         {
+//             Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
+//             ArrayList<Course> coursesForSemester = new ArrayList<>();
+    
+//             for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
+//             {
+//                 if (!courseOptions.isEmpty()) 
+//                 {
+//                     coursesForSemester.add(courseOptions.get(0));
+//                 }
+//             }
+    
+//             return coursesForSemester;
+//         }
+//     } catch (NumberFormatException e) {
+//         // Handle the case where the semester string is not a valid number
+//         e.printStackTrace();
+//     }
+    
+//     return new ArrayList<>();
+// }
+public ArrayList<Course> getCoursesForSemester(String semesterString) {
+    DegreeList degreeList = DegreeList.getInstance();
+    DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
+
+    if (degreePlan != null) {
+        int semesterIndex;
+        switch (semesterString) {
+            case "Semester 1":
+                semesterIndex = 0;
+                break;
+            case "Semester 2":
+                semesterIndex = 1;
+                break;
+            case "Semester 3":
+                semesterIndex = 2;
+                break;
+            case "Semester 4":
+                semesterIndex = 3;
+                break;
+            case "Semester 5":
+                semesterIndex = 4;
+                break;
+            case "Semester 6":
+                semesterIndex = 5;
+                break;
+            case "Semester 7":
+                semesterIndex = 6;
+                break;
+            case "Semester 8":
+                semesterIndex = 7;
+                break;
+            default:
+                semesterIndex = -1;
+        }
+
+        if (semesterIndex >= 0 && semesterIndex < degreePlan.semesterCourses.size()) {
+            Semester selectedSemester = degreePlan.semesterCourses.get(semesterIndex);
+            ArrayList<Course> coursesForSemester = new ArrayList<>();
+
+            for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) {
+                if (!courseOptions.isEmpty()) {
                     coursesForSemester.add(courseOptions.get(0));
                 }
             }
-    
+
             return coursesForSemester;
         }
-        
-        return new ArrayList<>();
     }
+
+    return new ArrayList<>();
+}
+
 
 //    public Tabs selectView()
 //      return null;
