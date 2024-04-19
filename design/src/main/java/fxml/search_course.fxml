@@ -31,13 +31,21 @@
                         <Font name="Arial Bold" size="16.0" />
                     </font>
                 </Label>
-                <Label layoutX="58.0" layoutY="62.0" text="Course ID: " />
-                <TextField fx:id="courseIdTextField" layoutX="142.0" layoutY="56.0" prefHeight="14.0" prefWidth="125.0" promptText="&quot;XXXX ###&quot;" />
-                <Button id="search_button" fx:id="search_button" layoutX="62.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#searchCourses" text="Search by Name" />
-                <Button id="search_button_by_id" fx:id="search_button_by_id" layoutX="202.0" layoutY="122.0" mnemonicParsing="false" onMouseClicked="#searchCourseById" text="Search by ID" />
+                <Label layoutX="58.0" layoutY="62.0" text="Course ID: ">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+                <TextField fx:id="courseIdTextField" layoutX="142.0" layoutY="56.0" prefHeight="14.0" prefWidth="125.0" promptText="&quot;XXXX ###&quot;">
+               <font>
+                  <Font size="14.0" />
+               </font></TextField>
+                <Button id="search_button_by_id" fx:id="search_button_by_id" layoutX="107.0" layoutY="113.0" mnemonicParsing="false" onMouseClicked="#searchCourseById" prefHeight="39.0" prefWidth="113.0" text="Search by ID">
+               <font>
+                  <Font size="14.0" />
+               </font></Button>
             </children>
         </Pane>
-        <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="171.0" layoutY="385.0" prefHeight="264.0" prefWidth="888.0" style="-fx-background-color: FFFFFF;" />
+        <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="175.0" layoutY="385.0" prefHeight="264.0" prefWidth="900.0" style="-fx-background-color: FFFFFF;" />
         <Group layoutX="20.0" layoutY="275.0" />
         <Separator layoutX="1.0" layoutY="60.0" prefHeight="10.0" prefWidth="699.0" />
         <ImageView fx:id="user_profile" fitHeight="46.0" fitWidth="39.0" layoutX="1170.0" layoutY="17.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
@@ -47,39 +55,39 @@
         </ImageView>
         <Label id="user_fullname" fx:id="user_fullname" layoutX="563.0" layoutY="34.0" prefHeight="17.0" prefWidth="91.0" />
         <Button id="logout_button" fx:id="logout_button" layoutX="1131.0" layoutY="739.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout" />
-          <Label layoutX="255.0" layoutY="327.0" text="Course Name">
+          <Label layoutX="175.0" layoutY="325.0" prefHeight="22.0" prefWidth="90.0" text="Course Name">
               <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="350.0" layoutY="327.0" text="Course ID">
+          <Label layoutX="275.0" layoutY="325.0" prefHeight="22.0" prefWidth="90.0" text="Course ID">
               <font>
-                  <Font name="Arial" size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="427.0" layoutY="327.0" text="Course Description">
+          <Label layoutX="375.0" layoutY="325.0" prefHeight="22.0" prefWidth="125.0" text="Course Description">
               <font>
-                  <Font size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="549.0" layoutY="327.0" text="Credit Hours">
+          <Label layoutX="575.0" layoutY="318.0" prefHeight="39.0" prefWidth="50.0" text="Credit Hours" wrapText="true">
               <font>
-                  <Font size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="648.0" layoutY="318.0" prefHeight="32.0" prefWidth="121.0" text="Semesters Provided">
+          <Label layoutX="650.0" layoutY="318.0" prefHeight="40.0" prefWidth="75.0" text="Semesters Provided" wrapText="true">
               <font>
-                  <Font size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="779.0" layoutY="322.0" prefHeight="22.0" prefWidth="60.0" text="Pre-reqs">
+          <Label layoutX="925.0" layoutY="325.0" prefHeight="22.0" prefWidth="100.0" text="Pre-reqs">
               <font>
-                  <Font size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="848.0" layoutY="323.0" prefHeight="22.0" prefWidth="60.0" text="Co-reqs">
+          <Label layoutX="775.0" layoutY="325.0" prefHeight="22.0" prefWidth="100.0" text="Co-reqs">
               <font>
-                  <Font size="12.0" />
+                  <Font name="Arial" size="14.0" />
               </font>
           </Label>
     </children>

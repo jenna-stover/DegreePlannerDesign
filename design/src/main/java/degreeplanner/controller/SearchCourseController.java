@@ -26,8 +26,6 @@ public class SearchCourseController implements Initializable {
     @FXML
     private VBox searchCourseVBox;
     @FXML
-    private Button search_button;
-    @FXML
     private Button search_button_by_id;
     @FXML
     private Pane search_pane;
@@ -102,18 +100,32 @@ public class SearchCourseController implements Initializable {
     searchCourseVBox.getChildren().clear();
 
     
-    Label courseNameLabel = new Label(course.getCourseName());
-    Label courseIdLabel = new Label(course.getCourseID());
-    Label courseDescriptionLabel = new Label(course.getCourseDescription());
-    Label courseHoursLabel = new Label(String.valueOf(course.getCourseHours()));
-    Label semestersProvidedLabel = new Label(String.join(", ", course.getSemestersProvided()));
-    Label preReqsLabel = new Label(course.prereqsToString());
-    Label coReqsLabel = new Label(course.coreqsToString());
+    Label courseNameLabel = new Label(course.getCourseName()); //100
+    courseNameLabel.setWrapText(true);
+    courseNameLabel.setMaxWidth(100);
 
-    
+    Label courseIdLabel = new Label(course.getCourseID()); //200
+    courseIdLabel.setWrapText(true);
+    courseIdLabel.setMaxWidth(100);
+
+    Label courseDescriptionLabel = new Label(course.getCourseDescription()); //450
     courseDescriptionLabel.setWrapText(true);
-    courseDescriptionLabel.setMaxWidth(200); 
+    courseDescriptionLabel.setMaxWidth(250);
 
+    Label courseHoursLabel = new Label(String.valueOf(course.getCourseHours())); //500
+    courseHoursLabel.setMaxWidth(50);
+
+    Label semestersProvidedLabel = new Label(String.join(", ", course.getSemestersProvided())); // 600
+    semestersProvidedLabel.setWrapText(true);
+    semestersProvidedLabel.setMaxWidth(100);
+
+    Label preReqsLabel = new Label(course.prereqsToString()); //750
+    preReqsLabel.setWrapText(true);
+    preReqsLabel.setMaxWidth(150);
+
+    Label coReqsLabel = new Label(course.coreqsToString()); //900
+    coReqsLabel.setWrapText(true);
+    coReqsLabel.setMaxWidth(150);
     
     HBox courseDetailsHBox = new HBox(10); 
 
