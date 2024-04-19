@@ -140,9 +140,6 @@ public class HomeController implements Initializable{
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
         ProgressBar profile = new ProgressBar();
         profile.setProgress(prog);
-        ObservableList<Course> semester1 = FXCollections.observableArrayList(
-
-        );
     }
 
     private void populateSemesterCourses(TableView<Course> table, String semester) {
