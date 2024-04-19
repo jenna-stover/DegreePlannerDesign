@@ -2,9 +2,11 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
+import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import javafx.fxml.FXML;
@@ -36,29 +38,54 @@ public class HomeController implements Initializable{
     @FXML
     private ImageView search_course;
 
-    @FXML
-    private TableView<?> semester1Table;
+    // @FXML
+    // private TableView<?> semester1Table;
+
+    // @FXML
+    // private TableView<?> semester2Table;
+
+    // @FXML
+    // private TableView<?> semester3Table;
+
+    // @FXML
+    // private TableView<?> semester4Table;
+
+    // @FXML
+    // private TableView<?> semester5Table;
+
+    // @FXML
+    // private TableView<?> semester6Table;
+
+    // @FXML
+    // private TableView<?> semester7Table;
+
+    // @FXML
+    // private TableView<?> semester8Table;
 
     @FXML
-    private TableView<?> semester2Table;
+    private TableView<Course> semester1Table;
 
     @FXML
-    private TableView<?> semester3Table;
+    private TableView<Course> semester2Table;
 
     @FXML
-    private TableView<?> semester4Table;
+    private TableView<Course> semester3Table;
 
     @FXML
-    private TableView<?> semester5Table;
+    private TableView<Course> semester4Table;
 
     @FXML
-    private TableView<?> semester6Table;
+    private TableView<Course> semester5Table;
 
     @FXML
-    private TableView<?> semester7Table;
+    private TableView<Course> semester6Table;
 
     @FXML
-    private TableView<?> semester8Table;
+    private TableView<Course> semester7Table;
+
+    @FXML
+    private TableView<Course> semester8Table;
+
 
     @FXML
     private Label user_name_profile;
@@ -98,10 +125,28 @@ public class HomeController implements Initializable{
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
+
+         // Populate courses for each semester
+         populateSemesterCourses(semester1Table, "Semester 1");
+         populateSemesterCourses(semester2Table, "Semester 2");
+         populateSemesterCourses(semester3Table, "Semester 3");
+         populateSemesterCourses(semester4Table, "Semester 4");
+         populateSemesterCourses(semester5Table, "Semester 5");
+         populateSemesterCourses(semester6Table, "Semester 6");
+         populateSemesterCourses(semester7Table, "Semester 7");
+         populateSemesterCourses(semester8Table, "Semester 8");
+ 
         
         double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
         ProgressBar profile = new ProgressBar();
         profile.setProgress(prog);
+    }
+
+    private void populateSemesterCourses(TableView<Course> table, String semester) {
+        HomeFacade homeFacade = HomeFacade.getInstance();
+        Student loggedInUser = (Student) homeFacade.getLoggedInUser();
+        ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
+        table.getItems().addAll(courses);
     }
 
 }
