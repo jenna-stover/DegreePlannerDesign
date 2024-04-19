@@ -49,11 +49,20 @@
   -fx-background-color: #730003;
 }
 
-#profile_area .content{
-  -fx-background-color: #73000430;
-  -fx-border-color: #730003;
-  -fx-border-width: 2px;
-  -fx-border-radius: 5px;
+#profilePane {
+  -fx-background-color: #730003;
+}
+
+#profileInnerPane {
+  -fx-background-color: #e6e6e6;
+  -fx-background-radius: 10px;
+  -fx-border-color: black;
+  -fx-border-width: 5px;
+  -fx-border-radius: 10px;
+}
+
+#profile_area {
+  -fx-border-radius: 10px;
 }
 
 .course-label {
@@ -88,6 +97,12 @@
   -fx-background-color: #ab6668;
   -fx-text-fill: white;
   -fx-background-radius: 30;
+}
+
+#profileLogoutButton {
+  -fx-background-color: #e6e6e6;
+  -fx-text-fill: #730003;
+  -fx-background-radius: 10px;
 }
 
 #facultyLoginPane {
