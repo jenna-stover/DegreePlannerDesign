@@ -15,7 +15,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -125,6 +127,13 @@ public class HomeController implements Initializable{
         Student loggedInUser = (Student) homeFacade.getLoggedInUser();
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
+        TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
+        TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
+        TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
+        table.getColumns().addAll(course, credits, grade);
+        course.setCellValueFactory(new PropertyValueFactory<Course, String>("course"));
+        credits.setCellValueFactory(new PropertyValueFactory<Course, String>("credits"));
+        grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
         table.setItems(presentableCourses);
     }
 
