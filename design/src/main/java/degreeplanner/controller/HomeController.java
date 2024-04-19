@@ -130,11 +130,11 @@ public class HomeController implements Initializable{
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
         TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
         TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
-        TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
-        table.getColumns().addAll(course, credits, grade);
+        //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
+        table.getColumns().addAll(course, credits);
         course.setCellValueFactory(new PropertyValueFactory<Course, String>("course"));
         credits.setCellValueFactory(new PropertyValueFactory<Course, String>("credits"));
-        grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
+        //grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
         table.setItems(presentableCourses);
     }
 
