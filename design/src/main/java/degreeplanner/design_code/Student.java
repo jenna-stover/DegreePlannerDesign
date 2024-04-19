@@ -3,13 +3,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-// import testClasses.AdvisementPlan;
-// import testClasses.DegreeList;
-// import testClasses.DegreePlan;
-// import testClasses.Elective;
-// import testClasses.Major;
-// import testClasses.Warnings;
-
 public class Student extends User
 {
     //public DegreePlan degreePlan; //Old attrubute

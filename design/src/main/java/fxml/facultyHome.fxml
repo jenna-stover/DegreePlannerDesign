@@ -23,7 +23,7 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Label id="facultySearchUser" fx:id="facultySearchUser" layoutX="11.0" layoutY="13.0" onMouseClicked="#goToSearchUser" text="Search User" textFill="#730003">
+            <Label id="facultySearchUser" fx:id="facultySearchUser" layoutX="11.0" layoutY="13.0" onMouseClicked="#goToSearchUser" text="Search Student" textFill="#730003">
                <font>
                   <Font name="Arial Italic" size="16.0" />
                </font>
