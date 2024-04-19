@@ -9,6 +9,8 @@ import degreeplanner.App;
 import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -37,30 +39,6 @@ public class HomeController implements Initializable{
 
     @FXML
     private ImageView search_course;
-
-    // @FXML
-    // private TableView<?> semester1Table;
-
-    // @FXML
-    // private TableView<?> semester2Table;
-
-    // @FXML
-    // private TableView<?> semester3Table;
-
-    // @FXML
-    // private TableView<?> semester4Table;
-
-    // @FXML
-    // private TableView<?> semester5Table;
-
-    // @FXML
-    // private TableView<?> semester6Table;
-
-    // @FXML
-    // private TableView<?> semester7Table;
-
-    // @FXML
-    // private TableView<?> semester8Table;
 
     @FXML
     private TableView<Course> semester1Table;
@@ -142,11 +120,13 @@ public class HomeController implements Initializable{
         profile.setProgress(prog);
     }
 
-    private void populateSemesterCourses(TableView<Course> table, String semester) {
+    private void populateSemesterCourses(TableView<Course> table, String semester) 
+    {
         HomeFacade homeFacade = HomeFacade.getInstance();
         Student loggedInUser = (Student) homeFacade.getLoggedInUser();
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
-        table.getItems().addAll(courses);
+        ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
+        table.setItems(presentableCourses);
     }
 
 }
