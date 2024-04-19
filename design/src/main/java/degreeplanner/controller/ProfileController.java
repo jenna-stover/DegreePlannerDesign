@@ -2,6 +2,7 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
@@ -53,7 +54,9 @@ public class ProfileController implements Initializable {
             // minorProfileTxt.setText(homeFacade.getLoggedInUser().getMinor()); NO minor to be found
             
             double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
-            String progress = String.valueOf(prog);
+            prog *= 100;
+            DecimalFormat df = new DecimalFormat("##.####");
+            String progress = df.format(prog) + "%";
             progressProfileText.setText(progress); //last three lines for degree progess
 
             ProgressBar profile = new ProgressBar();

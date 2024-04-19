@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.ProfileController">
    <children>
-      <TextArea fx:id="profile_area" layoutX="307.0" layoutY="11.0" prefHeight="788.0" prefWidth="599.0" />
+      <TextArea fx:id="profile_area" editable="false" layoutX="307.0" layoutY="11.0" prefHeight="788.0" prefWidth="599.0" />
       <ImageView id="homeIcon" fx:id="homeIcon" fitHeight="64.0" fitWidth="77.0" layoutX="8.0" layoutY="9.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/home_icon.png" />
@@ -32,12 +32,12 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="375.0" layoutY="362.0" text="Major:">
+      <Label layoutX="376.0" layoutY="311.0" text="Major:">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="381.0" layoutY="434.0" text="Minor: ">
+      <Label layoutX="381.0" layoutY="434.0" opacity="0.0" text="Minor: ">
          <font>
             <Font name="Arial" size="24.0" />
          </font>
@@ -47,9 +47,18 @@
                <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="533.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.3052978515625" />
-      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="522.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.58673095703125" />
-      <Text id="majorProfileTxt" fx:id="majorProfileTxt" layoutX="522.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.43230078115096" />
+      <Text id="userProfileTxt" fx:id="userProfileTxt" layoutX="511.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.7078857421875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text id="emailProfileTxt" fx:id="emailProfileTxt" layoutX="455.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.58673095703125">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Text id="majorProfileTxt" fx:id="majorProfileTxt" layoutX="450.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="159.43230078115096">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
       <Text id="minorProfileTxt" fx:id="minorProfileTxt" layoutX="519.0" layoutY="452.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.7078857421875" />
       <Text id="progressProfileText" fx:id="progressProfileText" layoutX="664.0" layoutY="604.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="58.39605712890625" />
    </children>
