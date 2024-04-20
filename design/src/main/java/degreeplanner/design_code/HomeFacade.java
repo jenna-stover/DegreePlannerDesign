@@ -92,6 +92,10 @@ public class HomeFacade {
         return userList.getUserByEmailAndPass(email, password);
     }
     
+    public User getUser(String userID)
+    {
+        return userList.getUser(userID);
+    }
 
 /*  public AdvisementPlan getAdvisementPlan(User user)
     {
