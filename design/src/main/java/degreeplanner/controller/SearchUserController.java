@@ -1,8 +1,10 @@
 package degreeplanner.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import degreeplanner.App;
+import degreeplanner.design_code.Course;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import degreeplanner.design_code.User;
@@ -12,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -57,12 +60,37 @@ public class SearchUserController {
       App.setRoot("/fxml/facultyHome");
     }
 
+@FXML
+    void searchCourses(MouseEvent event) {
+        // Retrieve search query from search_pane
+        String query = ((TextField) search_pane.getChildren().get(2)).getText();
+
+        // Call method in HomeFacade to search for courses
+        ArrayList<Course> matchingUsers = HomeFacade.getInstance().searchCourses(query);
+
+        // Display search results in searchCourseVBox
+        displaySearchResults(matchingCourses);
+    }
+
     @FXML
     void searchUserById(MouseEvent event) {
       String userID = userIdTextField.getText();
       User user = HomeFacade.getInstance().getUser(userID);
       if(user != null) {
-        
+        displayUserDetails(user);
+      }
+      else{
+        System.out.println("User not found: "+ userID);
+      }
+    }
+
+    private void displaySearchResults(ArrayList<User> users){
+      searchUserVBox.getChildren().clear();
+
+      for(User user : users) {
+        Label userLabel = new Label(user.toString());
+        userLabel.setOnMouseClicked(event -> displayUserDetails(user));
+        searchUserVBox.getChildren().add(userLabel);
       }
     }
 
@@ -92,11 +120,18 @@ public class SearchUserController {
       studentCurrSemLabel.setWrapText(true);
       studentCurrSemLabel.setMaxWidth(100);
 
+
+      Student loggedInStudent = (Student)homeFacade.getLoggedInUser();
+      String progress = homeFacade.getStudentsProgress(loggedInStudent);
+      Label studentProgressLabel = new Label(progress);
+      studentProgressLabel.setWrapText(true);
+      studentProgressLabel.setMaxWidth(50);
+
+      HBox userDetailsHBox = new HBox(10); 
+
+      userDetailsHBox.getChildren().addAll(studentNameLabel, studentUsernameLabel, studentEmailLabel, 
+            studentMajorLabel, studentCurrSemLabel, studentProgressLabel);
       
-
-
-
-    }
-
-
+      searchUserVBox.getChildren().add(userDetailsHBox);
+}
 }

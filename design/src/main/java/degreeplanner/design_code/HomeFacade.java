@@ -274,6 +274,23 @@ public class HomeFacade {
         return "";
     }
 
+    public ArrayList<User> searchUsers(String query) {
+        ArrayList<User> matchingUsers = new ArrayList<>();
+        ArrayList<User> allUsers = userList.getUsers();
+    
+        // Iterate through each user to find matches
+        for (User user : allUsers) {
+            if (user.getUserFullName().toLowerCase().contains(query.toLowerCase()) ||
+                user.getUserID().toLowerCase().contains(query.toLowerCase()) ||
+                user.getUserEmail().toLowerCase().contains(query.toLowerCase())) {
+                matchingUsers.add(user);
+            }
+        }
+    
+        return matchingUsers;
+    }
+
+
     public ArrayList<Course> searchCourses(String query) {
         ArrayList<Course> matchingCourses = new ArrayList<>();
     
