@@ -170,29 +170,24 @@ public class FacultyHomeController implements Initializable {
     }
 
     @FXML
-    void userLogout(MouseEvent event) {
-
-    }
-
-    @FXML
     void goToLogin(MouseEvent event) throws IOException {
         App.setRoot("/fxml/login");
     }
 
    @Override
-public void initialize(URL url, ResourceBundle rb) {
-    HomeFacade homeFacade = HomeFacade.getInstance();
-    ArrayList<Student> advisees = homeFacade.getAdvisees();
-    ObservableList<Student> observableAdvisees = FXCollections.observableArrayList(advisees);
+    public void initialize(URL url, ResourceBundle rb) {
+        HomeFacade homeFacade = HomeFacade.getInstance();
+        ArrayList<Student> advisees = homeFacade.getAdvisees();
+        ObservableList<Student> observableAdvisees = FXCollections.observableArrayList(advisees);
 
-    adviseeTable.setItems(observableAdvisees);
-    adviseeNameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
-    adviseeIDColumn.setCellValueFactory(new PropertyValueFactory<>("userID"));
-    majorColumn.setCellValueFactory(new PropertyValueFactory<>("currentMajor"));
-    progressColumn.setCellValueFactory(new PropertyValueFactory<>("degreeProgress"));
+        adviseeTable.setItems(observableAdvisees);
+        adviseeNameColumn.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+        adviseeIDColumn.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        majorColumn.setCellValueFactory(new PropertyValueFactory<>("currentMajor"));
+        progressColumn.setCellValueFactory(new PropertyValueFactory<>("degreeProgress"));
 
-    // Set the cell factory for the "Add Note" column
-    TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
-    addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
-}
+        // Set the cell factory for the "Add Note" column
+        TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
+        addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
+    }
 }
