@@ -51,6 +51,11 @@ public class FacultyLoginController implements Initializable {
         App.setRoot("/fxml/facultyHome");
     }
 
+    @FXML
+    void StudentLogin(ActionEvent event) throws IOException {
+        App.setRoot("/fxml/login");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     }
