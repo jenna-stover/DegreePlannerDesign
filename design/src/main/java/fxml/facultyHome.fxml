@@ -36,9 +36,9 @@
             <ScrollBar layoutX="494.0" layoutY="117.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="19.0" />
             <TableView layoutX="5.0" layoutY="120.0" prefHeight="525.0" prefWidth="486.0">
               <columns>
-                <TableColumn prefWidth="94.64739990234375" text="Date" />
-                <TableColumn prefWidth="89.01507568359375" text="Advisee" />
-                  <TableColumn prefWidth="289.98492431640625" text="Note" />
+                <TableColumn fx:id="dateColumn" prefWidth="94.64739990234375" text="Date" />
+                <TableColumn fx:id="adviseeColumn" prefWidth="89.01507568359375" text="Advisee" />
+                  <TableColumn fx:id="noteColumn" prefWidth="289.98492431640625" text="Note" />
               </columns>
             </TableView>
          </children></Pane>
@@ -53,7 +53,7 @@
             <Image url="@../../../../../../user_profile.png" />
          </image>
       </ImageView>
-      <Label layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />
+      <Label fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />
       <TableView id="adviseeTable" fx:id="adviseeTable" layoutX="33.0" layoutY="106.0" prefHeight="657.0" prefWidth="640.0">
         <columns>
           <TableColumn prefWidth="197.7643814086914" text="Advisee Name" />

@@ -2,22 +2,37 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
+import degreeplanner.design_code.AdvisementNote;
 import degreeplanner.design_code.HomeFacade;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 public class FacultyHomeController implements Initializable{
 
     @FXML
-    private TableView<?> adviseeTable;
+    private TableColumn<AdvisementNote, LocalDate> dateColumn;
+
+    @FXML
+    private TableColumn<AdvisementNote, String> adviseeColumn;
+
+    @FXML
+    private TableColumn<AdvisementNote, String> noteColumn;
+    
+    @FXML
+    private TableView<AdvisementNote> adviseeTable;
 
     @FXML
     private Pane facultyNotePane;
@@ -62,6 +77,14 @@ public class FacultyHomeController implements Initializable{
         {
             profileFullName.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
+
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        adviseeColumn.setCellValueFactory(new PropertyValueFactory<>("advisee"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
+
+        ObservableList<AdvisementNote> advisementNotes = FXCollections.observableArrayList();
+
+        adviseeTable.setItems(advisementNotes);
     }
 
 }
