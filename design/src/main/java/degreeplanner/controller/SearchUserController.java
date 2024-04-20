@@ -3,6 +3,8 @@ package degreeplanner.controller;
 import java.io.IOException;
 
 import degreeplanner.App;
+import degreeplanner.design_code.HomeFacade;
+import degreeplanner.design_code.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +18,7 @@ import javafx.scene.text.Text;
 public class SearchUserController {
 
     @FXML
-    private TextField courseIdTextField;
+    private TextField userIdTextField;
 
     @FXML
     private Text degreeplanner_search;
@@ -50,13 +52,15 @@ public class SearchUserController {
     }
 
     @FXML
-    void searchUserById(MouseEvent event) {
-      
+    void facultyLogout(MouseEvent event) throws IOException {
+      App.setRoot("/fxml/facultyHome");
     }
 
     @FXML
-    void userLogout(MouseEvent event) {
-
+    void searchUserById(MouseEvent event) {
+      String userID = userIdTextField.getText();
+      User user = HomeFacade.getInstance().getUser(userID);
     }
+
 
 }
