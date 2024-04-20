@@ -60,16 +60,16 @@ public class SearchUserController {
       App.setRoot("/fxml/facultyHome");
     }
 
-@FXML
-    void searchCourses(MouseEvent event) {
+    @FXML
+    void searchUsers(MouseEvent event) {
         // Retrieve search query from search_pane
         String query = ((TextField) search_pane.getChildren().get(2)).getText();
 
-        // Call method in HomeFacade to search for courses
-        ArrayList<Course> matchingUsers = HomeFacade.getInstance().searchCourses(query);
+        // Call method in HomeFacade to search for users
+        ArrayList<User> matchingUsers = HomeFacade.getInstance().searchUsers(query);
 
-        // Display search results in searchCourseVBox
-        displaySearchResults(matchingCourses);
+        // Display search results 
+        displaySearchResults(matchingUsers);
     }
 
     @FXML
@@ -119,7 +119,6 @@ public class SearchUserController {
       Label studentCurrSemLabel = new Label(String.valueOf(currentSemester));
       studentCurrSemLabel.setWrapText(true);
       studentCurrSemLabel.setMaxWidth(100);
-
 
       Student loggedInStudent = (Student)homeFacade.getLoggedInUser();
       String progress = homeFacade.getStudentsProgress(loggedInStudent);
