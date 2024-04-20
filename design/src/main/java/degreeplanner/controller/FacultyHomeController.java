@@ -24,24 +24,36 @@ public class FacultyHomeController {
     @FXML
     private Label facultySearchUser;
 
-    @FXML
-    void goToLogin(MouseEvent event) throws IOException {
-        App.setRoot("/fxml/login");
-    }
+
 
     @FXML
     void goToProfile(MouseEvent event) throws IOException {
         App.setRoot("/fxml/facultyProfile");
+
     }
 
     @FXML
     void goToSearchCourse(MouseEvent event) throws IOException {
+
         App.setRoot("/fxml/search_course");
+
     }
 
     @FXML
     void goToSearchUser(MouseEvent event) throws IOException {
+
         App.setRoot("/fxml/searchUser");
+
+    }
+
+    @FXML
+    void userLogout(MouseEvent event) {
+
+    }
+
+    @FXML
+    void goToLogin(MouseEvent event) throws IOException {
+        App.setRoot("/fxml/login");
     }
 
 }
