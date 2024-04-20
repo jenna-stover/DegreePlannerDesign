@@ -521,6 +521,19 @@ public ArrayList<Course> getCoursesForSemester(String semesterString) {
     return new ArrayList<>();
 }
 
+public String getFullName() {
+    return firstName + " " + lastName;
+}
+
+public String getUserID() {
+    return userID;
+}
+
+public Major getCurrentMajor() {
+    return currentMajor;
+}
+
+
 
 //    public Tabs selectView()
 //      return null;

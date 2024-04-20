@@ -56,10 +56,10 @@
       <Label fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />
       <TableView id="adviseeTable" fx:id="adviseeTable" layoutX="33.0" layoutY="106.0" prefHeight="657.0" prefWidth="640.0">
         <columns>
-          <TableColumn prefWidth="197.7643814086914" text="Advisee Name" />
-          <TableColumn prefWidth="127.23556518554688" text="Advisee ID" />
-            <TableColumn prefWidth="113.5" text="Major" />
-            <TableColumn prefWidth="109.2115478515625" text="Progress" />
+          <TableColumn fx:id="adviseeNameColumn" prefWidth="197.7643814086914" text="Advisee Name" />
+          <TableColumn fx:id="adviseeIDColumn" prefWidth="127.23556518554688" text="Advisee ID" />
+            <TableColumn fx:id="majorColumn" prefWidth="113.5" text="Major" />
+            <TableColumn fx:id="progressColumn" prefWidth="109.2115478515625" text="Progress" />
             <TableColumn prefWidth="93.7884521484375" text="Add Note" />
         </columns>
       </TableView>

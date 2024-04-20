@@ -92,6 +92,7 @@ public class Faculty extends User
         return false;
     }
 
+
     public ArrayList<UUID> getAdviseStuUUIDList()
     {
         return advisingStudentsUUIDs;

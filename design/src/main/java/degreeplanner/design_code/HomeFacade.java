@@ -251,6 +251,7 @@ public class HomeFacade {
         }
         return false;
     }
+
     public String get8SemPlan()
     {
         if((user.userType).toString() == "STUDENT")
@@ -310,4 +311,19 @@ public class HomeFacade {
         return matchingCourses;
     }
 
+    public ArrayList<Student> getAdvisees() {
+        if (user instanceof Faculty) {
+            ArrayList<User> advisees = ((Faculty) user).getAdvisingStudents();
+            ArrayList<Student> studentAdvisees = new ArrayList<>();
+            for (User advisee : advisees) {
+                if (advisee instanceof Student) {
+                    studentAdvisees.add((Student) advisee);
+                }
+            }
+            return studentAdvisees;
+        }
+        return new ArrayList<>();
+    }
+
+    
 }

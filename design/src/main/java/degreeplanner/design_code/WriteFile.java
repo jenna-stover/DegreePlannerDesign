@@ -188,7 +188,7 @@ import degreeplanner.design_code.UserList;
                 JSONArray jsonArray = new JSONArray();
                 for(User student : temp)
                 {
-                    jsonArray.add(student.getUUID());
+                    jsonArray.add((student.getUUID()).toString());
                 }
                 jsonObject.put(ADVISING_STUDENTS, jsonArray);
                 // not sure how to access a faculty attribute through a faculty user. should i make a user = new Faculty() 
