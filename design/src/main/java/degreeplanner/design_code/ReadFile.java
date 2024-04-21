@@ -123,6 +123,7 @@ public class ReadFile extends DataConstants
 				
 				// Student constructor with the read in details, as well as adding that student to the arrayList of students
 				students.add(new Student(uuid, firstName, lastName, userEmail, userPassword, id, userType, compCourses, currentCourses, incompleteCourses, warnings, completedHours, currentHours, advisementPlans, gpa, hasScholarships, currMajor));
+
 			}
 			
 			return students;

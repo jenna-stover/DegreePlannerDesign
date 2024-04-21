@@ -56,4 +56,20 @@ public class AdvisementPlanList
     {
         return WriteFile.writePlans();
     }
+
+    public void updatePlan(AdvisementPlan plan) {
+        // Check if the plan exists in the list
+        if (advisementPlanByUUID.containsKey(plan.getPlanID())) {
+            // Update the plan in the hashmap
+            advisementPlanByUUID.put(plan.getPlanID(), plan);
+            // Optionally, you can save the updated list to a file or database
+            saveList();
+            System.out.println("Advisement plan updated successfully.");
+        } else {
+            System.out.println("Advisement plan does not exist in the list. Cannot update.");
+        }
+    }
+    
+
+  
 }
