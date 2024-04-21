@@ -2,16 +2,20 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
+import degreeplanner.design_code.AdvisementNote;
 import degreeplanner.design_code.HomeFacade;
+import degreeplanner.design_code.Student;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class StudentAdvNotesController implements Initializable {
@@ -33,6 +37,9 @@ public class StudentAdvNotesController implements Initializable {
 
     @FXML
     private Label user_name_profile;
+
+    @FXML
+    private VBox studentAdvNoteVbox;
 
     @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
@@ -61,10 +68,21 @@ public class StudentAdvNotesController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      HomeFacade homeFacade = HomeFacade.getInstance();
+        HomeFacade homeFacade = HomeFacade.getInstance();
         if(homeFacade.getLoggedInUser() != null)
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
+        }
+
+        studentAdvNoteVbox.getChildren().clear();
+        //retrieve instance of student
+        Student student = homeFacade.getLoggedInUserType()
+
+        ArrayList<AdvisementNote> advisementNotes = student.getAdvisementNotes();
+        for (AdvisementNote note : advisementNotes) {
+            Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
+            noteLabel.setStyle("-fx-padding: 5;");  // Add padding for better readability, adjust style as needed
+            studentAdvNoteVbox.getChildren().add(noteLabel);
         }
     }
 

@@ -127,7 +127,6 @@ public class FacultyHomeController implements Initializable {
     @FXML
     private Label facultySearchUser;
 
-
     @FXML
     private TableView<Student> adviseeTable;
 
@@ -146,8 +145,6 @@ public class FacultyHomeController implements Initializable {
     private ObservableList<Student> advisees = FXCollections.observableArrayList();
 
     private HomeFacade homeFacade = HomeFacade.getInstance();
-
-
 
     @FXML
     void goToProfile(MouseEvent event) throws IOException {
@@ -189,5 +186,5 @@ public class FacultyHomeController implements Initializable {
         // Set the cell factory for the "Add Note" column
         TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
         addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
-    }
+}
 }
