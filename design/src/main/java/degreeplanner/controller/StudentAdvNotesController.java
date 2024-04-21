@@ -9,6 +9,8 @@ import degreeplanner.App;
 import degreeplanner.design_code.AdvisementNote;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
+import degreeplanner.design_code.User;
+import degreeplanner.design_code.UserType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -69,22 +71,21 @@ public class StudentAdvNotesController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeFacade homeFacade = HomeFacade.getInstance();
-        if(homeFacade.getLoggedInUser() != null)
+        User user = homeFacade.getLoggedInUser();
+        if(user != null)
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
 
         studentAdvNoteVbox.getChildren().clear();
-        //need to get the instance of Student instead of putting in param
-        Student student = homeFacade.getStudent(null);
-        
-
-        ArrayList<AdvisementNote> advisementNotes = student.getAdvisementNotes();
-        for (AdvisementNote note : advisementNotes) {
-            Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
-            noteLabel.setStyle("-fx-padding: 5;");  // Add padding for better readability, adjust style as needed
-            studentAdvNoteVbox.getChildren().add(noteLabel);
+        if (user != null && user.getUserType() == UserType.STUDENT) {
+            Student student = (Student) user; 
+            ArrayList<AdvisementNote> advisementNotes = student.getAdvisementNotes();
+            for (AdvisementNote note : advisementNotes) {
+                Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
+                noteLabel.setStyle("-fx-padding: 5;"); 
+                studentAdvNoteVbox.getChildren().add(noteLabel);
+            }
         }
     }
-
 }
