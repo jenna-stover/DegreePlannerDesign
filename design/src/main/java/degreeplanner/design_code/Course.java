@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class Course
 {
@@ -21,7 +22,7 @@ public class Course
     public int courseHours;
     public String requiredGrade;
     public ArrayList<String> semesterProvided;
-    public SimpleStringProperty course; //course name for tableview
+    public StringProperty course; //course name for tableview
     public SimpleStringProperty credits;
     public SimpleStringProperty grade;
 
@@ -49,15 +50,25 @@ public class Course
         this.courseHours = courseHours;
         this.requiredGrade = requiredGrade;
         this.semesterProvided = (semesterProvided != null) ? new ArrayList<>(semesterProvided) : new ArrayList<>();
-        this.course = new SimpleStringProperty(courseID);
+        this.course = courseProperty();
+        this.course.setValue(courseID);
         this.credits = new SimpleStringProperty(((Integer)courseHours).toString());
 
 
     }
 
-    public Property<String> courseProperty()
+    public StringProperty courseProperty()
     {
+        if (course == null) course = new SimpleStringProperty(this, "course");
         return course;
+    }
+    public String getCoursePropertyVal()
+    {
+        return this.course.get();
+    }
+    public void setCourseProperty(String courseID)
+    {
+        this.course.setValue(courseID);
     }
 
     public Property<String> creditsProperty()

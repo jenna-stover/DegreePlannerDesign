@@ -105,6 +105,9 @@ public class HomeController implements Initializable{
         {
             user_name_profile.setText(homeFacade.getLoggedInUser().getUserFullName());
         }
+        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
+        //ProgressBar progress_bar = new ProgressBar(0);
+        progress_bar.setProgress(prog);
 
          // Populate courses for each semester
          populateSemesterCourses(semester1Table, "Semester 1");
@@ -116,10 +119,6 @@ public class HomeController implements Initializable{
          populateSemesterCourses(semester7Table, "Semester 7");
          populateSemesterCourses(semester8Table, "Semester 8");
  
-        
-        double prog = ((Student)homeFacade.getLoggedInUser()).getDegreeProgress();
-        ProgressBar profile = new ProgressBar();
-        profile.setProgress(prog);
     }
 
     private void populateSemesterCourses(TableView<Course> table, String semester) 
@@ -128,8 +127,11 @@ public class HomeController implements Initializable{
         Student loggedInUser = (Student) homeFacade.getLoggedInUser();
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
-        TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
-        TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
+        table.setItems(presentableCourses);
+         TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
+        // course.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).courseProperty()));
+         TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
+        // credits.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).creditsProperty().getValue()));
         //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
         table.getColumns().addAll(course, credits);
         course.setCellValueFactory(cellData -> cellData.getValue().courseProperty());
