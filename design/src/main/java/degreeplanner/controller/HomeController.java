@@ -128,12 +128,21 @@ public class HomeController implements Initializable{
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
         table.setItems(presentableCourses);
-        TableColumn<Course, String> courseIDCol = new TableColumn<>("Course ID");
-        courseIDCol.setCellValueFactory(new PropertyValueFactory<>(courses.get(0).getCourseID()));
-        TableColumn<Course, String> courseGradeCol = new TableColumn<>("Credits");
-        courseGradeCol.setCellValueFactory(new PropertyValueFactory<>(String.valueOf(courses.get(0).getCourseHours())));
+         TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
+        // course.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).courseProperty()));
+         TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
+        // credits.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).creditsProperty().getValue()));
+        //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
+        table.getColumns().setAll(course, credits);
+        
+        // credits.setCellValueFactory(new PropertyValueFactory<Course, String>("credits"));
+        // //grade.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
+        // TableColumn<Course, String> courseIDCol = new TableColumn<>("Course ID");
+        // courseIDCol.setCellValueFactory(new PropertyValueFactory<>(courses.get(0).getCourseID()));
+        // TableColumn<Course, String> courseGradeCol = new TableColumn<>("Credits");
+        // courseGradeCol.setCellValueFactory(new PropertyValueFactory<>(String.valueOf(courses.get(0).getCourseHours())));
 
-        table.getColumns().setAll(courseIDCol, courseGradeCol);
+        // table.getColumns().setAll(courseIDCol, courseGradeCol);
         // TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
         // TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
         // TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
