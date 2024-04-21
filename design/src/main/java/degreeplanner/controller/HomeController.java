@@ -77,7 +77,7 @@ public class HomeController implements Initializable{
 
     @FXML
     void goToAdvNotes(MouseEvent event) throws IOException {
-        App.setRoot("/fxml/adv_notes");
+        App.setRoot("/fxml/studentAdvNotes");
     }
 
     // Go back to login?
