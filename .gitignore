@@ -1,4 +1,0 @@
-# Ignore Maven pom.xml file
-# design/pom.xml
-target/
-*.class

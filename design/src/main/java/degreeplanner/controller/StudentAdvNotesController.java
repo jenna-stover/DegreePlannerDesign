@@ -75,8 +75,9 @@ public class StudentAdvNotesController implements Initializable {
         }
 
         studentAdvNoteVbox.getChildren().clear();
-        //retrieve instance of student
-        Student student = homeFacade.getLoggedInUserType()
+        //need to get the instance of Student instead of putting in param
+        Student student = homeFacade.getStudent(null);
+        
 
         ArrayList<AdvisementNote> advisementNotes = student.getAdvisementNotes();
         for (AdvisementNote note : advisementNotes) {
