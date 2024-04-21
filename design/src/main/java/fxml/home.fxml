@@ -26,7 +26,8 @@
       <ImageView id="user_profile" fx:id="avatar_profile" fitHeight="57.0" fitWidth="56.0" layoutX="1149.0" layoutY="17.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user_profile.png" />
-         </image></ImageView>
+         </image>
+      </ImageView>
       <ImageView id="search_img" fx:id="search_course" fitHeight="47.0" fitWidth="52.0" layoutX="390.0" layoutY="21.0" onMouseClicked="#goToSearchCourse" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/search_icon.png" />
@@ -162,7 +163,10 @@
                </columns>
             </TableView>
          </children></Pane>
-      <Label id="degreePercentage" fx:id="degreePercentage" layoutX="896.0" layoutY="759.0" prefHeight="26.0" prefWidth="30.0" />
+      <Label id="degreePercentage" fx:id="degreePercentage" layoutX="896.0" layoutY="759.0" prefHeight="26.0" prefWidth="30.0" textFill="#730003">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font></Label>
       <Label fx:id="user_name_profile" layoutX="994.0" layoutY="49.0" prefHeight="17.0" prefWidth="140.0">
          <font>
             <Font name="Arial Bold" size="18.0" />

@@ -42,15 +42,15 @@
               </columns>
             </TableView>
          </children></Pane>
-      <Text layoutX="15.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner">
-         <font>
-            <Font name="Arial Bold Italic" size="36.0" />
-         </font>
-      </Text>
+      <Text layoutX="19.0" layoutY="53.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="264.16618582674266">
+            <font>
+                <Font name="Arial Bold Italic" size="36.0" />
+            </font>
+        </Text>
       <Separator layoutX="1.0" layoutY="87.0" prefHeight="5.0" prefWidth="1211.0" />
       <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="1159.0" layoutY="21.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../user_profile.png" />
+            <Image url="@../images/user_profile.png" />
          </image>
       </ImageView>
       <Label fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />

@@ -19,9 +19,9 @@
         <URL value="@styles.css" />
     </stylesheets>
     <children>
-        <Text id="degreeplanner_search" fx:id="degreeplanner_search" layoutX="14.0" layoutY="42.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="177.94894644685985">
+        <Text id="degreeplanner_search" fx:id="degreeplanner_search" layoutX="19.0" layoutY="53.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="264.16618582674266">
             <font>
-                <Font name="Arial Bold Italic" size="24.0" />
+                <Font name="Arial Bold Italic" size="36.0" />
             </font>
         </Text>
         <Pane id="search_pane" fx:id="search_pane" layoutX="438.0" layoutY="94.0" prefHeight="166.0" prefWidth="327.0">
@@ -48,11 +48,11 @@
         <VBox id="searchCourseVBox" fx:id="searchCourseVBox" layoutX="175.0" layoutY="385.0" prefHeight="264.0" prefWidth="900.0" style="-fx-background-color: FFFFFF;" />
         <Group layoutX="20.0" layoutY="275.0" />
         <Separator layoutX="1.0" layoutY="60.0" prefHeight="10.0" prefWidth="699.0" />
-        <ImageView fx:id="user_profile" fitHeight="46.0" fitWidth="39.0" layoutX="1170.0" layoutY="17.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../images/user_profile.png" />
-            </image>
-        </ImageView>
+        <ImageView id="user_profile" fx:id="avatar_profile" fitHeight="57.0" fitWidth="56.0" layoutX="1149.0" layoutY="17.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/user_profile.png" />
+         </image>
+      </ImageView>
         <Label id="user_fullname" fx:id="user_fullname" layoutX="563.0" layoutY="34.0" prefHeight="17.0" prefWidth="91.0" />
         <Button id="logout_button" fx:id="logout_button" layoutX="1131.0" layoutY="739.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout" />
           <Label layoutX="175.0" layoutY="325.0" prefHeight="22.0" prefWidth="90.0" text="Course Name">
