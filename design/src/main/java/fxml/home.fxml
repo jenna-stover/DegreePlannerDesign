@@ -46,9 +46,9 @@
          <children>
             <TableView id="semesterTable" fx:id="semester1Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
               <columns>
-                <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                <TableColumn fx:id="sem1courses"  prefWidth="172.0899200439453" text="Courses" />
+                <TableColumn fx:id="sem1credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem1grade" prefWidth="52.06019592285156" text="Grade" />
               </columns>
             </TableView>
             <Label id="semText" layoutX="98.0" layoutY="4.0" text="Semester 1">
@@ -66,9 +66,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester2Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem2courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn  fx:id="sem2credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem2grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children></Pane>
@@ -81,9 +81,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester3Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem3courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem3credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem3grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children></Pane>
@@ -96,9 +96,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester4Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem4courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem4credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem4grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children></Pane>
@@ -111,9 +111,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester5Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem5courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem5credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem5grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children>
@@ -127,9 +127,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester6Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem6courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem6credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem6grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children></Pane>
@@ -142,9 +142,9 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester7Table" layoutX="1.0" layoutY="30.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem7courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem7credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem7grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
          </children></Pane>
@@ -157,12 +157,13 @@
             </Label>
             <TableView id="semesterTable" fx:id="semester8Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
-                  <TableColumn prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn prefWidth="51.41009521484375" text="Credits" />
-                  <TableColumn prefWidth="52.06019592285156" text="Grade" />
+                  <TableColumn fx:id="sem8courses" prefWidth="172.0899200439453" text="Courses" />
+                  <TableColumn fx:id="sem8credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem8grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>
-         </children></Pane>
+         </children>
+      </Pane>
       <Label id="degreePercentage" fx:id="degreePercentage" layoutX="896.0" layoutY="759.0" prefHeight="26.0" prefWidth="30.0" textFill="#730003">
          <font>
             <Font name="Arial Bold" size="18.0" />
