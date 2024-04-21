@@ -51,7 +51,7 @@
             <Image url="@../images/gamecock_logo.png" />
          </image>
       </ImageView>
-      <Button id="faculty_login_button" layoutX="806.0" layoutY="613.0" mnemonicParsing="false" text="Faculty Login">
+      <Button id="faculty_login_button" layoutX="806.0" layoutY="613.0" mnemonicParsing="false" onAction="#FacultyLogin" text="Faculty Login">
          <font>
             <Font name="Arial" size="18.0" />
          </font>

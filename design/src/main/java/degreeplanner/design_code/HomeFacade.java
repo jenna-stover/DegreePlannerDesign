@@ -92,6 +92,10 @@ public class HomeFacade {
         return userList.getUserByEmailAndPass(email, password);
     }
     
+    public User getUser(String userID)
+    {
+        return userList.getUser(userID);
+    }
 
 /*  public AdvisementPlan getAdvisementPlan(User user)
     {
@@ -247,6 +251,7 @@ public class HomeFacade {
         }
         return false;
     }
+
     public String get8SemPlan()
     {
         if((user.userType).toString() == "STUDENT")
@@ -270,6 +275,23 @@ public class HomeFacade {
         return "";
     }
 
+    public ArrayList<User> searchUsers(String query) {
+        ArrayList<User> matchingUsers = new ArrayList<>();
+        ArrayList<User> allUsers = userList.getUsers();
+    
+        // Iterate through each user to find matches
+        for (User user : allUsers) {
+            if (user.getUserFullName().toLowerCase().contains(query.toLowerCase()) ||
+                user.getUserID().toLowerCase().contains(query.toLowerCase()) ||
+                user.getUserEmail().toLowerCase().contains(query.toLowerCase())) {
+                matchingUsers.add(user);
+            }
+        }
+    
+        return matchingUsers;
+    }
+
+
     public ArrayList<Course> searchCourses(String query) {
         ArrayList<Course> matchingCourses = new ArrayList<>();
     
@@ -289,4 +311,19 @@ public class HomeFacade {
         return matchingCourses;
     }
 
+    public ArrayList<Student> getAdvisees() {
+        if (user instanceof Faculty) {
+            ArrayList<User> advisees = ((Faculty) user).getAdvisingStudents();
+            ArrayList<Student> studentAdvisees = new ArrayList<>();
+            for (User advisee : advisees) {
+                if (advisee instanceof Student) {
+                    studentAdvisees.add((Student) advisee);
+                }
+            }
+            return studentAdvisees;
+        }
+        return new ArrayList<>();
+    }
+
+    
 }

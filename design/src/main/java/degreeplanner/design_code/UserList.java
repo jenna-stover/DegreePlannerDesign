@@ -60,6 +60,16 @@ public class UserList
         return null;
     }
 
+    public User getUser(String userID)
+    {
+        UUID userIDs = userNames.get(userID);
+
+        if(userIDs != null){
+            return users.get(userIDs);
+        }
+        return null;
+    }
+
     public ArrayList<User> getUsers()
     {
         if (allUsers == null)
