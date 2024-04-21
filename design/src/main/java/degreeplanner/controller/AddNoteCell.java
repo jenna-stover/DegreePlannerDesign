@@ -77,7 +77,7 @@ public class AddNoteCell extends TableCell<Student, Boolean> {
                 String note = noteDatePair.getKey();
                 LocalDate date = noteDatePair.getValue();
                 try {
-                    student.addAdvisementNote(date, note);
+                    // student.addAdvisementNote(date, note);
                     Alert confirmationAlert = new Alert(Alert.AlertType.INFORMATION, "Note successfully added!");
                     confirmationAlert.setHeaderText(null);
                     confirmationAlert.showAndWait();
