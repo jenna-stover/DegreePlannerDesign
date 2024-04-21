@@ -87,7 +87,6 @@ public class AddNoteCell extends TableCell<Student, Boolean> {
                     errorAlert.showAndWait();
                 }
             });
-
         });
     }
 
