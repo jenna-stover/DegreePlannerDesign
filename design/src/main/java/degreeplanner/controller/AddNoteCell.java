@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import degreeplanner.design_code.Student;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
@@ -75,9 +76,16 @@ public class AddNoteCell extends TableCell<Student, Boolean> {
             result.ifPresent(noteDatePair -> {
                 String note = noteDatePair.getKey();
                 LocalDate date = noteDatePair.getValue();
-                // Here you would save the note and date to the student's record or advisement plan
-                // For example: student.addAdvisementNote(date, note);
-                // Refresh the table or perform necessary updates to the UI
+                try {
+                    student.addAdvisementNote(date, note);
+                    Alert confirmationAlert = new Alert(Alert.AlertType.INFORMATION, "Note successfully added!");
+                    confirmationAlert.setHeaderText(null);
+                    confirmationAlert.showAndWait();
+                } catch (Exception e) {
+                    Alert errorAlert = new Alert(Alert.AlertType.ERROR, "Failed to add note: " + e.getMessage());
+                    errorAlert.setHeaderText(null);
+                    errorAlert.showAndWait();
+                }
             });
 
         });
@@ -96,7 +104,4 @@ public class AddNoteCell extends TableCell<Student, Boolean> {
     public static Callback<TableColumn<Student, Boolean>, TableCell<Student, Boolean>> forTableColumn() {
         return param -> new AddNoteCell();
     }
-    
-    
-
 }
