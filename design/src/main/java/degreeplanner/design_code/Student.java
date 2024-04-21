@@ -1,4 +1,5 @@
 package degreeplanner.design_code;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -7,6 +8,7 @@ public class Student extends User
 {
     //public DegreePlan degreePlan; //Old attrubute
     //public User appointedAdvisor; //maybe find a way to put this in as a string, if done have to add that to constructor
+    private ArrayList<AdvisementNote> advisementNotes;
     public ArrayList<AdvisementPlan> advisementPlans;
     public ArrayList<UUID> advisementPlansUUID;
     public double GPA;
@@ -42,8 +44,19 @@ public class Student extends User
         this.currentMajor = currMajor;
         this.warnings = warnings;
         this.advisementPlansUUID = advisementPlans;
-
+        this.advisementNotes = new ArrayList<>();
     }  
+
+    public void addAdvisementNote(LocalDate date, String note)
+    {
+        AdvisementNote newNote = new AdvisementNote(date, note);
+        advisementNotes.add(newNote);
+    }
+
+    public ArrayList<AdvisementNote> getAdvisementNotes()
+    {
+        return advisementNotes;
+    }
 
     public boolean updateGPA() //should this have return type double or bool
     {
