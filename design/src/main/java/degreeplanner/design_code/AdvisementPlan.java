@@ -3,8 +3,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import degreeplanner.design_code.Course;
-import degreeplanner.design_code.User;
 
 public class AdvisementPlan
 {
@@ -36,7 +34,7 @@ public class AdvisementPlan
         this.date = LocalDate.now();
     }
 
-    public AdvisementPlan(User student, String attachedNotes, LocalDate inDate)
+    public AdvisementPlan(LocalDate inDate, User student, String attachedNotes)
     {
         this.AdvisementPlanUUID = UUID.randomUUID();
         this.student = student;
