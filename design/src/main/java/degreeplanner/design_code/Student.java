@@ -63,7 +63,7 @@ public class Student extends User
 
     public ArrayList<AdvisementPlan> getAdvisementPlans()
     {
-        return null;
+        return this.advisementPlans;
     }
 
     public void setAdvisementPlan() //should have params?

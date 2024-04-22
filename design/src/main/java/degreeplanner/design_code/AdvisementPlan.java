@@ -1,4 +1,5 @@
 package degreeplanner.design_code;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -13,8 +14,9 @@ public class AdvisementPlan
     public ArrayList<Course> courses;
     public String notes;
     public String title;
+    public LocalDate date;
 
-    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title)
+    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title, LocalDate date)
     {
         this.AdvisementPlanUUID = planID;
         this.student = student;
@@ -22,6 +24,7 @@ public class AdvisementPlan
         this.courses = courses;
         this.notes = attachedNotes;
         this.title = title;
+        this.date = date;
     }
 
     public AdvisementPlan(UUID planID, User student, User advisor, String attachedNotes)
@@ -30,6 +33,7 @@ public class AdvisementPlan
         this.student = student;
         this.advisor = advisor;
         this.notes = attachedNotes;
+        this.date = LocalDate.now();
     }
 
     public UUID getPlanID()
@@ -55,6 +59,16 @@ public class AdvisementPlan
     public String getNotes()
     {
         return this.notes;
+    }
+
+    public LocalDate getDate()
+    {
+        return this.date;
+    }
+
+    public String getDateToString()
+    {
+        return this.date.toString();
     }
 
     public void renderListView(AdvisementPlanList advisementPlanList)
