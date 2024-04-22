@@ -186,7 +186,7 @@ public class FacultyHomeController implements Initializable {
     @FXML
     void goToSearchCourse(MouseEvent event) throws IOException {
 
-        App.setRoot("/fxml/search_course");
+        App.setRoot("/fxml/search_course_fac");
     }
 
     @FXML
@@ -203,7 +203,7 @@ public class FacultyHomeController implements Initializable {
 
     @FXML
     void goToLogin(MouseEvent event) throws IOException {
-        App.setRoot("/fxml/login");
+        App.setRoot("/fxml/facultyLogin");
     }
 
     @FXML
