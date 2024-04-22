@@ -52,7 +52,7 @@ public class SearchCourseFacController implements Initializable {
     }
     @FXML
     public void avatarProfileClicked(MouseEvent event) throws IOException {
-        App.setRoot("fxml/facultyProfile");
+        App.setRoot("/fxml/facultyProfile");
     }
     
 

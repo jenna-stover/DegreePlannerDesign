@@ -45,6 +45,11 @@ public class FacultyProfileController implements Initializable{
       App.setRoot("/fxml/facultyLogin");
     }
 
+    @FXML
+    void avatarProflieClicked(MouseEvent event) throws IOException {
+      App.setRoot("/fxml/facultyProfile");
+    }
+
      @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeFacade homeFacade = HomeFacade.getInstance();

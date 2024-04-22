@@ -71,7 +71,7 @@ public class Student extends User
 
     public void addAdvisementPlan(LocalDate inDate, String note)
     {
-        AdvisementPlan tempPlan = new AdvisementPlan(inDate, this, note);
+        AdvisementPlan tempPlan = new AdvisementPlan(this, note, inDate);
     }
     
 
@@ -537,6 +537,8 @@ public ArrayList<Course> getCoursesForSemester(String semesterString) {
             default:
                 semesterIndex = -1;
         }
+        renderCurrentPlan();
+        if(eightSemesterPlan != null) return eightSemesterPlan.get(semesterIndex);
 
         if (semesterIndex >= 0 && semesterIndex < degreePlan.semesterCourses.size()) {
             Semester selectedSemester = degreePlan.semesterCourses.get(semesterIndex);

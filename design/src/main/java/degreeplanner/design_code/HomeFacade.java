@@ -281,9 +281,9 @@ public class HomeFacade {
     
         // Iterate through each user to find matches
         for (User user : allUsers) {
-            if (user.getUserFullName().toLowerCase().contains(query.toLowerCase()) ||
-                user.getUserID().toLowerCase().contains(query.toLowerCase()) ||
-                user.getUserEmail().toLowerCase().contains(query.toLowerCase())) {
+            if (user.getUserFullName().equalsIgnoreCase(query) ||
+                user.getUserID().equalsIgnoreCase(query) ||
+                user.getUserEmail().equalsIgnoreCase(query)) {
                 matchingUsers.add(user);
             }
         }

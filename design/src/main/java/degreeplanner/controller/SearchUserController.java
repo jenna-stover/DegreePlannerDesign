@@ -63,6 +63,11 @@ public class SearchUserController implements Initializable{
       App.setRoot("/fxml/facultyHome");
     }
 
+    @FXML
+    void avatarProfileClicked(MouseEvent event) throws IOException {
+      App.setRoot("/fxml/facultyProfile");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeFacade homeFacade = HomeFacade.getInstance();
