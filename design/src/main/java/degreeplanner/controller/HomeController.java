@@ -211,7 +211,7 @@ public class HomeController implements Initializable{
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
         courseCol.setCellValueFactory(cellData -> cellData.getValue().courseProperty());
         credCol.setCellValueFactory(cellData -> cellData.getValue().creditsProperty());
-        if(Integer.valueOf(semester) >= loggedInUser.currentSemester) //checking if we have a grade available
+        if(Integer.valueOf(semester.substring(semester.length()-1)) >= loggedInUser.currentSemester) //checking if we have a grade available
         {
             //need to display "N/A" for grades in columns
             for(Course c : presentableCourses)
