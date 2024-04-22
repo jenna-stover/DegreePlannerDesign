@@ -33,8 +33,6 @@ public class LoginController implements  Initializable {
 
     @FXML
     void btnLoginClicked(ActionEvent event) throws IOException  {
-
-
         String email = txt_email.getText();
         String password = txt_password.getText();
         Label lbl_error = new Label();

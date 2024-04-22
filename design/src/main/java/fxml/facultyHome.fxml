@@ -16,9 +16,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1233.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.FacultyHomeController">
    <children>
-      <Pane id="facultyNotePane" fx:id="facultyNotePane" layoutX="711.0" layoutY="106.0" prefHeight="654.0" prefWidth="520.0">
+      <Pane id="facultyNotePane" fx:id="facultyNotePane" layoutX="693.0" layoutY="112.0" prefHeight="635.0" prefWidth="520.0">
          <children>
-            <Label layoutX="216.0" layoutY="79.0" text="Current Notes">
+            <Label layoutX="200.0" layoutY="88.0" text="Current Notes">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -33,12 +33,12 @@
                   <Font name="Arial Italic" size="16.0" />
                </font>
             </Label>
-            <ScrollBar layoutX="494.0" layoutY="117.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="19.0" />
-            <TableView id="NotesTable" fx:id="NotesTable" layoutX="5.0" layoutY="120.0" prefHeight="525.0" prefWidth="486.0">
+            <ScrollBar layoutX="494.0" layoutY="157.0" orientation="VERTICAL" prefHeight="464.0" prefWidth="19.0" />
+            <TableView id="NotesTable" fx:id="NotesTable" layoutX="6.0" layoutY="120.0" prefHeight="510.0" prefWidth="485.0">
               <columns>
                 <TableColumn fx:id="dateColumn" prefWidth="94.64739990234375" text="Date" />
-                <TableColumn fx:id="adviseeColumn" prefWidth="89.01507568359375" text="Advisee" />
-                  <TableColumn fx:id="noteColumn" prefWidth="289.98492431640625" text="Note" />
+                <TableColumn fx:id="adviseeColumn" prefWidth="108.4722900390625" text="Advisee" />
+                  <TableColumn fx:id="noteColumn" prefWidth="281.5277099609375" text="Note" />
               </columns>
             </TableView>
          </children></Pane>
@@ -53,8 +53,11 @@
             <Image url="@../images/user_profile.png" />
          </image>
       </ImageView>
-      <Label fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />
-      <TableView id="adviseeTable" fx:id="adviseeTable" layoutX="33.0" layoutY="106.0" prefHeight="657.0" prefWidth="640.0">
+      <Label id="studentName" fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font></Label>
+      <TableView id="adviseeTable" fx:id="adviseeTable" layoutX="18.0" layoutY="106.0" prefHeight="657.0" prefWidth="640.0">
         <columns>
           <TableColumn fx:id="adviseeNameColumn" prefWidth="197.7643814086914" text="Advisee Name" />
           <TableColumn fx:id="adviseeIDColumn" prefWidth="127.23556518554688" text="Advisee ID" />
@@ -70,7 +73,7 @@
              
         </columns>
       </TableView>
-      <Button id="logout_button" fx:id="logout_button" layoutX="1144.0" layoutY="767.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout">
+      <Button id="logout_button" fx:id="logout_button" layoutX="1144.0" layoutY="763.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="75.0" text="Logout">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font></Button>
