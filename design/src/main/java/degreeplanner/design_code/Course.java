@@ -61,7 +61,7 @@ public class Course
 
     public Property<String> creditsProperty()
     {
-        return course;
+        return credits;
     }
 
     public Property<String> gradeProperty()
