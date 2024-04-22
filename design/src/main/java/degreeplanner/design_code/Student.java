@@ -26,10 +26,7 @@ public class Student extends User
     public int totalDegreeHours = 130;  //Hard coded for now, can either be read and saved or determined at creation.
     public ArrayList<ArrayList<Course>> eightSemesterPlan;  //Not read nor normally saved. Can only be saved after creation is made
     public Major currentMajor;
-    private ArrayList<AdvisementNote> advisementNotes;
-    
-
-
+  
     public Student(UUID userUUID, String firstName, String lastName, String userEmail, String userPass, 
         String userID, UserType userType, HashMap<Course, String> completedCourses, ArrayList<Course> currentCourses, ArrayList<Course> incompleteCourses, ArrayList<Warnings> warnings,
         int completedHours, int currentHours, ArrayList<UUID> advisementPlans, double GPA, boolean hasScholarships, Major currMajor)
@@ -491,24 +488,6 @@ public String getUserID() {
 public Major getCurrentMajor() {
     return currentMajor;
 }
-// public void addAdvisementNote(LocalDate date, String note) {
-//     // Create a new AdvisementNote instance
-//     AdvisementNote advisementNote = new AdvisementNote(date, this.getFullName(), note);
-//     // Add the note to the list
-//     if (advisementNotes == null) {
-//         advisementNotes = new ArrayList<>();
-//     }
-//     advisementNotes.add(advisementNote);
-// }
-public void addAdvisementNote(LocalDate date, String note) {
-    // Create a new AdvisementNote instance with a dummy UUID
-    AdvisementNote advisementNote = new AdvisementNote(UUID.randomUUID(), date, this.getFullName(), note);
-    // Add the note to the list
-    if (advisementNotes == null) {
-        advisementNotes = new ArrayList<>();
-    }
-    advisementNotes.add(advisementNote);
-}
 
 // Method to display existing advisement notes from JSON
 public void displayExistingAdvisementNotes() {
@@ -522,11 +501,6 @@ public void displayExistingAdvisementNotes() {
             System.out.println("Notes for plan with ID " + plan.getPlanID() + ": " + notes);
         }
     }
-}
-
- // Getter for advisementNotes
- public ArrayList<AdvisementNote> getAdvisementNotes() {
-    return advisementNotes;
 }
 
 

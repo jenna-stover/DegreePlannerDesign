@@ -50,6 +50,11 @@ public class SearchCourseController implements Initializable {
     void userLogout(MouseEvent event) throws IOException {
         App.setRoot("/fxml/login");
     }
+    @FXML
+    public void avatarProfileClicked(MouseEvent event) throws IOException {
+        App.setRoot("fxml/profile");
+    }
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
