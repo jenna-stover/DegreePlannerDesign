@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import degreeplanner.App;
-import degreeplanner.design_code.AdvisementNote;
 import degreeplanner.design_code.AdvisementPlan;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
