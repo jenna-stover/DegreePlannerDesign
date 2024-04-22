@@ -3,16 +3,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.Property;
+
 
 public class AdvisementPlan
 {
     private UUID AdvisementPlanUUID;
-    private User student;
+    private User student; //advisee
     private User advisor;
     public ArrayList<Course> courses;
     public String notes;
     public String title;
     public LocalDate date;
+    public SimpleStringProperty note;
+    public SimpleStringProperty advisee;
+
 
     public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title, LocalDate date)
     {
@@ -40,6 +46,18 @@ public class AdvisementPlan
         this.student = student;
         this.notes = attachedNotes;
         this.date = inDate;
+        this.note = new SimpleStringProperty(notes);
+        this.advisee = new SimpleStringProperty(student.getUserFullName());
+    }
+
+    public Property<String> noteProperty()
+    {
+        return note;
+    }
+
+    public Property<String> adviseeProperty()
+    {
+        return advisee;
     }
 
     public UUID getPlanID()

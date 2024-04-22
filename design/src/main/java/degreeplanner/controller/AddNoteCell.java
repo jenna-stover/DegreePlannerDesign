@@ -190,7 +190,7 @@ result.ifPresent(noteDatePair -> {
         if (plan != null) {
             AdvisementPlanList.getInstance().updatePlan(plan);
             // Clear and repopulate the NotesTable
-            facultyHomeController.updateNotesTable();
+            // facultyHomeController.updateNotesTable();
         } else {
             System.out.println("Advisement plan is null. Cannot update.");
         }

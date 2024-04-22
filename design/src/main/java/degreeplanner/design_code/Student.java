@@ -200,6 +200,7 @@ public class Student extends User
         DegreeList degreelist = DegreeList.getInstance();
         DegreePlan degree = degreelist.getDegree(currentMajor); //gets the skeleton
         //loop thru semesters leading up to current
+        ArrayList<Course> addedCourses = new ArrayList<Course>();
         for (int i = 0; i < currentSemester; i++) 
         {
             ArrayList<Course> semester = new ArrayList<Course>();
@@ -211,8 +212,11 @@ public class Student extends User
                     if (completedCourses.keySet().contains(degree.semesterCourses.get(i).getCourses().get(j).get(k))) //we found the course that we took
                     {
                         //temp arraylist bc we need to select a specific course out of the options
-                        Course tempCourse = degree.semesterCourses.get(i).getCourses().get(j).get(k);
-                        semester.add(tempCourse); //adds to the students 8semester
+                        if (!(addedCourses.contains(degree.semesterCourses.get(i).getCourses().get(j).get(k))))
+                        {
+                            semester.add(degree.semesterCourses.get(i).getCourses().get(j).get(k)); //adds to the students 8semester
+                            addedCourses.add(degree.semesterCourses.get(i).getCourses().get(j).get(k));
+                        }
                     }
                 }
             }
@@ -239,9 +243,13 @@ public class Student extends User
                             }
                             else //found it
                             {
-                                semester.add(temp);
-                                courseAdded = true;
-                                break;
+                                if(!(addedCourses.contains(temp)))
+                                {
+                                    semester.add(temp);
+                                    addedCourses.add(temp);
+                                    courseAdded = true;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -282,7 +290,11 @@ public class Student extends User
                                     }
                                     else //found it
                                     {
-                                        semester.add(temp);
+                                        if(!(addedCourses.contains(temp)))
+                                        {
+                                            semester.add(temp);
+                                            addedCourses.add(temp);
+                                        }
                                     }
                                 }
                             }
@@ -291,8 +303,11 @@ public class Student extends User
                     }
                     else if(!taken && k == degree.semesterCourses.get(i).getCourses().get(j).size() - 1) //need to take that course/its not in the completed courses set
                     {
-                        Course tempCourse = degree.semesterCourses.get(i).getCourses().get(j).get(0); //adds the first choice out of the choices to 8semester
-                        semester.add(tempCourse); //adds to the students 8semester
+                        if(!(addedCourses.contains(degree.semesterCourses.get(i).getCourses().get(j).get(0))))
+                        {
+                            semester.add(degree.semesterCourses.get(i).getCourses().get(j).get(0)); //adds the first choice out of the choices to 8semester
+                            addedCourses.add(degree.semesterCourses.get(i).getCourses().get(j).get(0));
+                        }
                     }
                 }
                 
@@ -320,9 +335,13 @@ public class Student extends User
                             }
                             else //found it
                             {
-                                semester.add(temp);
-                                courseAdded = true;
-                                break;
+                                if (!(addedCourses.contains(temp)))
+                                {
+                                    semester.add(temp);
+                                    addedCourses.add(temp);
+                                    courseAdded = true;
+                                    break;
+                                }
                             }
                         }
                     }
