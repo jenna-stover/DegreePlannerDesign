@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.ProfileController">
+<AnchorPane id="profilePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1232.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="degreeplanner.controller.FacultyProfileController">
    <children>
       <Pane id="profileInnerPane" layoutX="303.0" layoutY="4.0" prefHeight="784.0" prefWidth="644.0" />
       <ImageView id="homeIcon" fx:id="homeIcon" fitHeight="64.0" fitWidth="77.0" layoutX="8.0" layoutY="9.0" onMouseClicked="#goBackHome" pickOnBounds="true" preserveRatio="true">

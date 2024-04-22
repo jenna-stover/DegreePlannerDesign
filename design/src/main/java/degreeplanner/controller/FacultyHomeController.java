@@ -196,9 +196,7 @@ public class FacultyHomeController implements Initializable {
 
     @FXML
     void goToSearchUser(MouseEvent event) throws IOException {
-
         App.setRoot("/fxml/searchUser");
-
     }
 
     @FXML
@@ -238,7 +236,7 @@ public class FacultyHomeController implements Initializable {
     ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
     for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
         if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
-            advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));
+            advisementNotes.add(new AdvisementPlan(plan.getPlanStudent(), plan.getNotes(), plan.getDate()));
         }
     }
     NotesTable.setItems(advisementNotes);
@@ -254,7 +252,7 @@ public class FacultyHomeController implements Initializable {
         ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
         for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
             if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
-                advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));;
+                advisementNotes.add(new AdvisementPlan(plan.getPlanStudent(), plan.getNotes(), plan.getDate()));
             }
         }
         NotesTable.setItems(advisementNotes);
