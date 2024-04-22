@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import degreeplanner.App;
 import degreeplanner.design_code.AdvisementNote;
+import degreeplanner.design_code.AdvisementPlan;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import degreeplanner.design_code.User;
@@ -79,10 +80,12 @@ public class StudentAdvNotesController implements Initializable {
 
         studentAdvNoteVbox.getChildren().clear();
         if (user != null && user.getUserType() == UserType.STUDENT) {
-            Student student = (Student) user; 
-            ArrayList<AdvisementNote> advisementNotes = student.getAdvisementNotes();
-            for (AdvisementNote note : advisementNotes) {
-                Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
+            Student student = (Student)user; 
+            ArrayList<AdvisementPlan> advisementNotes = student.getAdvisementPlans();
+            for (AdvisementPlan plan : advisementNotes) {
+                String note = plan.getNotes();
+                // Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
+                Label noteLabel = new Label(String.format("%s: %s", plan.getDate().toString(), note);
                 noteLabel.setStyle("-fx-padding: 5;"); 
                 studentAdvNoteVbox.getChildren().add(noteLabel);
             }
