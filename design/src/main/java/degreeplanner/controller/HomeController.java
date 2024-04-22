@@ -216,7 +216,7 @@ public class HomeController implements Initializable{
             //need to display "N/A" for grades in columns
             for(Course c : presentableCourses)
             {
-                if(!(loggedInUser.completedCourses.containsKey(c.courseID))) //they have NOT taken the class, need to update the grade value to N/A
+                if(!(loggedInUser.completedCourses.containsKey(c))) //they have NOT taken the class, need to update the grade value to N/A
                 {
                     c.setGradePropertyValue("N/A"); //sets the grade property value based on the completed course's grade
                 }
@@ -227,9 +227,9 @@ public class HomeController implements Initializable{
             //need to display grades in columns
             for(Course c : presentableCourses)
             {
-                if(loggedInUser.completedCourses.containsKey(c.courseID)) //they have taken the class, need to update the grade value
+                if(loggedInUser.completedCourses.containsKey(c)) //they have taken the class, need to update the grade value
                 {
-                    c.setGradePropertyValue(loggedInUser.completedCourses.get(c.courseID)); //sets the grade property value based on the completed course's grade
+                    c.setGradePropertyValue(loggedInUser.completedCourses.get(c)); //sets the grade property value based on the completed course's grade
                 }
             }
         }
