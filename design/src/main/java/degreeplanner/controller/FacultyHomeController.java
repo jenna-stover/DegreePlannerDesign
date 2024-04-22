@@ -230,19 +230,17 @@ public class FacultyHomeController implements Initializable {
         majorColumn.setCellValueFactory(new PropertyValueFactory<>("currentMajor"));
         progressColumn.setCellValueFactory(new PropertyValueFactory<>("degreeProgress"));
          // Set the cell factory for the "Add Note" column
-        //  TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
-        //  addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
         TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
         addNoteColumn.setCellFactory(AddNoteCell.forTableColumn(facultyHomeController));
 
 
     //     // Populate NotesTable with notes from JSON
     ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
-    // for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
-    //     if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
-    //         advisementNotes.add(new AdvisementPlan(plan.getPlanID(), LocalDate.now(), plan.getPlanStudent().getUserFullName(), plan.getNotes()));
-    //     }
-    // }
+    for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
+        if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
+            advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));
+        }
+    }
     NotesTable.setItems(advisementNotes);
 
     // Set up columns for NotesTable
@@ -254,11 +252,11 @@ public class FacultyHomeController implements Initializable {
     }
     void updateNotesTable() {
         ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
-        // for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
-        //     if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
-        //         advisementNotes.add(new AdvisementNote(plan.getPlanID(), LocalDate.now(), plan.getPlanStudent().getUserFullName(), plan.getNotes()));
-        //     }
-        // }
+        for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
+            if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
+                advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));;
+            }
+        }
         NotesTable.setItems(advisementNotes);
     }
 
