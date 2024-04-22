@@ -92,6 +92,7 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -104,6 +105,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import degreeplanner.design_code.AdvisementNote;
+import degreeplanner.design_code.AdvisementPlan;
+import degreeplanner.design_code.AdvisementPlanList;
 import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import javafx.collections.FXCollections;
@@ -142,9 +146,37 @@ public class FacultyHomeController implements Initializable {
     @FXML
     private TableColumn<Student, String> progressColumn;
 
+    @FXML
+    private TableColumn<AdvisementNote, LocalDate> dateColumn;
+
+    @FXML
+    private TableColumn<AdvisementNote, String> adviseeColumn;
+
+    @FXML
+    private TableColumn<AdvisementNote, String> noteColumn;
+    
+    @FXML
+    private TableView<AdvisementNote> NotesTable;
+
+    @FXML
+    private Label profileFullName;
+
+    @FXML
+    private FacultyHomeController facultyHomeController;
+
+
+
+    
+
+
     private ObservableList<Student> advisees = FXCollections.observableArrayList();
 
     private HomeFacade homeFacade = HomeFacade.getInstance();
+
+    private ObservableList<AdvisementPlan> advisementPlans = FXCollections.observableArrayList();
+
+
+
 
     @FXML
     void goToProfile(MouseEvent event) throws IOException {
@@ -171,9 +203,23 @@ public class FacultyHomeController implements Initializable {
         App.setRoot("/fxml/login");
     }
 
+    @FXML
+    void userLogout(MouseEvent event) throws IOException {
+        App.setRoot("/fxml/facultyLogin");
+    }
+
    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        facultyHomeController = this;
+
+       
+
         HomeFacade homeFacade = HomeFacade.getInstance();
+        if(homeFacade.getLoggedInUser() != null)
+        {
+            profileFullName.setText(homeFacade.getLoggedInUser().getUserFullName());
+        }
         ArrayList<Student> advisees = homeFacade.getAdvisees();
         ObservableList<Student> observableAdvisees = FXCollections.observableArrayList(advisees);
 
@@ -182,9 +228,41 @@ public class FacultyHomeController implements Initializable {
         adviseeIDColumn.setCellValueFactory(new PropertyValueFactory<>("userID"));
         majorColumn.setCellValueFactory(new PropertyValueFactory<>("currentMajor"));
         progressColumn.setCellValueFactory(new PropertyValueFactory<>("degreeProgress"));
-
-        // Set the cell factory for the "Add Note" column
+         // Set the cell factory for the "Add Note" column
+        //  TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
+        //  addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
         TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
-        addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
-}
+    addNoteColumn.setCellFactory(AddNoteCell.forTableColumn(facultyHomeController));
+
+
+    //     // Populate NotesTable with notes from JSON
+    ObservableList<AdvisementNote> advisementNotes = FXCollections.observableArrayList();
+    for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
+        if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
+            advisementNotes.add(new AdvisementNote(plan.getPlanID(), LocalDate.now(), plan.getPlanStudent().getUserFullName(), plan.getNotes()));
+        }
+    }
+    NotesTable.setItems(advisementNotes);
+
+    // Set up columns for NotesTable
+    dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+    adviseeColumn.setCellValueFactory(new PropertyValueFactory<>("advisee"));
+    noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
+    updateNotesTable();
+
+
+       
+ 
+    }
+    void updateNotesTable() {
+        ObservableList<AdvisementNote> advisementNotes = FXCollections.observableArrayList();
+        for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
+            if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
+                advisementNotes.add(new AdvisementNote(plan.getPlanID(), LocalDate.now(), plan.getPlanStudent().getUserFullName(), plan.getNotes()));
+            }
+        }
+        NotesTable.setItems(advisementNotes);
+    }
+
+
 }

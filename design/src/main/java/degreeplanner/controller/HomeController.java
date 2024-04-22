@@ -11,8 +11,10 @@ import degreeplanner.design_code.HomeFacade;
 import degreeplanner.design_code.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
@@ -143,6 +145,9 @@ public class HomeController implements Initializable{
     private Label user_name_profile;
 
     @FXML
+    private Button logout_button;
+
+    @FXML
     void avatarProfileClicked(MouseEvent event) throws IOException {
         App.setRoot("/fxml/profile");
     }
@@ -156,6 +161,11 @@ public class HomeController implements Initializable{
     @FXML
     void goHome(MouseEvent event) throws IOException {
         App.setRoot("/fxml/home");
+    }
+
+     @FXML
+    void facultyLogout(ActionEvent event) throws IOException {
+        // Your logout logic here
     }
 
     @FXML
