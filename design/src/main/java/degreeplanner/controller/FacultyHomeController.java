@@ -164,17 +164,11 @@ public class FacultyHomeController implements Initializable {
     private FacultyHomeController facultyHomeController;
 
 
-
-    
-
-
     private ObservableList<Student> advisees = FXCollections.observableArrayList();
 
     private HomeFacade homeFacade = HomeFacade.getInstance();
 
     private ObservableList<AdvisementPlan> advisementPlans = FXCollections.observableArrayList();
-
-
 
 
     @FXML
@@ -234,29 +228,20 @@ public class FacultyHomeController implements Initializable {
         addNoteColumn.setCellFactory(AddNoteCell.forTableColumn(facultyHomeController));
 
 
-    //     // Populate NotesTable with notes from JSON
+    // Populate NotesTable with notes from JSON
     ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
-    for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
-        if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
+    for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) 
+    {
+        if (plan.getNotes() != null && !plan.getNotes().isEmpty()) 
+        {
             advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));
         }
     }
-    NotesTable.setItems(advisementNotes);
-
-    // Set up columns for NotesTable
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        adviseeColumn.setCellValueFactory(new PropertyValueFactory<>("advisee"));
-        noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
-        updateNotesTable();
- 
-    }
-    void updateNotesTable() {
-        ObservableList<AdvisementPlan> advisementNotes = FXCollections.observableArrayList();
-        for (AdvisementPlan plan : AdvisementPlanList.getInstance().getAllList()) {
-            if (plan.getNotes() != null && !plan.getNotes().isEmpty()) {
-                advisementNotes.add(new AdvisementPlan(plan.getDate(), plan.getPlanStudent(), plan.getNotes()));;
-            }
-        }
+    //Set up columns for NotesTable
+        dateColumn.setCellValueFactory(new PropertyValueFactory<AdvisementPlan, LocalDate>("date"));
+        adviseeColumn.setCellValueFactory(cellData -> cellData.getValue().adviseeProperty());
+        noteColumn.setCellValueFactory(cellData -> cellData.getValue().noteProperty());
         NotesTable.setItems(advisementNotes);
     }
+
 }
