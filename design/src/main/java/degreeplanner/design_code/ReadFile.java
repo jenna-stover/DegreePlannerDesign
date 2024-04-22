@@ -1,5 +1,6 @@
 package degreeplanner.design_code;
 import java.io.FileReader;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -14,6 +15,7 @@ import degreeplanner.design_code.Course;
 import degreeplanner.design_code.CourseList;
 import degreeplanner.design_code.UserType;
 import degreeplanner.design_code.Warnings;
+import javafx.util.converter.LocalDateStringConverter;
 import degreeplanner.design_code.Major;
 import degreeplanner.design_code.Student;
 import degreeplanner.design_code.Faculty;
@@ -406,8 +408,10 @@ public class ReadFile extends DataConstants
 				// ArrayList<Course> advisedCourses = new ArrayList<Course>();
 				String attachedNotes = (String)advPlan.get(ATTACHED_NOTES);
 				String title = (String)advPlan.get(TITLE);
+				LocalDateStringConverter dateConverter = new LocalDateStringConverter();
+				LocalDate date = dateConverter.fromString((String)advPlan.get(DATE));
 
-				AdvisementPlan tempPlan = new AdvisementPlan(planID, student, advisor, advisedCourses, attachedNotes, title);
+				AdvisementPlan tempPlan = new AdvisementPlan(planID, student, advisor, advisedCourses, attachedNotes, title, date);
 				advisePlanList.add(tempPlan);
 			}
 			return advisePlanList;

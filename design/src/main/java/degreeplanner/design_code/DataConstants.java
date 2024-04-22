@@ -42,6 +42,7 @@ public abstract class DataConstants {
     protected static final String ADVISED_COURSES = "advisedCourses";
     protected static final String ATTACHED_NOTES = "attachedNotes";
     protected static final String TITLE = "title";
+    protected static final String DATE = "date";
     //end of advisement_plan.json properties
     //start of course.json properties
     //Note: courseUUID property is already listed in the degreePlan section of student.json

@@ -183,7 +183,7 @@ result.ifPresent(noteDatePair -> {
     String note = noteDatePair.getKey();
     LocalDate date = noteDatePair.getValue();
     try {
-        student.addAdvisementNote(date, note);
+        student.addAdvisementPlan(date, note);
         // Update the AdvisementPlanList
         AdvisementPlan plan = student.getPlan();
         System.out.println("Plan retrieved: " + plan); // Debug print statement
