@@ -23,7 +23,7 @@
          </font>
       </Text>
       <Label id="percentage_label" layoutX="732.0" layoutY="147.0" prefHeight="22.0" prefWidth="30.0" />
-      <ImageView id="user_profile" fx:id="avatar_profile" fitHeight="57.0" fitWidth="56.0" layoutX="1149.0" layoutY="17.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="1159.0" layoutY="15.0" onMouseClicked="#avatarProfileClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user_profile.png" />
          </image>
@@ -46,7 +46,7 @@
          <children>
             <TableView id="semesterTable" fx:id="semester1Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
               <columns>
-                <TableColumn fx:id="sem1courses"  prefWidth="172.0899200439453" text="Courses" />
+                <TableColumn fx:id="sem1courses" prefWidth="172.0899200439453" text="Courses" />
                 <TableColumn fx:id="sem1credits" prefWidth="51.41009521484375" text="Credits" />
                   <TableColumn fx:id="sem1grade" prefWidth="52.06019592285156" text="Grade" />
               </columns>
@@ -67,7 +67,7 @@
             <TableView id="semesterTable" fx:id="semester2Table" layoutX="1.0" layoutY="31.0" prefHeight="270.0" prefWidth="276.0">
                <columns>
                   <TableColumn fx:id="sem2courses" prefWidth="172.0899200439453" text="Courses" />
-                  <TableColumn  fx:id="sem2credits" prefWidth="51.41009521484375" text="Credits" />
+                  <TableColumn fx:id="sem2credits" prefWidth="51.41009521484375" text="Credits" />
                   <TableColumn fx:id="sem2grade" prefWidth="52.06019592285156" text="Grade" />
                </columns>
             </TableView>

@@ -79,6 +79,11 @@
   -fx-text-fill: white;
 }
 
+#search_button_by_id {
+  -fx-background-color: #730003;
+  -fx-text-fill: white;
+}
+
 #search_course_lbl{
   -fx-text-fill: #730003;
 }
@@ -90,7 +95,7 @@
 }
 
 #logout_button:hover{
-  -fx-background-color: #ab6668;
+  -fx-background-color: #730003;
   -fx-text-fill: white;
   -fx-background-radius: 30;
 }
@@ -171,3 +176,22 @@
   -fx-background-color: white;
   -fx-border-color: #730003;
 }
+
+#NotesTable {
+  -fx-border-width: 2px;
+  -fx-border-radius: 5px;
+  -fx-border-color: #730003;
+}
+
+#NotesTable .column-header {
+  -fx-background-color: black;
+}
+
+#NotesTable .column-header .label{
+  -fx-text-fill: white;
+}
+
+#NotesTable .table-cell {
+  -fx-border-color: #730003;
+}
+
