@@ -1,9 +1,8 @@
 package degreeplanner.design_code;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import degreeplanner.design_code.Course;
-import degreeplanner.design_code.User;
 
 public class AdvisementPlan
 {
@@ -13,6 +12,7 @@ public class AdvisementPlan
     public ArrayList<Course> courses;
     public String notes;
     public String title;
+    public LocalDate date;
 
     public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title)
     {
