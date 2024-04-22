@@ -232,7 +232,7 @@ public class HomeController implements Initializable{
             {
                 if(loggedInUser.completedCourses.containsKey(c.courseID)) //they have taken the class, need to update the grade value
                 {
-                    c.setGradePropertyValue(loggedInUser.completedCourses.get(c)); //sets the grade property value based on the completed course's grade
+                    c.setGradePropertyValue(loggedInUser.completedCourses.get(c.courseID)); //sets the grade property value based on the completed course's grade
                 }
             }
         }

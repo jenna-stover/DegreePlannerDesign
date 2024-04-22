@@ -216,8 +216,6 @@ public class FacultyHomeController implements Initializable {
     {
         facultyHomeController = this;
 
-       
-
         HomeFacade homeFacade = HomeFacade.getInstance();
         if(homeFacade.getLoggedInUser() != null)
         {
@@ -235,7 +233,7 @@ public class FacultyHomeController implements Initializable {
         //  TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
         //  addNoteColumn.setCellFactory(AddNoteCell.forTableColumn());
         TableColumn<Student, Boolean> addNoteColumn = (TableColumn<Student, Boolean>) adviseeTable.getColumns().get(4);
-    addNoteColumn.setCellFactory(AddNoteCell.forTableColumn(facultyHomeController));
+        addNoteColumn.setCellFactory(AddNoteCell.forTableColumn(facultyHomeController));
 
 
     //     // Populate NotesTable with notes from JSON
@@ -248,13 +246,10 @@ public class FacultyHomeController implements Initializable {
     NotesTable.setItems(advisementNotes);
 
     // Set up columns for NotesTable
-    dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-    adviseeColumn.setCellValueFactory(new PropertyValueFactory<>("advisee"));
-    noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
-    updateNotesTable();
-
-
-       
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        adviseeColumn.setCellValueFactory(new PropertyValueFactory<>("advisee"));
+        noteColumn.setCellValueFactory(new PropertyValueFactory<>("note"));
+        updateNotesTable();
  
     }
     void updateNotesTable() {
