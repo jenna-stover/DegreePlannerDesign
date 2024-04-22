@@ -85,7 +85,7 @@ public class StudentAdvNotesController implements Initializable {
             for (AdvisementPlan plan : advisementNotes) {
                 String note = plan.getNotes();
                 // Label noteLabel = new Label(String.format("%s: %s", note.getDate().toString(), note.getNote()));
-                Label noteLabel = new Label(String.format("%s: %s", plan.getDate().toString(), note);
+                Label noteLabel = new Label(String.format("%s: %s", plan.getDate().toString(), note));
                 noteLabel.setStyle("-fx-padding: 5;"); 
                 studentAdvNoteVbox.getChildren().add(noteLabel);
             }

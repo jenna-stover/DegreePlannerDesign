@@ -26,10 +26,7 @@ public class Student extends User
     public int totalDegreeHours = 130;  //Hard coded for now, can either be read and saved or determined at creation.
     public ArrayList<ArrayList<Course>> eightSemesterPlan;  //Not read nor normally saved. Can only be saved after creation is made
     public Major currentMajor;
-    private ArrayList<AdvisementNote> advisementNotes;
-    
-
-
+  
     public Student(UUID userUUID, String firstName, String lastName, String userEmail, String userPass, 
         String userID, UserType userType, HashMap<Course, String> completedCourses, ArrayList<Course> currentCourses, ArrayList<Course> incompleteCourses, ArrayList<Warnings> warnings,
         int completedHours, int currentHours, ArrayList<UUID> advisementPlans, double GPA, boolean hasScholarships, Major currMajor)
