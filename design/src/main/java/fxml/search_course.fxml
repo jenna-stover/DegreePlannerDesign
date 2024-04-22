@@ -57,39 +57,39 @@
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font></Label>
-          <Label layoutX="175.0" layoutY="336.0" prefHeight="22.0" prefWidth="90.0" text="Course Name">
+          <Label layoutX="175.0" layoutY="336.0" prefHeight="22.0" prefWidth="103.0" text="Course Name">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
           <Label layoutX="304.0" layoutY="336.0" prefHeight="22.0" prefWidth="72.0" text="Course ID">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
-          <Label layoutX="407.0" layoutY="336.0" prefHeight="22.0" prefWidth="125.0" text="Course Description">
+          <Label layoutX="407.0" layoutY="336.0" prefHeight="22.0" prefWidth="140.0" text="Course Description">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
           <Label layoutX="580.0" layoutY="320.0" prefHeight="39.0" prefWidth="50.0" text="Credit Hours" wrapText="true">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
           <Label layoutX="685.0" layoutY="320.0" prefHeight="40.0" prefWidth="75.0" text="Semesters Provided" wrapText="true">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
           <Label layoutX="976.0" layoutY="336.0" prefHeight="22.0" prefWidth="64.0" text="Pre-reqs">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
           <Label layoutX="837.0" layoutY="336.0" prefHeight="22.0" prefWidth="53.0" text="Co-reqs">
               <font>
-                  <Font name="Arial" size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
               </font>
           </Label>
       <Button id="logout_button" fx:id="logout_button" layoutX="1146.0" layoutY="763.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="75.0" text="Logout">
