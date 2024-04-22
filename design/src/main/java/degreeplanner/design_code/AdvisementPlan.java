@@ -14,7 +14,7 @@ public class AdvisementPlan
     public String title;
     public LocalDate date;
 
-    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title)
+    public AdvisementPlan(UUID planID, User student, User advisor, ArrayList<Course> courses, String attachedNotes, String title, LocalDate date)
     {
         this.AdvisementPlanUUID = planID;
         this.student = student;
@@ -22,6 +22,7 @@ public class AdvisementPlan
         this.courses = courses;
         this.notes = attachedNotes;
         this.title = title;
+        this.date = date;
     }
 
     public AdvisementPlan(UUID planID, User student, User advisor, String attachedNotes)
@@ -30,6 +31,15 @@ public class AdvisementPlan
         this.student = student;
         this.advisor = advisor;
         this.notes = attachedNotes;
+        this.date = LocalDate.now();
+    }
+
+    public AdvisementPlan(User student, String attachedNotes, LocalDate inDate)
+    {
+        this.AdvisementPlanUUID = UUID.randomUUID();
+        this.student = student;
+        this.notes = attachedNotes;
+        this.date = inDate;
     }
 
     public UUID getPlanID()
@@ -55,6 +65,16 @@ public class AdvisementPlan
     public String getNotes()
     {
         return this.notes;
+    }
+
+    public LocalDate getDate()
+    {
+        return this.date;
+    }
+
+    public String getDateToString()
+    {
+        return this.date.toString();
     }
 
     public void renderListView(AdvisementPlanList advisementPlanList)

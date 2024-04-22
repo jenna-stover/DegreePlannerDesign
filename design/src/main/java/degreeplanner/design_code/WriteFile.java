@@ -2,6 +2,7 @@ package degreeplanner.design_code;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -15,6 +16,7 @@ import degreeplanner.design_code.Course;
 import degreeplanner.design_code.CourseList;
 import degreeplanner.design_code.User;
 import degreeplanner.design_code.UserList;
+import javafx.util.converter.LocalDateStringConverter;
 
  public class WriteFile extends DataConstants 
 {
@@ -320,6 +322,9 @@ import degreeplanner.design_code.UserList;
                     tempArray.add(co.getCourseUUID().toString());
                 }
                 jsonObject.put(ADVISED_COURSES, tempArray);
+                LocalDate temp = plan.getDate();
+                LocalDateStringConverter converter = new LocalDateStringConverter();
+                jsonObject.put(DATE, converter.toString(temp));
                 jsonArray.add(jsonObject);
             }
             try (FileWriter planWriter = new FileWriter(ADVISEMENT_PLAN_FILE_NAME))

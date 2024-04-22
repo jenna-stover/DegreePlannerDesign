@@ -68,11 +68,16 @@ public class Student extends User
         }
         advisementPlans.add(plan);
     }
+
+    public void addAdvisementPlan(LocalDate inDate, String note)
+    {
+        AdvisementPlan tempPlan = new AdvisementPlan(this, note, inDate);
+    }
     
 
     public ArrayList<AdvisementPlan> getAdvisementPlans()
     {
-        return advisementPlans;
+        return this.advisementPlans;
     }
 
     public void setAdvisementPlan() //should have params?
@@ -516,9 +521,10 @@ public AdvisementPlan getPlan() {
         ArrayList<Course> courses = new ArrayList<>(); // Create an empty list of courses
         String attachedNotes = ""; // Initialize notes as an empty string
         String title = ""; // Initialize title as an empty string
+        LocalDate date = LocalDate.now();
 
         // Create a new advisement plan
-        AdvisementPlan newPlan = new AdvisementPlan(planID, this, advisor, courses, attachedNotes, title);
+        AdvisementPlan newPlan = new AdvisementPlan(planID, this, advisor, courses, attachedNotes, title, date);
         
         // Add the new advisement plan to the student
         addAdvisementPlan(newPlan);
