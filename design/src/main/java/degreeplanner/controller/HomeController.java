@@ -164,7 +164,7 @@ public class HomeController implements Initializable{
     }
 
      @FXML
-    void facultyLogout(ActionEvent event) throws IOException {
+    void facultyLogout(MouseEvent event) throws IOException {
         // Your logout logic here
         HomeFacade homeFacade = HomeFacade.getInstance();
         homeFacade.logout();

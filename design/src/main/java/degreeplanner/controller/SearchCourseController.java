@@ -51,8 +51,8 @@ public class SearchCourseController implements Initializable {
         App.setRoot("/fxml/login");
     }
     @FXML
-    public void avatarProfileClicked(MouseEvent event) throws IOException {
-        App.setRoot("fxml/profile");
+    void avatarProfileClicked(MouseEvent event) throws IOException {
+        App.setRoot("/fxml/profile");
     }
     
 

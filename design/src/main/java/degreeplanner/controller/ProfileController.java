@@ -43,6 +43,13 @@ public class ProfileController implements Initializable {
         App.setRoot("/fxml/home");
     }
 
+    @FXML
+    void userLogout(MouseEvent event) throws IOException {
+        HomeFacade tempFacade = HomeFacade.getInstance();
+        tempFacade.logout();
+        App.setRoot("/fxml/login");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         HomeFacade homeFacade = HomeFacade.getInstance();
