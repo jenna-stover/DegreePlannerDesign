@@ -3,8 +3,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import com.apple.laf.ClientPropertyApplicator.Property;
-
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.Property;
 
