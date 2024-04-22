@@ -181,6 +181,16 @@ public class Student extends User
         }
     }
 
+    public int checkCredits(ArrayList<Course> semester)
+    {
+        int semesterCreds = 0;
+        for(Course c : semester)
+        {
+            semesterCreds += c.courseHours;
+        }
+        return semesterCreds;
+    }
+
     //compares student's current/prev courses to skeleton degree plan
     public void renderCurrentPlan()
     {
@@ -200,12 +210,43 @@ public class Student extends User
                 {
                     if (completedCourses.keySet().contains(degree.semesterCourses.get(i).getCourses().get(j).get(k))) //we found the course that we took
                     {
-                        Course tempCourse; //temp arraylist bc we need to select a specific course out of the options
-                        tempCourse = degree.semesterCourses.get(i).getCourses().get(j).get(k);
+                        //temp arraylist bc we need to select a specific course out of the options
+                        Course tempCourse = degree.semesterCourses.get(i).getCourses().get(j).get(k);
                         semester.add(tempCourse); //adds to the students 8semester
                     }
                 }
-                
+            }
+            while (checkCredits(semester) < 14) //need to add a class
+            {
+                boolean courseAdded = false;
+                for(Elective elective : degree.getElectives())
+                {
+                    if (courseAdded)
+                    {
+                        break; //exits this for loop as well, goes back to check while.
+                    }
+                    if(isElectiveComplete(elective))
+                    {
+                        continue;
+                    }
+                    else //elective is not complete, have to figure out which classes have already been taken
+                    {
+                        for(Course temp : elective.getOptions()) //looping thru elective options
+                        {
+                            if(completedCourses.containsValue(temp)) //done w this course already
+                            {
+                                continue;
+                            }
+                            else //found it
+                            {
+                                semester.add(temp);
+                                courseAdded = true;
+                                break;
+                            }
+                        }
+                    }
+
+                }    
             }
             eightSemesterPlan.add(semester);
         }
