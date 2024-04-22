@@ -60,15 +60,15 @@ public class UserList
         return null;
     }
 
-    public User getUser(String userID)
-    {
-        UUID userIDs = userNames.get(userID);
+    // public User getUser(String userID)
+    // {
+    //     UUID userIDs = userNames.get(userID);
 
-        if(userIDs != null){
-            return users.get(userIDs);
-        }
-        return null;
-    }
+    //     if(userIDs != null){
+    //         return users.get(userIDs);
+    //     }
+    //     return null;
+    // }
 
     public ArrayList<User> getUsers()
     {
@@ -180,6 +180,40 @@ public class UserList
             return true;
         }
         return false;
+    }
+
+    public User getUser(String userID) {
+        System.out.println("Searching for user with ID: " + userID);
+    
+        // Get the user object from the allUsers list
+        User userToSearch = null;
+        for (User user : allUsers) {
+            if (user.getUserID().equals(userID)) {
+                userToSearch = user;
+                break;
+            }
+        }
+    
+        if (userToSearch != null) {
+            String key = userToSearch.firstName + " " + userToSearch.lastName;
+            UUID userIDs = userNames.get(key);
+    
+            if (userIDs != null) {
+                System.out.println("User found for ID: " + userID);
+                User retrievedUser = users.get(userIDs);
+                if (retrievedUser != null) {
+                    System.out.println("Retrieved user: " + retrievedUser.getUserFullName() + " (" + retrievedUser.getUserID() + ")");
+                } else {
+                    System.out.println("User object not found in users HashMap for UUID: " + userIDs);
+                }
+                return retrievedUser;
+            } else {
+                System.out.println("User not found for ID: " + userID);
+            }
+        } else {
+            System.out.println("User with ID: " + userID + " not found in allUsers");
+        }
+        return null;
     }
 
     public void updatePlans()

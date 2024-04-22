@@ -2,6 +2,7 @@ package degreeplanner.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -110,43 +111,63 @@ public class SearchUserController implements Initializable{
       }
     }
 
-    private void displayUserDetails(User user){
+    private void displayUserDetails(User user) {
       searchUserVBox.getChildren().clear();
       HomeFacade homeFacade = HomeFacade.getInstance();
-
+    
       Label studentNameLabel = new Label(user.getUserFullName());
       studentNameLabel.setWrapText(true);
-      studentNameLabel.setMaxWidth(100);
-
+      studentNameLabel.setMinWidth(200);
+      studentNameLabel.setMaxWidth(300);
+    
       Label studentUsernameLabel = new Label(user.getUserID());
       studentUsernameLabel.setWrapText(true);
-      studentUsernameLabel.setMaxWidth(100);
-
+      studentNameLabel.setMinWidth(200);
+      studentUsernameLabel.setMaxWidth(300);
+    
       Label studentEmailLabel = new Label(user.getUserEmail());
       studentEmailLabel.setWrapText(true);
-      studentEmailLabel.setMaxWidth(250);
-
-      Label studentMajorLabel = new Label(((Student)homeFacade.getLoggedInUser()).getMajor().toString());
-      studentMajorLabel.setWrapText(true);
-      studentMajorLabel.setMaxWidth(50);
-
-      Student student = (Student)homeFacade.getLoggedInUser();
-      int currentSemester = student.getCurrentSemester(); 
+      studentNameLabel.setMinWidth(200);
+      studentEmailLabel.setMaxWidth(350);
+    
+      Label studentMajorLabel = null;
+      if (user instanceof Student) {
+          Student student = (Student) user;
+          studentMajorLabel = new Label(student.getMajor().toString());
+          studentMajorLabel.setWrapText(true);
+          studentNameLabel.setMinWidth(200);
+          studentMajorLabel.setMaxWidth(300);
+      } else {
+          studentMajorLabel = new Label("N/A");
+      }
+    
+      int currentSemester = 0;
+      if (user instanceof Student) {
+          Student student = (Student) user;
+          currentSemester = student.getCurrentSemester();
+      }
       Label studentCurrSemLabel = new Label(String.valueOf(currentSemester));
       studentCurrSemLabel.setWrapText(true);
-      studentCurrSemLabel.setMaxWidth(100);
-
-      Student loggedInStudent = (Student)homeFacade.getLoggedInUser();
-      String progress = homeFacade.getStudentsProgress(loggedInStudent);
+      studentNameLabel.setMinWidth(50);
+      studentCurrSemLabel.setMaxWidth(50);
+    
+      String progress = "N/A";
+      if (user instanceof Student) {
+          Student loggedInStudent = (Student) user;
+          double prog = loggedInStudent.getDegreeProgress();
+          prog *= 100;
+          DecimalFormat df = new DecimalFormat("##.####");
+          progress = df.format(prog) + "%";
+          
+      //  progress = homeFacade.getStudentsProgress(loggedInStudent);
+      }
       Label studentProgressLabel = new Label(progress);
       studentProgressLabel.setWrapText(true);
-      studentProgressLabel.setMaxWidth(50);
-
-      HBox userDetailsHBox = new HBox(10); 
-
-      userDetailsHBox.getChildren().addAll(studentNameLabel, studentUsernameLabel, studentEmailLabel, 
-            studentMajorLabel, studentCurrSemLabel, studentProgressLabel);
-      
+  // studentProgressLabel.setMaxWidth(50);
+    
+      HBox userDetailsHBox = new HBox(10);
+      userDetailsHBox.getChildren().addAll(studentNameLabel, studentUsernameLabel, studentEmailLabel, studentMajorLabel, studentCurrSemLabel, studentProgressLabel);
+    
       searchUserVBox.getChildren().add(userDetailsHBox);
-}
+    }
 }

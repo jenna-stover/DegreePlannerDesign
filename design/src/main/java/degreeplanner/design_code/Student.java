@@ -368,17 +368,17 @@ public class Student extends User
         return result;
     }
     
-    public int getCurrentSemester()
-    {
-        int semester = 0;
-        for (int i = 0; i < 8; i++) {
-            ArrayList<Course> semesterCourses = eightSemesterPlan.get(i);
-            if(checkForCurrentCourse(semesterCourses)) {
-                semester = i + 1;
-            }
-        }
-        return semester;
-    }
+    // public int getCurrentSemester()
+    // {
+    //     int semester = 0;
+    //     for (int i = 0; i < 8; i++) {
+    //         ArrayList<Course> semesterCourses = eightSemesterPlan.get(i);
+    //         if(checkForCurrentCourse(semesterCourses)) {
+    //             semester = i + 1;
+    //         }
+    //     }
+    //     return semester;
+    // }
 
     public void addAdvPlan(AdvisementPlan inPlan)
     {
@@ -586,6 +586,24 @@ public String getUserID() {
 
 public Major getCurrentMajor() {
     return currentMajor;
+}
+
+public int getCurrentSemester() {
+    renderCurrentPlan();
+    if (eightSemesterPlan != null) {
+        int semester = 0;
+        for (int i = 0; i < 8; i++) {
+            ArrayList<Course> semesterCourses = eightSemesterPlan.get(i);
+            if (semesterCourses != null && checkForCurrentCourse(semesterCourses)) {
+                semester = i + 1;
+            }
+        }
+        return semester;
+    } else {
+        // Handle the case where eightSemesterPlan is null
+        // You can return a default value or throw an exception, depending on your requirements
+        return 0;
+    }
 }
 
 // Method to display existing advisement notes from JSON
