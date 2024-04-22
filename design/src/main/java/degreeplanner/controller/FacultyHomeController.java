@@ -259,6 +259,4 @@ public class FacultyHomeController implements Initializable {
         }
         NotesTable.setItems(advisementNotes);
     }
-
-
 }
