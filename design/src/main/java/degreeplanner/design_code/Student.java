@@ -1,4 +1,6 @@
 package degreeplanner.design_code;
+import java.time.LocalDate;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -7,6 +9,7 @@ public class Student extends User
 {
     //public DegreePlan degreePlan; //Old attrubute
     //public User appointedAdvisor; //maybe find a way to put this in as a string, if done have to add that to constructor
+    
     public ArrayList<AdvisementPlan> advisementPlans;
     public ArrayList<UUID> advisementPlansUUID;
     public double GPA;
@@ -23,7 +26,7 @@ public class Student extends User
     public int totalDegreeHours = 130;  //Hard coded for now, can either be read and saved or determined at creation.
     public ArrayList<ArrayList<Course>> eightSemesterPlan;  //Not read nor normally saved. Can only be saved after creation is made
     public Major currentMajor;
-
+  
     public Student(UUID userUUID, String firstName, String lastName, String userEmail, String userPass, 
         String userID, UserType userType, HashMap<Course, String> completedCourses, ArrayList<Course> currentCourses, ArrayList<Course> incompleteCourses, ArrayList<Warnings> warnings,
         int completedHours, int currentHours, ArrayList<UUID> advisementPlans, double GPA, boolean hasScholarships, Major currMajor)
@@ -59,6 +62,17 @@ public class Student extends User
     // {
     //     return degreePlan;
     // }
+    public void addAdvisementPlan(AdvisementPlan plan) {
+        if (advisementPlans == null) {
+            advisementPlans = new ArrayList<>();
+        }
+        advisementPlans.add(plan);
+    }
+
+    public void addAdvisementPlan(LocalDate inDate, String note)
+    {
+        AdvisementPlan tempPlan = new AdvisementPlan(this, note, inDate);
+    }
     
 
     public ArrayList<AdvisementPlan> getAdvisementPlans()
@@ -416,59 +430,6 @@ public class Student extends User
         return result;
     }
 
-    // public ArrayList<Course> getCoursesForSemester(String semester) 
-    // {
-    //     int semesterNumber = Integer.parseInt(semester);
-    //     DegreeList degreeList = DegreeList.getInstance();
-    //     DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
-
-    //     if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
-    //     {
-    //         Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
-    //         ArrayList<Course> coursesForSemester = new ArrayList<>();
-    
-    //         for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
-    //         {
-    //             if (!courseOptions.isEmpty()) 
-    //             {
-    //                 coursesForSemester.add(courseOptions.get(0));
-    //             }
-    //         }
-    
-    //         return coursesForSemester;
-    //     }
-        
-    //     return new ArrayList<>();
-    // }
-//     public ArrayList<Course> getCoursesForSemester(String semester) 
-// {
-//     try {
-//         int semesterNumber = Integer.parseInt(semester);
-//         DegreeList degreeList = DegreeList.getInstance();
-//         DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
-
-//         if ((degreePlan != null) && (semesterNumber - 1 < degreePlan.semesterCourses.size())) 
-//         {
-//             Semester selectedSemester = degreePlan.semesterCourses.get(semesterNumber - 1);
-//             ArrayList<Course> coursesForSemester = new ArrayList<>();
-    
-//             for (ArrayList<Course> courseOptions : selectedSemester.getCourses()) 
-//             {
-//                 if (!courseOptions.isEmpty()) 
-//                 {
-//                     coursesForSemester.add(courseOptions.get(0));
-//                 }
-//             }
-    
-//             return coursesForSemester;
-//         }
-//     } catch (NumberFormatException e) {
-//         // Handle the case where the semester string is not a valid number
-//         e.printStackTrace();
-//     }
-    
-//     return new ArrayList<>();
-// }
 public ArrayList<Course> getCoursesForSemester(String semesterString) {
     DegreeList degreeList = DegreeList.getInstance();
     DegreePlan degreePlan = degreeList.getDegree(this.currentMajor);
@@ -533,6 +494,51 @@ public Major getCurrentMajor() {
     return currentMajor;
 }
 
+// Method to display existing advisement notes from JSON
+public void displayExistingAdvisementNotes() {
+    AdvisementPlanList advisementPlanList = AdvisementPlanList.getInstance();
+    ArrayList<AdvisementPlan> allPlans = advisementPlanList.getAllList();
+
+    for (AdvisementPlan plan : allPlans) {
+        if (plan.getPlanStudent().equals(this)) {
+            String notes = plan.getNotes();
+            // Display or process the notes as needed
+            System.out.println("Notes for plan with ID " + plan.getPlanID() + ": " + notes);
+        }
+    }
+}
+
+
+public AdvisementPlan getPlan() {
+    // Check if the student has advisement plans
+    if (advisementPlans != null && !advisementPlans.isEmpty()) {
+        // For simplicity, return the first advisement plan in the list
+        return advisementPlans.get(0);
+    } else {
+        // If no advisement plans are available, create a new empty AdvisementPlan for the student
+        UUID planID = UUID.randomUUID(); // Generate a new UUID for the plan
+        User advisor = null; // Set advisor to null or specify a default advisor
+        ArrayList<Course> courses = new ArrayList<>(); // Create an empty list of courses
+        String attachedNotes = ""; // Initialize notes as an empty string
+        String title = ""; // Initialize title as an empty string
+        LocalDate date = LocalDate.now();
+
+        // Create a new advisement plan
+        AdvisementPlan newPlan = new AdvisementPlan(planID, this, advisor, courses, attachedNotes, title, date);
+        
+        // Add the new advisement plan to the student
+        addAdvisementPlan(newPlan);
+
+        // Return the newly created advisement plan
+        return newPlan;
+    }
+}
+
+
+
+
+
+
 
 
 //    public Tabs selectView()
@@ -541,3 +547,5 @@ public Major getCurrentMajor() {
 
 //    public void renderView(Tabs tab){}
 }
+
+

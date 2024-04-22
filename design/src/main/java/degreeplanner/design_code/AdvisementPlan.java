@@ -36,6 +36,14 @@ public class AdvisementPlan
         this.date = LocalDate.now();
     }
 
+    public AdvisementPlan(User student, String attachedNotes, LocalDate inDate)
+    {
+        this.AdvisementPlanUUID = UUID.randomUUID();
+        this.student = student;
+        this.notes = attachedNotes;
+        this.date = inDate;
+    }
+
     public UUID getPlanID()
     {
         return this.AdvisementPlanUUID;

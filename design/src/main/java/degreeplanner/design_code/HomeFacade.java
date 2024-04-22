@@ -66,7 +66,6 @@ public class HomeFacade {
      {
         return this.user;
      }
-  
 
      public boolean logout()
      {
@@ -96,6 +95,7 @@ public class HomeFacade {
     {
         return userList.getUser(userID);
     }
+
 
 /*  public AdvisementPlan getAdvisementPlan(User user)
     {
@@ -324,6 +324,8 @@ public class HomeFacade {
         }
         return new ArrayList<>();
     }
+
+
 
     
 }

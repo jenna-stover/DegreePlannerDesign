@@ -34,7 +34,7 @@
                </font>
             </Label>
             <ScrollBar layoutX="494.0" layoutY="117.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="19.0" />
-            <TableView layoutX="5.0" layoutY="120.0" prefHeight="525.0" prefWidth="486.0">
+            <TableView id="NotesTable" fx:id="NotesTable" layoutX="5.0" layoutY="120.0" prefHeight="525.0" prefWidth="486.0">
               <columns>
                 <TableColumn fx:id="dateColumn" prefWidth="94.64739990234375" text="Date" />
                 <TableColumn fx:id="adviseeColumn" prefWidth="89.01507568359375" text="Advisee" />
@@ -42,15 +42,15 @@
               </columns>
             </TableView>
          </children></Pane>
-      <Text layoutX="15.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner">
-         <font>
-            <Font name="Arial Bold Italic" size="36.0" />
-         </font>
-      </Text>
+      <Text layoutX="19.0" layoutY="53.0" onMouseClicked="#goHome" strokeType="OUTSIDE" strokeWidth="0.0" text="DegreePlanner" wrappingWidth="264.16618582674266">
+            <font>
+                <Font name="Arial Bold Italic" size="36.0" />
+            </font>
+        </Text>
       <Separator layoutX="1.0" layoutY="87.0" prefHeight="5.0" prefWidth="1211.0" />
       <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="1159.0" layoutY="21.0" onMouseClicked="#goToProfile" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../user_profile.png" />
+            <Image url="@../images/user_profile.png" />
          </image>
       </ImageView>
       <Label fx:id="profileFullName" layoutX="970.0" layoutY="50.0" prefHeight="29.0" prefWidth="169.0" />
@@ -61,9 +61,19 @@
             <TableColumn fx:id="majorColumn" prefWidth="113.5" text="Major" />
             <TableColumn fx:id="progressColumn" prefWidth="109.2115478515625" text="Progress" />
             <TableColumn prefWidth="93.7884521484375" text="Add Note" />
+            <!-- <TableColumn prefWidth="93.7884521484375" text="Add Note">
+            <cellFactory>
+               <degreeplanner.controller.AddNoteCell/>
+            </cellFactory>
+         </TableColumn> -->
+
+             
         </columns>
       </TableView>
-      <Button id="logout_button" fx:id="logout_button" layoutX="1144.0" layoutY="767.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout" />
+      <Button id="logout_button" fx:id="logout_button" layoutX="1144.0" layoutY="767.0" mnemonicParsing="false" onMouseClicked="#userLogout" prefHeight="25.0" prefWidth="70.0" text="Logout">
+         <font>
+            <Font name="Arial Bold" size="14.0" />
+         </font></Button>
    </children>
    <stylesheets>
       <URL value="@styles.css" />
