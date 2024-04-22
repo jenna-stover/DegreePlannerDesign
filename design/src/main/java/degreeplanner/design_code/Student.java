@@ -71,7 +71,7 @@ public class Student extends User
 
     public void addAdvisementPlan(LocalDate inDate, String note)
     {
-        AdvisementPlan tempPlan = new AdvisementPlan(this, note, inDate);
+        AdvisementPlan tempPlan = new AdvisementPlan(inDate, this, note);
     }
     
 
@@ -186,7 +186,7 @@ public class Student extends User
         int semesterCreds = 0;
         for(Course c : semester)
         {
-            semesterCreds += c.courseHours;
+            semesterCreds += c.getCourseHours();
         }
         return semesterCreds;
     }
@@ -233,7 +233,7 @@ public class Student extends User
                     {
                         for(Course temp : elective.getOptions()) //looping thru elective options
                         {
-                            if(completedCourses.containsValue(temp)) //done w this course already
+                            if(completedCourses.containsKey(temp)) //done w this course already
                             {
                                 continue;
                             }
@@ -276,7 +276,7 @@ public class Student extends User
                             {
                                 for(Course temp : elective.getOptions()) //looping thru elective options
                                 {
-                                    if(completedCourses.containsValue(temp)) //done w this course already
+                                    if(completedCourses.containsKey(temp)) //done w this course already
                                     {
                                         continue;
                                     }
@@ -296,6 +296,38 @@ public class Student extends User
                     }
                 }
                 
+            }
+            while (checkCredits(semester) < 14) //need to add a class
+            {
+                boolean courseAdded = false;
+                for(Elective elective : degree.getElectives())
+                {
+                    if (courseAdded)
+                    {
+                        break; //exits this for loop as well, goes back to check while.
+                    }
+                    if(isElectiveComplete(elective))
+                    {
+                        continue;
+                    }
+                    else //elective is not complete, have to figure out which classes have already been taken
+                    {
+                        for(Course temp : elective.getOptions()) //looping thru elective options
+                        {
+                            if(completedCourses.containsKey(temp)) //done w this course already
+                            {
+                                continue;
+                            }
+                            else //found it
+                            {
+                                semester.add(temp);
+                                courseAdded = true;
+                                break;
+                            }
+                        }
+                    }
+
+                }    
             }
             eightSemesterPlan.add(semester);
         }
