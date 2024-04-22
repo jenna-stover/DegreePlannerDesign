@@ -51,8 +51,7 @@ public class Course
         this.semesterProvided = (semesterProvided != null) ? new ArrayList<>(semesterProvided) : new ArrayList<>();
         this.course = new SimpleStringProperty(courseID);
         this.credits = new SimpleStringProperty(((Integer)courseHours).toString());
-
-
+        this.grade = new SimpleStringProperty();
     }
 
     public Property<String> courseProperty()
@@ -63,6 +62,16 @@ public class Course
     public Property<String> creditsProperty()
     {
         return course;
+    }
+
+    public Property<String> gradeProperty()
+    {
+        return grade;
+    }
+
+    public void setGradePropertyValue(String s)
+    {
+        grade.set(s);
     }
 
 

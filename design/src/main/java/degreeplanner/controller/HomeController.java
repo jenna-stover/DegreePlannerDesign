@@ -209,15 +209,31 @@ public class HomeController implements Initializable{
         Student loggedInUser = (Student) homeFacade.getLoggedInUser();
         ArrayList<Course> courses = homeFacade.getCoursesForSemester(loggedInUser, semester);
         ObservableList<Course> presentableCourses = FXCollections.observableArrayList(courses);
-        //TableColumn<Course,String> course = new TableColumn<Course, String>("COURSE");
-        // course.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).courseProperty()));
-        //TableColumn<Course,String> credits = new TableColumn<Course,String>("CREDITS");
-        // credits.setCellValueFactory(new PropertyValueFactory<Course, String>(courses.get(0).creditsProperty().getValue()));
-        //TableColumn<Course,String> grade = new TableColumn<Course,String>("GRADE");
-        // table.getColumns().addAll(course, credits);
         courseCol.setCellValueFactory(cellData -> cellData.getValue().courseProperty());
         credCol.setCellValueFactory(cellData -> cellData.getValue().creditsProperty());
-        gradeCol.setCellValueFactory(new PropertyValueFactory<Course, String>("grade"));
+        if(Integer.valueOf(semester) >= loggedInUser.currentSemester) //checking if we have a grade available
+        {
+            //need to display "N/A" for grades in columns
+            for(Course c : presentableCourses)
+            {
+                if(!(loggedInUser.completedCourses.containsKey(c.courseID))) //they have NOT taken the class, need to update the grade value to N/A
+                {
+                    c.setGradePropertyValue("N/A"); //sets the grade property value based on the completed course's grade
+                }
+            }
+        }
+        else
+        {
+            //need to display grades in columns
+            for(Course c : presentableCourses)
+            {
+                if(loggedInUser.completedCourses.containsKey(c.courseID)) //they have taken the class, need to update the grade value
+                {
+                    c.setGradePropertyValue(loggedInUser.completedCourses.get(c)); //sets the grade property value based on the completed course's grade
+                }
+            }
+        }
+        gradeCol.setCellValueFactory(cellData -> cellData.getValue().gradeProperty());
         table.setItems(presentableCourses);
     }
 
