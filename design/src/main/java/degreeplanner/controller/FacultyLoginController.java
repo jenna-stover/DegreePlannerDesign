@@ -33,8 +33,6 @@ public class FacultyLoginController implements Initializable {
     @FXML
     private TextField txt_password;
 
-
-
     @FXML
     void btnFacultyLoginClicked(ActionEvent event) throws IOException {
         String email = txt_email.getText();
@@ -47,7 +45,6 @@ public class FacultyLoginController implements Initializable {
             return;
         }
     
-        System.out.println("Login successful"); // This message should indicate a successful login attempt
         App.setRoot("/fxml/facultyHome");
     }
 
